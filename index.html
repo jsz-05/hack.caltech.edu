@@ -1,0 +1,824 @@
+<!-- Website bulit and managed by Jeffrey Zhou '27 :D --> 
+<!--  _______                       _    _            _    _            _      -->
+<!-- |__   __|                     | |  | |          | |  | |          | |     -->
+<!--    | | ___  __ _ _ __ ___     | |__| | __ _  ___| | _| |_ ___  ___| |__   -->
+<!--    | |/ _ \/ _` | '_ ` _ \    |  __  |/ _` |/ __| |/ / __/ _ \/ __| '_ \  -->
+<!--    | |  __/ (_| | | | | | |   | |  | | (_| | (__|   <| ||  __/ (__| | | | -->
+<!--    |_|\___|\__,_|_| |_| |_|   |_|  |_|\__,_|\___|_|\_\\__\___|\___|_| |_| -->
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-72Z617HLV6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-72Z617HLV6');
+  </script>
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!--- primary meta tags    -->
+    <title>Hacktech - Caltech's Premier Hackathon</title>
+    <meta name="title" content="Hacktech - Caltech's Premier Hackathon">
+    <meta name="description" content="Join us at Hacktech, Caltech's premier hackathon, where innovation meets creativity!">
+  
+
+    <!-- SEO STUFF I DONT KNOW HOW IT WORKS -->
+		<meta name="description" content="Join Hacktech, an annual intercollegiate hackathon hosted by the California Institute of Technology. Apply now for free and participate in exciting challenges!">
+		<meta name="keywords" content="Hacktech, Caltech, hackathon, social good, technology, innovation, sustainability, public health, interactive multimedia">
+		<meta property="og:title" content="Hacktech 2025 by Caltech">
+		<meta property="og:description" content="Join Hacktech, an annual intercollegiate hackathon hosted by the California Institute of Technology. Apply now for free and participate in exciting challenges!">
+		<meta property="og:image" content="images/hacktech-logo-icon.svg">
+		<meta property="og:url" content="https://hack.caltech.edu">
+		<meta property="og:type" content="website">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Hacktech 2025 by Caltech">
+		<meta name="twitter:description" content="Join Hacktech, an annual intercollegiate hackathon hosted by the California Institute of Technology. Apply now for free and participate in exciting challenges!">
+		<meta name="twitter:image" content="images/hacktech-logo-icon.svg">
+		<meta name="twitter:url" content="https://hack.caltech.edu">
+		<script type="application/ld+json">
+			{
+			  "@context": "https://schema.org",
+			  "@type": "Event",
+			  "name": "Hacktech by Caltech",
+			  "startDate": "2025-04-19T21:00:00Z",
+			  "endDate": "2025-04-21T09:00:00Z",
+			  "location": {
+				"@type": "Place",
+				"name": "Caltech",
+				"address": {
+				  "@type": "PostalAddress",
+				  "addressLocality": "Pasadena",
+				  "addressRegion": "CA",
+				  "postalCode": "91125",
+				  "addressCountry": "US"
+				}
+			  },
+			  "description": "Join Hacktech, an annual intercollegiate hackathon hosted by the California Institute of Technology. Apply now for free and participate in exciting challenges!",
+			  "image": "images/hacktech-logo-icon.svg",
+			  "url": "https://hack.caltech.edu"
+			}
+			</script>
+      <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+      </script>
+
+
+
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <link rel="icon" href="assets/images/favicon.png" />
+
+    <!--- google font link    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
+      rel="stylesheet">
+  
+    <!--- custom css link    -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  
+    <!--- preload images    -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.webp">
+    <link rel="preload" as="image" href="./assets/images/hero-banner-bg.webp">
+  
+    <!-- TODO: Move these styles to css file later -->
+    <style>
+      .hero-title-image {
+        padding-left: 10px;
+        padding-right: 10px; 
+        max-width: 100%; 
+        height: auto; 
+      }
+  
+      /* body {
+        cursor: none;
+      } */
+  
+  
+      .hero-stats-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        /* position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+        color: white;
+        font-size: 1.5em;
+        z-index: 10;
+      }
+  
+  
+      .stat {
+        text-align: center;
+        padding: 0 15px;
+        flex-wrap: wrap; 
+      }
+  
+      .stat-number {
+        font-weight: bold;
+        font-size: 2em;
+        display: block;
+        /* padding-left: 25px;
+        padding-right: 25px; */
+        flex-wrap: wrap; 
+      }
+  
+      .stat-text {
+        font-size: 0.75em;
+        flex-wrap: wrap; 
+        padding-bottom: 50px;
+      }
+  
+  
+      .hero-title-wrapper {
+        margin-top: -40px; /* Adjust this value as needed */
+      }
+  
+  
+        /* Default logo size */
+      .logo-img {
+        width: 75px;
+        height: 75px;
+      }
+
+      /* Media query for mobile devices (e.g., max-width 600px) */
+      @media (max-width: 600px) {
+        .logo-img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+  
+       /* CUSTOM STYLES FOR ABOUT section */
+  
+       .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem; /* Adjusts the gap between the text and image */
+        padding: 0; /* Ensures no padding within the container */
+      }
+  
+  
+      .about-text {
+        flex: 1;
+      }
+  
+      .about-image {
+        /* flex: 1; */
+        text-align: right; /* Aligns the image to the right */
+      }
+  
+      .about-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px; /* Optional: Adds some rounding to the image corners */
+      }
+  
+    </style>
+  </head>
+  
+
+  <body id="top">
+  
+    <!--- #HEADER    -->
+  
+    <header class="header active" data-header>
+      <div class="container">
+    
+        <a href="#" class="logo">
+          <img src="./assets/images/logo.webp" class="logo-img" alt="unigine home">
+        </a>
+        
+    
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+    
+            <li class="navbar-item">
+              <a href="#home" class="navbar-link" data-nav-link>home</a>
+            </li>
+    
+            <li class="navbar-item">
+              <a href="#about" class="navbar-link" data-nav-link>about</a>
+            </li>
+  
+            <li class="navbar-item">
+              <a href="#speaker" class="navbar-link" data-nav-link>speakers</a>
+            </li>
+    
+    
+            <li class="navbar-item">
+              <a href="#sponsor" class="navbar-link" data-nav-link>sponsors</a>
+            </li>
+    
+            <li class="navbar-item">
+              <a href="#faq" class="navbar-link" data-nav-link>faq</a>
+            </li>
+    
+          </ul>
+        </nav>
+    
+    
+        <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+    
+      </div>
+    </header>
+    
+  
+  
+  
+  
+    <main>
+      <article>
+  
+        <!-- - #landing PAGE        -->
+  
+        <div class="hero has-before" id="home">
+          <!-- Particles.js container -->
+          <div id="particles-js"></div>
+          <div class="container">
+        
+            <div class="hero-title-wrapper">
+              <img src="./assets/images/logo-text.svg" alt="Hacktech Logo" class="hero-title-image">
+            </div>
+            <br>
+  
+            <p class="section-subtitle">April 25 - 27, 2025</p><br>
+            <a href="#" class="btn" data-btn>Apply (Opens Soon!)</a>
+            
+  
+            <div class="hero-banner">
+              <img src="./assets/images/hero-banner.webp" width="850" height="414" alt="Hacker banner" class="w-100">
+              <img src="./assets/images/hero-banner-bg.webp" alt="Hacker banner background" class="hero-banner-bg">
+            </div>
+          </div>
+        </div>
+      
+        
+        
+  <!--     - #ABOUT SECTION  -->
+  
+  <section class="section about" id="about">
+    <h2 class="h2 section-title">
+      About <span class="span">Hacktech</span> 2025
+    </h2>
+    <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
+      2024 Stats:
+    </p>
+  
+    <div class="hero-stats-overlay">
+      <div class="stat">
+        <span class="stat-number" data-target="10">0</span>
+        <span class="stat-text">countries</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="60">0</span>
+        <span class="stat-text">universities</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="540">0</span>
+        <span class="stat-text">hackers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="30">0</span>
+        <span class="stat-text">prizes</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="36">0</span>
+        <span class="stat-text">hours</span>
+      </div>
+    </div>
+  
+    <div class="container about-container">
+      <div class="about-text" >
+        <p class="section-text-about">
+  
+          Hacktech is Caltech's 11th premier annual intercollegiate hackathon. During the 36-hour event, participants will collaborate in teams of 1 to 4 members to develop projects that align with our themes. Whether you're a seasoned coder or a curious beginner, Hacktech invites you to join a vibrant community of problem solvers, dreamers, and builders on Caltech's campus this year.
+  
+          <br><br>
+
+          <span style="color: orange; font-weight: bold;">What's New for 2025?</span> A lot. We revamped the entire event from the ground up, featuring a new format, new venues, and improved dining options!<br>
+
+          <span style="color: orange; font-weight: bold;">Event format:</span> We're fully in-person this year! Scroll down to the FAQ for location details!<br>
+          
+          <span style="color: orange; font-weight: bold;">Venues and Food:</span> We have double the space as previous years. This year will feature dedicated eating, sleeping, and working areas. We will also give you a room to store your luggage too so you can stay organized. Additionally,the meals we're providing will feature many more options! Vote for meals in the application form!
+          
+
+  
+          <!-- During the 36-hour hackathon, participants will collaborate in teams of 1 to 4 
+          members across three skill divisions to develop projects that align with our themes. 
+          Whether you're passionate about software, hardware, or a mix of both, Hacktech provides a platform to turn 
+          your ideas into reality.
+  
+          <br><br>
+  
+          Top 3 finishers from the Advanced division, Top 2 finishers from the Beginner division, 
+          and Top 1 finisher from the High School division will receive prizes. During the event,
+          you will also be able to network and meet with representatives from our top sponsor companies. -->
+  
+  
+        </p>
+      </div>
+      <div class="about-image" data-reveal="right">
+        <img src="./assets/images/hacker.webp" width="400" height="auto" loading="lazy" alt="About Image">
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  
+  
+        <!--    - #SPEAKERS SECTION        -->
+  
+        <section class="section news" aria-label="our latest news" id="speaker">
+          <div class="container">
+  
+            <p class="section-subtitle" data-reveal="bottom">A Round of Applause for our</p>
+  
+            <h2 class="h2 section-title" data-reveal="bottom">
+              Hacktech <span class="span">Speakers</span>
+            </h2>
+  
+            <p class="section-text" data-reveal="bottom">
+              Hacktech would not be the same without the contributions of our speakers, 
+              whose insights, expertise, and passion drive the innovation and creativity 
+              that define us.
+            </p>
+  
+            <!-- START OF SPEAKER BOX CONTAINER -->
+            <ul class="news-list">
+              <!-- FIRST SPEAKER CARD, ADD MORE AS WE GO -->
+              <li data-reveal="bottom">
+                <div class="news-card">
+                  <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+                    <img src="./assets/images/tbd_person.webp" width="600" height="400" loading="lazy"
+                      alt="Placeholder" class="img-cover">
+                  </figure>
+                  <div class="card-content">
+                    <a href="#" class="card-tag">Topic TBD</a>
+                    <ul class="card-meta-list">
+  
+                      <li class="card-meta-item">
+                        <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+  
+                        <time class="card-meta-text" datetime="2022-01-01">Date TBD</time>
+                      </li>
+  
+                      <li class="card-meta-item">
+                        <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+  
+                        <p class="card-meta-text">location TBD</p>
+                      </li>
+  
+                    </ul>
+  
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Person TBD</a>
+                    </h3>
+  
+                    <p class="card-text">
+                      Please wait to find out more about the topic of this talk!
+                    </p>
+                  </div>
+                </div>
+              </li>
+  
+  
+              <li data-reveal="bottom">
+                <div class="news-card">
+                  <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+                    <img src="./assets/images/tbd_person.webp" width="600" height="400" loading="lazy"
+                      alt="Placeholder" class="img-cover">
+                  </figure>
+                  <div class="card-content">
+                    <a href="#" class="card-tag">Topic TBD</a>
+                    <ul class="card-meta-list">
+  
+                      <li class="card-meta-item">
+                        <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+  
+                        <time class="card-meta-text" datetime="2022-01-01">Date TBD</time>
+                      </li>
+  
+                      <li class="card-meta-item">
+                        <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+  
+                        <p class="card-meta-text">location TBD</p>
+                      </li>
+  
+                    </ul>
+  
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Person TBD</a>
+                    </h3>
+  
+                    <p class="card-text">
+                      Please wait to find out more about the topic of this talk!
+                    </p>
+                  </div>
+                </div>
+              </li>
+  
+  
+              <li data-reveal="bottom">
+                <div class="news-card">
+                  <figure class="card-banner img-holder" style="--width: 600; --height: 400;">
+                    <img src="./assets/images/tbd_person.webp" width="600" height="400" loading="lazy"
+                      alt="Placeholder" class="img-cover">
+                  </figure>
+                  <div class="card-content">
+                    <a href="#" class="card-tag">Topic TBD</a>
+                    <ul class="card-meta-list">
+  
+                      <li class="card-meta-item">
+                        <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+  
+                        <time class="card-meta-text" datetime="2022-01-01">Date TBD</time>
+                      </li>
+  
+                      <li class="card-meta-item">
+                        <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+  
+                        <p class="card-meta-text">location TBD</p>
+                      </li>
+  
+                    </ul>
+  
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Person TBD</a>
+                    </h3>
+  
+                    <p class="card-text">
+                      Please wait to find out more about the topic of this talk!
+                    </p>
+                  </div>
+                </div>
+              </li>
+  
+  
+  
+            </ul>
+  
+          </div>
+        </section>
+  
+      </article>
+    </main>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!--    - #SPONSOR SECTION        -->
+  
+        <section class="section upcoming" aria-labelledby="upcoming-label" id="sponsor">
+          <div class="container">
+  
+            <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
+              Huge thanks to our
+            </p>
+  
+            <h2 class="h2 section-title" data-reveal="bottom">
+              Hacktech <span class="span">Sponsors</span>
+            </h2>
+  
+            <p class="section-text" data-reveal="bottom">
+              Our sponsors are essential to our success, providing support that helps us create an amazing event. We’re grateful for their partnership!          
+            </p>
+  
+            <ol class="upcoming-list">
+  
+              <section class="sponsors-section">
+                <div class="sponsors-container">
+              
+  
+                  <!-- GOLD SPONSOR CARDS AND SOFORTH -->
+                  <div class="sponsor-row tier-gold">
+                    <div class="sponsor-card">
+                      <img src="./assets/images/cubist.png" width="90%" loading="lazy"
+                        alt="Gold Sponsor 1" class="card-banner">
+                      <h3 class="h3 card-title">Cubist Systematic Strategies</h3>
+                      <div class="card-meta"></div>
+                      <p class="card-blurb">
+                        Cubist Systematic Strategies is the systematic investing business of Point72. We deploy systematic, computer-driven trading strategies across multiple liquid asset classes.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- <div class="sponsor-row tier-silver">
+                    <div class="sponsor-card">
+                      <img src="./assets/images/cubist.png" width="100%" loading="lazy"
+                        alt="Silver Sponsor 1" class="card-banner">
+                      <h3 class="h3 card-title">Cubist Systematic Strategies</h3>
+                      <div class="card-meta">Silver Tier</div>
+                    </div>
+                    <div class="sponsor-card">
+                      <img src="./assets/images/tbd_person.webp" width="100%" loading="lazy"
+                        alt="Silver Sponsor 2" class="card-banner">
+                      <h3 class="h3 card-title">Silver Sponsor 2</h3>
+                      <div class="card-meta">Silver Tier</div>
+                    </div>
+                  </div> -->
+                  
+                  <!-- <div class="sponsor-row tier-bronze">
+                    <div class="sponsor-card">
+                      <img src="./assets/images/tbd_person.webp" width="100%" loading="lazy"
+                        alt="Bronze Sponsor 1" class="card-banner">
+                      <h3 class="h3 card-title">Bronze Sponsor 1</h3>
+                      <div class="card-meta">Bronze Tier</div>
+                    </div>
+                    <div class="sponsor-card">
+                      <img src="./assets/images/tbd_person.webp" width="100%" loading="lazy"
+                        alt="Bronze Sponsor 2" class="card-banner">
+                      <h3 class="h3 card-title">Bronze Sponsor 2</h3>
+                      <div class="card-meta">Bronze Tier</div>
+                    </div>
+                    <div class="sponsor-card">
+                      <img src="./assets/images/tbd_person.webp" width="100%" loading="lazy"
+                        alt="Bronze Sponsor 3" class="card-banner">
+                      <h3 class="h3 card-title">Bronze Sponsor 3</h3>
+                      <div class="card-meta">Bronze Tier</div>
+                    </div>
+                  </div> -->
+                  
+              
+                </div>
+              </section>
+              
+              
+            </ol>
+  
+          </div>
+        </section>
+  
+  
+  
+  
+  <!--  FAQ SECTION    -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+  
+  
+        <h2 class="h2 section-title" data-reveal="bottom">
+          FAQ
+        </h2>
+  
+        <p class="section-text" data-reveal="bottom">
+          If you can't find your answer here, feel free to contact us via our email or social media!
+        </p>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What is Hacktech?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Hacktech is an annual hackathon bringing together innovators to showcase the latest advancements in technology and coding. There's food, speakers, tech talkers, recruiters, and of course, tons of building!
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How can I participate in Hacktech?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            To participate, you can register on our website! Our application form will be released soon!
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Where is the event held?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Hacktech is held at Caltech's campus. Please refer to our website and the map below for detailed directions and accommodation options when the time comes.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do I have to be in-person?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, Hacktech is now a fully in-person event instead of hybrid as before. Hackers must check in and be present throughout the hackathon to participate.        
+          </div>
+        </div>
+  
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How much does it cost?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Hacktech is free to attend! we will provide some new swag, lessons, and amazing memories! Travel reimbursement details are in the works and we will communicate that soon.
+          </div>
+        </div>
+  
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Who can participate?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            All College/university and high school students based in the United States are eligible to participate.
+          </div>
+        </div>
+  
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How many people are on a team?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Up to 4 people can be on a single team.
+                  </div>
+        </div>
+  
+        <br><br>
+      </div>
+    </section>
+    
+
+    <div class="container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1620.9574245094923!2d-118.12406515684576!3d34.140600657516416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c3578e9cecc3%3A0x43f1b95ee71bc1a9!2sAvery%20House!5e1!3m2!1sen!2sus!4v1724978307008!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
+    </div>
+
+  
+
+    <!--- #FOOTER    -->
+  
+    <footer class="footer" id="footer">
+  
+      <div class="section footer-top">
+        <div class="container">
+  
+          <div class="footer-brand">
+  
+            <a href="#" class="logo-footer">
+              <img src="./assets/images/logo.svg" width="75" loading="lazy" alt="Unigine logo">
+            </a>
+  
+            <p class="footer-text">
+  
+            </p>
+  
+            <ul class="social-list">
+  
+              <li>
+                <a href="https://www.facebook.com/thehacktech/" class="social-link" target="_blank">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://x.com/thehacktech?lang=en" class="social-link" target="_blank">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.instagram.com/hacktechbycaltech/" class="social-link" target="_blank">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+  
+              <li>
+                <a href="https://m.twitch.tv/teamhacktech/home" class="social-link" target="_blank">
+                  <ion-icon name="logo-twitch"></ion-icon>
+                </a>
+              </li>
+  
+              
+              
+            </ul>
+          </div>
+          <div class="footer-list">
+            <p class="title footer-list-title has-after">Useful Links</p>
+            <ul>
+              <li>
+                <a href="https://github.com/teamhacktech/teamhacktech.github.io" class="footer-link">Old Website</a>
+              </li>
+  
+              <li>
+                <a href="#about" class="footer-link">Events</a>
+              </li>
+  
+              <li>
+                <a href="#footer" class="footer-link">Help Center</a>
+              </li>
+  
+              <li>
+                <a href="#" class="footer-link">Privacy and Policy</a>
+              </li>
+  
+  
+  
+            </ul>
+          </div>
+  
+          <div class="footer-list">
+            <p class="title footer-list-title has-after">Contact Us</p>
+            <div class="contact-item">
+              <span class="span">Location:</span>
+              <address class="contact-link">
+                1200 E California Blvd, Pasadena, CA 91125
+              </address>
+            </div>
+            <div class="contact-item">
+              <span class="span">Questions:</span>
+              <a href="mailto:hacktech@caltech.edu" class="contact-link">hacktech@caltech.edu</a>
+            </div>
+            <!-- <div class="contact-item">
+              <span class="span">Phone:</span>
+              <a href="tel:+12345678910" class="contact-link">+1 (234) 567-8910</a>
+            </div> -->
+          </div>
+  
+          <!-- <div class="footer-list">
+            <p class="title footer-list-title has-after">Newsletter Signup</p>
+            <form action="./index.html" method="get" class="footer-form">
+              <input type="email" name="email_address" required placeholder="Your Email" autocomplete="off"
+                class="input-field">
+              <button type="submit" class="btn" data-btn>Subscribe Now</button>
+            </form>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="footer-bottom">
+        <div class="container">
+  
+          <p class="copyright">
+            &copy; 2024 &nbsp;<a href="https://jsz.ext.io/" class="name-link">Jeffrey Zhou</a>.&nbsp;  All Rights Reserved.
+          </p>
+          
+  
+        </div>
+      </div>
+  
+    </footer>
+  
+  
+  
+  
+  
+    <!--- #BACK TO TOP    -->  
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+    </a>
+  
+  
+  
+  
+  
+    <!--- #CUSTOM CURSOR    -->
+  
+    <div class="cursor" data-cursor></div>
+  
+  
+    <!-- Particles.js script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./assets/js/particles.js"></script>
+  
+  
+    <!--- custom js link    -->
+    <script src="./assets/js/script.js"></script>
+  
+    <!--- ionicon link    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  </body>
+  
+  </html>
