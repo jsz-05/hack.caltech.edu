@@ -12,15 +12,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy via SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SERVER_USER: jzhou3
-          SERVER_HOST: portal.caltech.edu
-          SERVER_PATH: /srv/www.hack.caltech.edu/www/docroot/
+      - name: Debug Environment
+        run: |
+          echo "Debugging environment"
+          ls -la ~/.ssh
+          cat ~/.ssh/id_rsa
+
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+
+      - name: Deploy via SSH
+        run: |
           rsync -avz --delete ./ $SERVER_USER@$SERVER_HOST:$SERVER_PATH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SERVER_USER: jzhou3
+          SERVER_HOST: portal.caltech.edu
+          SERVER_PATH: /srv/www.hack.caltech.edu/www/docroot/
