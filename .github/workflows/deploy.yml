@@ -12,6 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Debug Environment
+        run: |
+          echo "Debugging environment"
+          ls -la
+          ls -la ~/.ssh || echo "No .ssh directory found"
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
