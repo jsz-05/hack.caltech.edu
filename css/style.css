@@ -268,7 +268,7 @@ main, header, footer {
   left: var(--left, 50%);
   width: 250%;
   padding-block-end: 250%;
-  background-color: rgb(179, 63, 0);
+  background-color: rgb(232, 81, 0);
   transform: translate(-50%, -50%) scale(0);
   border-radius: var(--radius-circle);
   z-index: -1;
@@ -1243,13 +1243,14 @@ main, header, footer {
 }
 
 .name-link {
-  color: inherit; /* Ensures the link color matches the surrounding text */
-  text-decoration: none; /* Removes the default underline from the link */
+  color: inherit; 
+  text-decoration: underline; 
+  
 }
 
 .name-link:hover {
-  text-decoration: underline; /* Adds underline on hover */
-  color: #ff7300; /* Change color on hover if desired */
+  text-decoration: underline; 
+  color: #ff7300;
 }
 
 
