@@ -670,6 +670,14 @@ main, header, footer {
 
 
 
+
+.h3.card-title {
+  text-align: center;
+  padding-top: 15px;
+  font-size: 28px;
+}
+
+
 /*-----------------------------------*\
   #SPEAKER SECTION
 \*-----------------------------------*/
