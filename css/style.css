@@ -600,13 +600,14 @@ main, header, footer {
 
 /* SPONSOR CARD CSS */
 
-/* .sponsors-section {
-  padding: 2rem;
-} */
+.sponsors-section {
+  overflow: hidden; /* Prevent overflow */
+}
 
 .sponsors-container {
   display: grid;
   gap: 1rem; /* Adjusts the gap between rows and columns */
+  width: 100%;
 }
 .sponsor-row {
   display: grid;
@@ -634,6 +635,7 @@ main, header, footer {
   padding-top: 30px;
   padding-bottom: 50px;
   text-align: center;
+  box-sizing: border-box; /* Include padding within the width */
 }
 
 .card-banner {
@@ -662,9 +664,16 @@ main, header, footer {
 
 
 @media (max-width: 600px) {
+  .tier-gold, .tier-silver, .tier-bronze {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+
   .card-blurb {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .sponsors-container {
+    width: 100%; /* Ensure it doesn’t overflow */
   }
 }
 
