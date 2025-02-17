@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Viewer</title>
+
+  <!-- Import Oxanium from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap" 
+    rel="stylesheet"
+  >
+  <link rel="icon" href="./favicon.png" type="image/png">
+  <link rel="icon" href="./images/favicon.png" />
+  <style>
+    /* Reset some default margins/padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      /* Use Oxanium */
+      font-family: 'Oxanium', sans-serif;
+      overflow: hidden;
+      /* Dark background */
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    /* Particles container – placed behind the input page */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1; /* behind input container */
+    }
+
+    /* Input Container */
+    #input-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+      /* Darker container background */
+      background: #1f1f1f;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      z-index: 1000;
+    }
+
+    /* Logo styling */
+    #logo {
+      display: block;
+      margin: 0 auto 50px;
+      margin-top: 30px;
+      max-width: 600px;
+    }
+
+    #input-container h2 {
+      color: #f47300;
+      font-size: 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    #links-input {
+      width: 100%;
+      height: 200px;
+      resize: vertical;
+      padding: 10px;
+      font-size: 16px;
+      font-family: monospace;
+      box-sizing: border-box;
+      /* Accent color border */
+      border: 2px solid #f47300;
+      border-radius: 4px;
+      outline: none;
+      background: #2c2c2c;
+      color: #ffffff;
+    }
+
+    #links-input:focus {
+      border-color: #ffa64d;
+    }
+
+    #load-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      /* Explicitly set Oxanium font */
+      font-family: 'Oxanium', sans-serif;
+      color: #ffffff;
+      background: #f47300;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #load-btn:hover {
+      background: #ffa600;
+    }
+
+    /* Viewer Container */
+    #viewer-container {
+      display: none;
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      /* Dark viewer background */
+      background: #181818;
+      z-index: 1000;
+    }
+
+    /* Fullscreen iframe */
+    #viewer {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      transition: width 0.3s ease; /* for the redraw hack */
+    }
+
+    /* Navigation buttons */
+    .nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3em;
+      color: #ffffff;
+      background: rgba(244, 115, 0, 0.8);
+      padding: 0.2em 0.4em;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .nav:hover {
+      background: rgba(255, 127, 0, 1);
+    }
+
+    #prev {
+      left: 20px;
+    }
+
+    #next {
+      right: 20px;
+    }
+
+    /* Counter at the top of the screen */
+    #counter {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      background: rgba(244, 115, 0, 0.9);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      z-index: 1000;
+      display: none; /* Hidden by default, shown when resumes load */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles.js background – only for input page -->
+  <div id="particles-js"></div>
+
+  <!-- Input Section -->
+  <div id="input-container">
+    <!-- Logo above the heading -->
+    <img src="./images/logo-text.svg" alt="Logo" id="logo">
+    <h2>Internal Resume Evaluation Tool</h2>
+    <textarea id="links-input" placeholder="Paste links from db here, one per line"></textarea>
+    <button id="load-btn">Go</button>
+  </div>
+
+  <!-- Viewer Section -->
+  <div id="viewer-container">
+    <div id="prev" class="nav">&#8592;</div>
+    <div id="next" class="nav">&#8594;</div>
+    <iframe id="viewer" src="" allowfullscreen></iframe>
+  </div>
+
+  <!-- Counter at the top -->
+  <div id="counter"></div>
+
+  <script>
+    let urls = [];
+    let currentIndex = 0;
+
+    // Convert a Google Drive "open" link to a "preview" link with embedded view.
+    function convertToPreview(url) {
+      url = url.trim();
+      if (!url) return "";
+
+      // Look for the "open?id=FILE_ID" format.
+      const openMatch = url.match(/open\?id=([^&\s]+)/);
+      if (openMatch && openMatch[1]) {
+        return `https://drive.google.com/file/d/${openMatch[1]}/preview?embedded=true`;
+      }
+
+      // If the URL already contains "/preview", ensure embedded=true is present.
+      if (url.includes("/preview")) {
+        if (!url.includes("embedded=true")) {
+          return url + (url.includes("?") ? "&" : "?") + "embedded=true";
+        }
+        return url;
+      }
+
+      // Otherwise, return the trimmed URL as-is (for non-Drive links or other patterns).
+      return url;
+    }
+
+    // Manually trigger a redraw to ensure the doc loads without user needing to zoom.
+    function redrawViewer() {
+      const iframe = document.getElementById('viewer');
+      iframe.style.width = 'calc(100vw - 1px)';
+      setTimeout(() => {
+        iframe.style.width = '100vw';
+      }, 300);
+    }
+
+    // Update the iframe source to show the current resume, cache-busted.
+    function updateViewer() {
+      if (urls.length > 0) {
+        const baseUrl = urls[currentIndex];
+        const separator = baseUrl.includes('?') ? '&' : '?';
+        const newUrl = baseUrl + separator + 'cacheBust=' + new Date().getTime();
+
+        document.getElementById('viewer').src = newUrl;
+        updateCounter();
+
+        // Give a moment for the preview to load, then force redraw
+        setTimeout(redrawViewer, 500);
+      }
+    }
+
+    // Update the "X of Y" counter.
+    function updateCounter() {
+      const counter = document.getElementById('counter');
+      counter.style.display = 'block'; // Show once resumes are loaded
+      counter.textContent = `Resume ${currentIndex + 1} of ${urls.length}`;
+    }
+
+    function next() {
+      if (currentIndex < urls.length - 1) {
+        currentIndex++;
+        updateViewer();
+      }
+    }
+
+    function previous() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateViewer();
+      }
+    }
+
+    document.getElementById('load-btn').addEventListener('click', () => {
+      const input = document.getElementById('links-input').value;
+      urls = input.split('\n')
+                  .map(line => convertToPreview(line))
+                  .filter(link => link !== "");
+
+      if (urls.length > 0) {
+        currentIndex = 0;
+        // Hide the input container and particles background when switching to the viewer.
+        document.getElementById('input-container').style.display = 'none';
+        document.getElementById('particles-js').style.display = 'none';
+        document.getElementById('viewer-container').style.display = 'block';
+        updateViewer();
+      } else {
+        alert("Please enter at least one valid link.");
+      }
+    });
+
+    document.getElementById('prev').addEventListener('click', previous);
+    document.getElementById('next').addEventListener('click', next);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        next();
+      } else if (e.key === 'ArrowLeft') {
+        previous();
+      }
+    });
+  </script>
+
+  <!-- Particles.js script -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./js/particles.js"></script>
+</body>
+</html>
