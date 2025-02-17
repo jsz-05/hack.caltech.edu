@@ -696,6 +696,11 @@ main, header, footer {
   gap: 30px;
 }
 
+.director-list {
+  display: grid;
+  gap: 30px;
+}
+
 .news-card {
   background-color: var(--bg-oxford-blue-alpha-90);
   box-shadow: var(--shadow);
@@ -912,6 +917,11 @@ main, header, footer {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
+@media (min-width: 350px) {
+  .director-list { grid-template-columns: repeat(2, 1fr); }
+
+}
+
 /**
  * responsive for large than 575px screen
  */
@@ -929,6 +939,7 @@ main, header, footer {
   }
 
 
+  .director-list { grid-template-columns: repeat(2, 1fr); }
 
 
 
@@ -1173,6 +1184,7 @@ main, header, footer {
    */
 
   .news-list { grid-template-columns: repeat(3, 1fr); }
+  .director-list { grid-template-columns: repeat(4, 1fr); }
 
 
 
