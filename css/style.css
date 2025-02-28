@@ -1597,3 +1597,19 @@ form textarea {
       display: none;
   }
 }
+
+
+/* sponsor car clicky */
+
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: rgb(255, 98, 0);
+}
+
+.card-link .fa-external-link-alt {
+  margin-bottom: 8px;
+}
