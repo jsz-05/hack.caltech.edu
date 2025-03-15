@@ -139,12 +139,14 @@
         <!-- Judge Form -->
         <form id="judge-form" onsubmit="submitForm(event, 'judge')">
 
+          <!-- Judge applications Closed -->
+
           <p style="font-size: 30px; font-weight: bold;">
             Thanks you for your interest in judging Hacktech!
           </p>
-
           Unfortunately, all judging spots have been filled for this year. If you are a sponsor looking to send judges, please fill out the sponsor form.
 
+          <!-- Judge applications Open -->
 
           <!-- <p style="font-size: 30px; font-weight: bold;">
             Apply to be a Judge for Hacktech!
@@ -153,8 +155,8 @@
             <input type="text" name="company" placeholder="Company Name and Role" required>
             <input type="email" name="email" placeholder="Email" required>
             <textarea name="experience" placeholder="Have you judged at any other hackathon previously? If so, please specify which one." required></textarea>
-            <button type="submit" class="submit-btn">Submit</button> -->
-
+            <button type="submit" class="submit-btn">Submit</button> 
+          -->
 
         </form>
 
@@ -231,7 +233,8 @@
             <br>
   
             <p class="section-subtitle">April 25 - 27, 2025</p><br>
-            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="btn" data-btn target="_blank">Apply Here!</a> -->
+
+
             <div style="display: flex; gap: 20px; justify-content: center; margin: 0 auto; max-width: 500px; flex-wrap: wrap;">
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="btn" data-btn target="_blank" style="flex: 0 1 auto; margin: 0px;">I'm a Hacker</a>
               <button onclick="openModal()" class="btn" data-btn>I'm a Sponsor or Judge</button>
@@ -239,7 +242,7 @@
             
 
 
-
+            
 
             <div class="hero-banner">
               <img src="./images/hero-banner.webp" width="850" height="414" alt="Hacker banner" class="w-100">
@@ -512,15 +515,9 @@
   
                   <!-- GOLD SPONSOR CARDS AND SOFORTH -->
                   <div class="sponsor-row tier-gold">
-                    <div class="sponsor-card">
-                      <a href="https://www.drw.com/" target="_blank">
-                        <img src="./images/drw.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
-                      </a>
-                      <h3 class="h3 card-title">
-                        <a href="https://www.drw.com/" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
-                      </h3>
-                      DRW is a diversified trading firm innovating across both traditional and cutting-edge markets.
-                    </div>
+
+
+
 
                     <div class="sponsor-card">
                       <a href="https://www.openai.com/" target="_blank">
@@ -531,6 +528,8 @@
                       </h3>
                       OpenAI is an AI research and deployment company dedicated to ensuring that general-purpose artificial intelligence benefits all of humanity.
                     </div>
+
+
 
                     <div class="sponsor-card">
                       <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" target="_blank">
@@ -544,6 +543,19 @@
                     </div>
                   </div>
 
+
+
+                  <div class="sponsor-card">
+                    <a href="https://www.extraordinary.com/" target="_blank">
+                      <img src="./images/e.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
+                    </a>
+                    <h3 class="h3 card-title">
+                      <a href="https://www.extraordinary.com/" class="card-link" target="_blank">Extraordinary.com <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                    </h3>
+                    We bring the world’s top O.1% talent to America on the extraordinary ability visa.
+                  </div>
+
+
                   <!-- <div class="sponsor-row tier-gold">
                     <div class="sponsor-card">
                       <img src="./images/mhf_orig.png" width="100%" loading="lazy"
@@ -554,6 +566,40 @@
                   </div> -->
                   
                   <div class="sponsor-row tier-silver">
+
+
+                    <div class="sponsor-card">
+                      <div class="image-container">
+                        <img src="./images/orkes.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
+                      </div>
+                      <h3 class="h3 card-title">
+                        <a href="https://www.orkes.io" class="card-link" target="_blank">Orkes <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                      </h3>
+                      <div class="card-meta"></div>
+                      Unified Application Platform for building Highly Reliable Applications & AI Agents.
+                    </div>
+
+                    <div class="sponsor-card">
+                      <div class="image-container">
+                        <img src="./images/drw.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
+                      </div>
+                      <h3 class="h3 card-title">
+                        <a href="https://www.drw.com" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                      </h3>
+                      DRW is a diversified trading firm innovating across both traditional and cutting-edge markets.
+                    </div>
+
+                    <div class="sponsor-card">
+                      <div class="image-container">
+                        <img src="./images/dryft.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
+                      </div>
+                      <h3 class="h3 card-title">
+                        <a href="https://www.godryft.com" class="card-link" target="_blank">Dryft <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                      </h3>
+                      Dryft builds AI supply chain planners that mimic, optimize and automate human operational decision in manufacturing. 
+                      <div class="card-meta"></div>
+                    </div>
+
                     <div class="sponsor-card">
                       <div class="image-container">
                         <img src="./images/citadel.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
@@ -576,24 +622,28 @@
                       <div class="card-meta"></div>
                     </div>
 
+
                     <div class="sponsor-card">
                       <div class="image-container">
-                        <img src="./images/orkes.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
+                        <img src="./images/tbd.jpg" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.orkes.io" class="card-link" target="_blank">Orkes <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="" class="card-link" target="_blank">TBD </a>
                       </h3>
+
                       <div class="card-meta"></div>
                     </div>
 
-                        <div class="sponsor-card">
-                          <div class="image-container">
-                            <img src="./images/tbd.jpg" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
-                          </div>
-                          <h3 class="h3 card-title">TBD</h3>
-    
-                          <div class="card-meta"></div>
-                        </div>
+
+                        <!-- <div class="sponsor-card">
+                          <a href="https://www.drw.com/" target="_blank">
+                            <img src="./images/drw.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
+                          </a>
+                          <h3 class="h3 card-title">
+                            <a href="https://www.drw.com/" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                          </h3>
+                          DRW is a diversified trading firm innovating across both traditional and cutting-edge markets.
+                        </div> -->
 
                   </div>
                   
@@ -679,11 +729,11 @@
   
   
         <h2 class="h2 section-title" data-reveal="bottom">
-          FAQ
+          General FAQ
         </h2>
   
         <p class="section-text" data-reveal="bottom">
-          If you can't find your answer here, feel free to contact us via our email or social media! FAQ last updated March 2nd, 2025.
+          If you can't find your answer here, feel free to contact us via our email or social media! FAQ last updated March 14th, 2025.
         </p>
 
         <!-- <div class="faq-item">
@@ -777,6 +827,15 @@
           </div>
         </div>
 
+        <br><br>
+        <h2 class="h2 section-title" data-reveal="bottom">
+          Updated 2025 FAQ
+        </h2>
+        <p class="section-text" data-reveal="bottom">
+          If you have confirmed your participation in Hacktech 2025, please review all of these questions as they contain critical information.
+        </p>
+        <br>
+        
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -809,6 +868,17 @@
             Tentatively, the opening ceremony for Hacktech will begin at 7PM PST, on April 25th, 2025. You should aim to arrive and check in before this time.
             </div>
         </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            I've filled out the confirmation for Hacktech 2025! When will my confirmation and Discord link be sent out?
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Please be patient as we are still in the process of reviewing the last batch of acceptances which are to be released on March 17, 2025. After this cycle closes and all participants are confirmed, we will send out all the details! If you have filled out the confirmation already, please do not fill it out again as it will only cause more problems in the processing of your acceptance.
+            </div>
+        </div>
+
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
