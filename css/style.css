@@ -445,7 +445,31 @@ main, header, footer {
 
 .hero-banner {
   position: relative;
-  margin-block-start: 50px;
+  margin-block-start: 20px;
+  overflow: hidden;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0.5;
+  transform: translateY(80px);
+}
+
+.slide-up-delay {
+  animation: slideUp 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-banner-bg { display: none; }
