@@ -1,0 +1,138 @@
+/*-----------------------------------*\
+  #SPEAKER SECTION
+\*-----------------------------------*/
+
+/* --- desktop/tablet: centered 3-column grid --- */
+.news-list,
+.director-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 30px;
+}
+
+/*-----------------------------------*\
+  #SPEAKER CARD STYLING
+\*-----------------------------------*/
+.news-card {
+  background-color: var(--bg-oxford-blue-alpha-90);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.news-card .card-content {
+  position: relative;
+  padding: 30px;
+}
+
+.card-tag {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-image: var(--gradient-1);
+  color: var(--text-white);
+  font-size: var(--fontSize-8);
+  font-weight: var(--weight-semiBold);
+  text-transform: uppercase;
+  height: 30px;
+  line-height: 32px;
+  padding-inline: 20px;
+  clip-path: var(--clip-path-3);
+}
+
+.news-card :is(.card-meta-list, .card-meta-item) {
+  display: flex;
+  align-items: center;
+}
+
+.news-card .card-meta-list {
+  flex-wrap: wrap;
+  gap: 5px 10px;
+}
+
+.news-card .card-meta-item {
+  gap: 5px;
+}
+
+.news-card .card-meta-item ion-icon {
+  color: var(--text-orange);
+}
+
+.news-card .card-meta-text,
+.news-card .link {
+  color: var(--text-champagne-pink);
+  font-size: var(--fontSize-7);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+}
+
+.news-card .h3 {
+  margin-block: 15px 10px;
+}
+
+.news-card .card-title {
+  display: inline;
+  background-image: linear-gradient(to left, var(--bg-orange), var(--bg-orange));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0% 4px;
+  transition: var(--transition-2);
+}
+
+.news-card .card-title:is(:hover, :focus-visible) {
+  background-size: 100% 4px;
+}
+
+.news-card .link {
+  position: relative;
+  max-width: max-content;
+  margin-block-start: 15px;
+  padding-inline-start: 30px;
+  transition: var(--transition-1);
+}
+
+.news-card .link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-100%);
+  width: 20px;
+  height: 4px;
+  background-color: var(--bg-orange);
+}
+
+.news-card .link:is(:hover, :focus-visible) {
+  color: var(--text-orange);
+}
+
+/*-----------------------------------*\
+  MOBILE: horizontal scroll with centered first card
+  (≤ 600px)
+\*-----------------------------------*/
+@media (max-width: 600px) {
+  .news-list,
+  .director-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    /* pad 10% of viewport on each side so first card centers itself */
+    padding: 0 10vw;
+  }
+
+  /* li becomes shrink-to-fit the card */
+  .news-list li,
+  .director-list li {
+    flex: 0 0 auto;
+  }
+
+  /* each card is 80% of viewport width */
+  .news-card {
+    width: 75vw;
+    max-width: none;
+  }
+}

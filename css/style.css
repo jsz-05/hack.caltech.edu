@@ -458,6 +458,10 @@ main, header, footer {
   #ABOUT SECTION
 \*-----------------------------------*/
 
+#about .section-title {
+  font-size: 3.75em; /* Adjust this value to whatever size you want */
+}
+
 .upcoming-item:not(:last-child) { margin-block-end: 90px; }
 
 .upcoming-card {
@@ -596,188 +600,6 @@ main, header, footer {
   display: block;
   font-size: 1rem;
 }
-
-
-/* SPONSOR CARD CSS */
-
-.sponsors-section {
-  overflow: hidden; /* Prevent overflow */
-}
-
-.sponsors-container {
-  display: grid;
-  gap: 1rem; /* Adjusts the gap between rows and columns */
-  width: 100%;
-}
-.sponsor-row {
-  display: grid;
-  gap: 1rem; 
-}
-
-.tier-gold {
-  grid-template-columns: 1fr; /* 1 column for Gold tier */
-}
-
-.tier-silver {
-  grid-template-columns: repeat(2, 1fr); /* 2 columns for Silver tier */
-}
-
-.tier-bronze {
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for Bronze tier */
-}
-
-.sponsor-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--bg-oxford-blue-alpha-90);
-  padding: 1rem;
-  padding-top: 30px;
-  padding-bottom: 50px;
-  text-align: center;
-  box-sizing: border-box; /* Include padding within the width */
-}
-
-.card-banner {
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  /* border-radius: 6px;  */
-}
-
-.card-title {
-  font-size: 1.2em;
-  margin: 0.5rem 0;
-}
-
-.card-meta {
-  font-size: 0.9em;
-  color: #ff7300;
-}
-
-.card-blurb {
-  font-size:  1em;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-
-@media (max-width: 600px) {
-  .tier-gold, .tier-silver, .tier-bronze {
-    grid-template-columns: 1fr; /* Single column on mobile */
-  }
-
-  .card-blurb {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .sponsors-container {
-    width: 100%; /* Ensure it doesn’t overflow */
-  }
-}
-
-
-
-
-.h3.card-title {
-  text-align: center;
-  padding-top: 15px;
-  font-size: 28px;
-}
-
-
-/*-----------------------------------*\
-  #SPEAKER SECTION
-\*-----------------------------------*/
-
-.news-list {
-  display: grid;
-  gap: 30px;
-}
-
-.director-list {
-  display: grid;
-  gap: 30px;
-}
-
-.news-card {
-  background-color: var(--bg-oxford-blue-alpha-90);
-  box-shadow: var(--shadow);
-}
-
-.news-card .card-content {
-  position: relative;
-  padding: 30px;
-}
-
-.card-tag {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  background-image: var(--gradient-1);
-  color: var(--text-white);
-  font-size: var(--fontSize-8);
-  font-weight: var(--weight-semiBold);
-  text-transform: uppercase;
-  height: 30px;
-  line-height: 32px;
-  padding-inline: 20px;
-  clip-path: var(--clip-path-3);
-}
-
-.news-card :is(.card-meta-list, .card-meta-item) {
-  display: flex;
-  align-items: center;
-}
-
-.news-card .card-meta-list {
-  flex-wrap: wrap;
-  gap: 5px 10px;
-}
-
-.news-card .card-meta-item { gap: 5px; }
-
-.news-card .card-meta-item ion-icon { color: var(--text-orange); }
-
-.news-card .card-meta-text,
-.news-card .link {
-  color: var(--text-champagne-pink);
-  font-size: var(--fontSize-7);
-  font-weight: var(--weight-bold);
-  text-transform: uppercase;
-}
-
-.news-card .h3 { margin-block: 15px 10px; }
-
-.news-card .card-title {
-  display: inline;
-  background-image: linear-gradient(to left, var(--bg-orange), var(--bg-orange));
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 0% 4px;
-  transition: var(--transition-2);
-}
-
-.news-card .card-title:is(:hover, :focus-visible) { background-size: 100% 4px; }
-
-.news-card .link {
-  max-width: max-content;
-  margin-block-start: 15px;
-  padding-inline-start: 30px;
-  transition: var(--transition-1);
-}
-
-.news-card .link::before {
-  top: 50%;
-  left: 0;
-  transform: translateY(-100%);
-  width: 20px;
-  height: 4px;
-  background-color: var(--bg-orange);
-}
-
-.news-card .link:is(:hover, :focus-visible) { color: var(--text-orange); }
 
 
 
@@ -1418,6 +1240,7 @@ main, header, footer {
   justify-content: center;
   gap: 2rem; /* Adjusts the gap between the text and image */
   padding: 0; /* Ensures no padding within the container */
+  margin-top: 20px;
 }
 
 
@@ -1599,17 +1422,3 @@ form textarea {
 }
 
 
-/* sponsor car clicky */
-
-.card-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.card-link:hover {
-  color: rgb(255, 98, 0);
-}
-
-.card-link .fa-external-link-alt {
-  margin-bottom: 8px;
-}

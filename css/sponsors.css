@@ -1,0 +1,106 @@
+/* ==============================================================
+   SPONSOR CARDS – complete, drop-in stylesheet
+   ============================================================== */
+
+/* —— TOGGLE DESCRIPTION VISIBILITY —— 
+   Change to ‘none’ to hide all <p class="card-blurb"> and .card-meta */
+   :root {
+    --sponsor-desc-display: none;
+  }
+  
+  /* ---------- shared layout ---------- */
+  
+  .sponsors-section { overflow: hidden; }
+  
+  .sponsors-container {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .sponsor-row {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  /* ---------- desktop / tablet column counts ---------- */
+  .tier-gold   { grid-template-columns: repeat(2, 1fr); }
+  .tier-silver { grid-template-columns: repeat(3, 1fr); }
+  .tier-bronze { grid-template-columns: repeat(4, 1fr); }
+  
+  /* ---------- PYRAMID EFFECT for the Gold tier ---------- */
+  .tier-gold .sponsor-card:first-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 50ch;
+  }
+  
+  /* ---------- card look & feel ---------- */
+  .sponsor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-oxford-blue-alpha-90);
+    padding: 2rem 1rem 3rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .card-banner {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+  }
+  
+  .h3.card-title {
+    font-size: 1.25rem;
+    margin: 0.5rem 0 0.25rem;
+  }
+  
+  /* —— description & meta lines —— */
+  .card-blurb,
+  .card-meta {
+    display: var(--sponsor-desc-display);
+    font-size: 1em;
+    padding: 0 2rem;
+  }
+  
+  .card-meta {
+    color: #ff7300;
+    font-size: 0.9em;
+  }
+  
+  .card-link {
+    color: inherit;
+    font-size: 2em;
+    text-decoration: none;
+  }
+  
+  .card-link:hover {
+    color: rgb(255, 98, 0);
+  }
+  
+  .card-link i {
+    margin-left: 0.15em;
+  }
+  
+  /* ==============================================================
+     RESPONSIVE – phones (≤ 600 px)
+     ============================================================== */
+  @media (max-width: 600px) {
+  
+    /* individual column counts per tier on small screens */
+    .tier-gold   { grid-template-columns: repeat(1, 1fr); }
+    .tier-silver { grid-template-columns: repeat(2, 1fr); }
+    .tier-bronze { grid-template-columns: repeat(3, 1fr); }
+  
+    .sponsor-card {
+      padding: 1.5rem 0.5rem 2rem;
+    }
+  
+    /* slightly smaller titles */
+    .h3.card-title {
+      font-size: 1rem;
+    }
+  }
+  

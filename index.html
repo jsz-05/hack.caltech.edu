@@ -94,8 +94,35 @@
     <!--- custom css link    -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/updates.css">
+    <link rel="stylesheet" href="./css/sponsors.css">
+    <link rel="stylesheet" href="./css/speakers.css">
+    <link rel="stylesheet" href="./css/gallery.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+
+    <style>
+      .notification-bubble {
+        position: absolute;
+        top: -8px;
+        right: -12px;
+        width: 25px;
+        height: 25px;
+        background-color: red;
+        border-radius: 50%;
+        font-size: 14px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .btn-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+    </style>
   </head>
   
 
@@ -117,7 +144,7 @@
           <!-- Sponsor Form -->
           <form id="sponsor-form" onsubmit="submitForm(event, 'sponsor')">
             <p style="font-size: 30px; font-weight: bold;">
-                Sponsor Hacktech for our 2025 iteration!
+                Sponsor Hacktech for our 2026 iteration!
             </p>
             <div class="bullet-points">
                 <p>
@@ -126,7 +153,7 @@
                     - Increase your brand's visibility through Hacktech media channels/events <br>
                     - Facilitate interaction between participants and your employees & brand<br>
                 </p>
-                <a href="/2025sponsor.pdf" class="footer-link" style="color: orange;" target="_blank">Click Here for our Sponsor Packet</a>
+                <a href="/2025/2025sponsor.pdf" class="footer-link" style="color: orange;" target="_blank">Click Here for our Sponsor Packet</a>
             </div>
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="text" name="company" placeholder="Company/Organization Name" required>
@@ -161,11 +188,12 @@
     <div class="modal" id="updates-modal">
       <div class="modal-content">
         <span class="close" onclick="closeUpdatesModal()">&times;</span>
-        <h2 style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color: orange;">Hacker Updates - March 28, 2025</h2>
+        <h2 style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color: orange;">Hacker Updates - April 24, 2025</h2>
         <div class="updates-content">
-          <p>• The last batch of acceptances were sent out on March 21st, and accepted participants will have until Wednesday, April 2nd to confirm their participation.</p>
-          <p>• If you haven't received a rejection email, you are on a waitlist, and two more batches of acceptances will be sent on April 4th and April 11th depending on the number of people who drop out.</p>
-          Please refer to the updated FAQ section near the bottom of this page for more details.
+          <p>• At this time, all late adds and acceptances have been sent out, and we are unable to consider further applications or late requests!</p>
+          <p>• If you are a participant, you should be in the Discord server at this point. If you are planning to participate and have not joined Discord, please reach out to hacktech@caltech.edu ASAP.</p>
+          <p>• All further communications about the event will take place in Discord.</p>
+
         </div>
       </div>
     </div>
@@ -224,9 +252,7 @@
   
     <main>
       <article>
-  
         <!-- - #landing PAGE        -->
-  
         <div class="hero has-before" id="home">
           <!-- Particles.js container -->
           <div id="particles-js"></div>
@@ -242,26 +268,27 @@
 
             <div style="display: flex; gap: 20px; justify-content: center; margin: 0 auto; max-width: 500px; flex-wrap: wrap;">
 
-              <!-- Hacker Application -->
+              <!-- Use below for hacker Application -->
               <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="btn" data-btn target="_blank" style="flex: 0 1 auto; margin: 0px;">I'm a Hacker</a> -->
 
 
+              <a href="https://hacktech2025.devpost.com/" class="btn" data-btn target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 12px 24px;">
+                Devpost
+                <i class="fas fa-external-link-alt" style="font-size: 0.8em; transform: translateY(-1px);"></i>
+              </a>
 
-              <button onclick="openUpdatesModal()" class="btn" data-btn>Hacker Updates</button>
 
+              <!-- Use below for updates modal -->
+              <!-- <div class="btn-wrapper">
+                <button onclick="openUpdatesModal()" class="btn" data-btn>Hacker Updates</button>
+                <div class="notification-bubble">!</div>
+              </div> -->
+              <!-- <button onclick="openUpdatesModal()" class="btn" data-btn>Hacker Updates</button> -->
 
-              <!-- Judges/Sponsors Info -->
-              <button onclick="openModal()" class="btn" data-btn>Sponsors & Judges</button>
-
-              <!-- <a href="https://forms.gle/fxsry42Pe82HfFYE9" class="btn" data-btn target="_blank" style="flex: 0 1 auto; margin: 0px;">Organizer Interest</a> -->
-
+               
+              <button onclick="openModal()" class="btn" data-btn>Sponsor us for 2026!</button>
 
             </div>
-            
-
-
-            
-
             <div class="hero-banner">
               <img src="./images/hero-banner.webp" width="850" height="414" alt="Hacker banner" class="w-100">
               <img src="./images/hero-banner-bg.webp" alt="Hacker banner background" class="hero-banner-bg">
@@ -271,36 +298,35 @@
       
         
         
-  <!--     - #ABOUT SECTION  -->
-  
+  <!--- #ABOUT SECTION  -->
   <section class="section about" id="about">
     <h2 class="h2 section-title">
-      About <span class="span">Hacktech</span> 2025
+      <span class="span">Hacktech</span> 2025 RECAP
     </h2>
 
-    <p class="section-text" data-reveal="bottom">
+    <!-- <p class="section-text" data-reveal="bottom">
       Our mission is to create "Realistic Impact," which entails encouraging participants to create projects that could be feasibly implemented in real-world scenarios to make tangible change.
-    </p>
+    </p> -->
 
     <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
-      2024 Stats: 
+      2025 Stats: 
     </p>
   
     <div class="hero-stats-overlay">
       <div class="stat">
-        <span class="stat-number" data-target="10">0</span>
+        <span class="stat-number" data-target="10">5</span>
         <span class="stat-text">countries</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="60">0</span>
+        <span class="stat-number" data-target="60">45</span>
         <span class="stat-text">universities</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="540">0</span>
+        <span class="stat-number" data-target="400">0</span>
         <span class="stat-text">hackers</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="30">0</span>
+        <span class="stat-number" data-target="60">0</span>
         <span class="stat-text">prizes</span>
       </div>
       <div class="stat">
@@ -308,54 +334,53 @@
         <span class="stat-text">hours</span>
       </div>
     </div>
+
+    <div class="container about-container">
+      <div class="about-text" >
+        <p class="section-text-about">
+          Hacktech is Caltech's premier annual intercollegiate hackathon. During the 36-hour event, participants will collaborate in teams of 1 to 4 members to develop projects that align with our themes. Whether you're a seasoned coder or a beginner, Hacktech invites you to join a vibrant community of problem solvers, dreamers, and builders on Caltech's campus.
+        </p>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="about-gallery" data-reveal="bottom">
+      <div class="gallery-wrapper">
+        <img
+          id="about-gallery-img"
+          src="/2025/previews/1.png"
+          alt="Hacktech Preview"
+          class="gallery-image"
+        >
+      </div>
+    </div>
+    <br>
+
   
     <div class="container about-container">
       <div class="about-text" >
         <p class="section-text-about">
-  
-          Hacktech is Caltech's 11th premier annual intercollegiate hackathon. During the 36-hour event, participants will collaborate in teams of 1 to 4 members to develop projects that align with our themes. Whether you're a seasoned coder or a curious beginner, Hacktech invites you to join a vibrant community of problem solvers, dreamers, and builders on Caltech's campus this year.
-  
-          <br><br>
           <span style="color: white; font-weight: bold;">This year, hackers will have the option to choose from these three tracks for their projects: Healthcare, Finance/Data Analytics, and Sustainability.
           </span>
-
-
           <br>
-
           <span style="color: orange; font-weight: bold;">What's New for 2025?</span> A lot. We revamped the entire event from the ground up, featuring a new format, new venues, and improved dining options!<br>
-
           <span style="color: orange; font-weight: bold;">Event format:</span> We're fully in-person this year! Scroll down to the FAQ for location details!<br>
-          
           <span style="color: orange; font-weight: bold;">Venues and Food:</span> We have double the space as previous years. This year will feature dedicated eating, sleeping, and working areas. 
-          
-
-  
-          <!-- During the 36-hour hackathon, participants will collaborate in teams of 1 to 4 
-          members across three skill divisions to develop projects that align with our themes. 
-          Whether you're passionate about software, hardware, or a mix of both, Hacktech provides a platform to turn 
-          your ideas into reality.
-  
-          <br><br>
-  
-          Top 3 finishers from the Advanced division, Top 2 finishers from the Beginner division, 
-          and Top 1 finisher from the High School division will receive prizes. During the event,
-          you will also be able to network and meet with representatives from our top sponsor companies. -->
-  
-  
         </p>
       </div>
+
       <div class="about-image" data-reveal="right">
-        <img src="./images/hacker.webp" width="400" height="auto" loading="lazy" alt="About Image">
+        <img src="./images/hacker.webp" width="300" height="auto" loading="lazy" alt="About Image">
       </div>
-  
     </div>
+
   </section>
   
   
   
   
-        <!--    - #SPEAKERS SECTION        -->
-  
+        <!--- #SPEAKERS SECTION        -->
         <section class="section news" aria-label="our latest news" id="speaker">
           <div class="container">
   
@@ -368,12 +393,15 @@
             <p class="section-text" data-reveal="bottom">
               Hacktech would not be the same without the contributions of our speakers, 
               whose insights, expertise, and passion drive the innovation and creativity 
-              that define us. Note: Speaker list is currently tentative.
+              that define us.
             </p>
   
             <!-- START OF SPEAKER BOX CONTAINER -->
             <ul class="news-list">
               <!-- FIRST SPEAKER CARD, ADD MORE AS WE GO -->
+
+
+
               <li data-reveal="bottom">
                 <div class="news-card">
                   <figure class="card-banner img-holder" style="--width: 600; --height: 600;">
@@ -382,20 +410,17 @@
                   </figure>
                   <div class="card-content">
                     <a href="#" class="card-tag">Intro Speaker (Virtual)</a>
+
+                    
                     <ul class="card-meta-list">
-  
                       <li class="card-meta-item">
                         <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
-  
                         <time class="card-meta-text" datetime="2022-01-01">Time TBD</time>
                       </li>
-  
                       <li class="card-meta-item">
                         <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-  
                         <p class="card-meta-text">location TBD</p>
                       </li>
-  
                     </ul>
   
                     <h3 class="h3">
@@ -433,18 +458,13 @@
   
                         <p class="card-meta-text">location TBD</p>
                       </li>
-  
                     </ul>
-  
                     <h3 class="h3">
                       <a class="card-title">Adam D'Angelo</a>
                     </h3>
   
                     <p class="card-text">
-                      <!-- Dr. Arnold is a Nobel laureate in Chemistry, the Linus Pauling Professor of Chemical Engineering, Bioengineering, and Biochemistry, as well as the Director of the Donna and Benjamin M. Rosen Bioengineering Center.  -->
-
                       Adam D'Angelo is the co-founder and CEO of Quora, and recieved his Bachelors from Caltech. Before establishing Quora in 2009, he served as Chief Technology Officer and Vice President of Engineering at Facebook. 
-
                     </p>
                   </div>
                 </div>
@@ -486,17 +506,12 @@
                   </div>
                 </div>
               </li>
-  
-  
 
-  
-  
-  
+
+              
             </ul>
-  
           </div>
         </section>
-  
       </article>
     </main>
   
@@ -514,7 +529,7 @@
           <div class="container">
   
             <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
-              Huge thanks to our
+              Huge thanks to our 2025
             </p>
   
             <h2 class="h2 section-title" data-reveal="bottom">
@@ -531,11 +546,7 @@
                 <div class="sponsors-container">
               
   
-                  <!-- GOLD SPONSOR CARDS AND SOFORTH -->
                   <div class="sponsor-row tier-gold">
-
-
-
 
                     <div class="sponsor-card">
                       <a href="https://www.openai.com/" target="_blank">
@@ -544,10 +555,8 @@
                       <h3 class="h3 card-title">
                         <a href="https://www.openai.com/" class="card-link" target="_blank">OpenAI <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
-                      OpenAI is an AI research and deployment company dedicated to ensuring that general-purpose artificial intelligence benefits all of humanity.
+                      <!-- OpenAI is an AI research and deployment company dedicated to ensuring that general-purpose artificial intelligence benefits all of humanity. -->
                     </div>
-
-
 
                     <div class="sponsor-card">
                       <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" target="_blank">
@@ -556,36 +565,25 @@
                       <h3 class="h3 card-title">
                         <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" class="card-link" target="_blank">The Moore-Hufstedler Fund <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
-                      The endowed Presidential fund was established to increase the quality of undergraduate and graduate student life at the California Institute of Technology.
+                      <!-- The endowed Presidential fund was established to increase the quality of undergraduate and graduate student life at the California Institute of Technology. -->
                       <div class="card-meta"></div>
                     </div>
-                  </div>
 
-
-
-                  <div class="sponsor-card">
-                    <a href="https://www.extraordinary.com/" target="_blank">
-                      <img src="./images/e.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
-                    </a>
-                    <h3 class="h3 card-title">
-                      <a href="https://www.extraordinary.com/" class="card-link" target="_blank">Extraordinary.com <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
-                    </h3>
-                    We bring the world’s top O.1% talent to America on the extraordinary ability visa.
-                  </div>
-
-
-                  <!-- <div class="sponsor-row tier-gold">
                     <div class="sponsor-card">
-                      <img src="./images/mhf_orig.png" width="100%" loading="lazy"
-                        alt="Gold Sponsor 1" class="card-banner">
-                      <h3 class="h3 card-title">The Moore-Hufstedler Fund</h3>
-                      <div class="card-meta"></div>
+                      <a href="https://www.extraordinary.com/" target="_blank">
+                        <img src="./images/e.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
+                      </a>
+                      <h3 class="h3 card-title">
+                        <a href="https://www.extraordinary.com/" class="card-link" target="_blank">Extraordinary.com <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                      </h3>
+                      <!-- We bring the world’s top O.1% talent to America on the extraordinary ability visa. -->
                     </div>
-                  </div> -->
-                  
+                  </div>
+
+
+
+
                   <div class="sponsor-row tier-silver">
-
-
                     <div class="sponsor-card">
                       <div class="image-container">
                         <img src="./images/orkes.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
@@ -594,7 +592,7 @@
                         <a href="https://www.orkes.io" class="card-link" target="_blank">Orkes <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
-                      Unified Application Platform for building Highly Reliable Applications & AI Agents.
+                      <!-- Unified Application Platform for building Highly Reliable Applications & AI Agents. -->
                     </div>
 
                     <div class="sponsor-card">
@@ -604,7 +602,7 @@
                       <h3 class="h3 card-title">
                         <a href="https://www.drw.com" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
-                      DRW is a diversified trading firm innovating across both traditional and cutting-edge markets.
+                      <!-- DRW is a diversified trading firm innovating across both traditional and cutting-edge markets. -->
                     </div>
 
                     <div class="sponsor-card">
@@ -614,7 +612,7 @@
                       <h3 class="h3 card-title">
                         <a href="https://www.godryft.com" class="card-link" target="_blank">Dryft <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
-                      Dryft builds AI supply chain planners that mimic, optimize and automate human operational decision in manufacturing. 
+                      <!-- Dryft builds AI supply chain planners that mimic, optimize and automate human operational decision in manufacturing.  -->
                       <div class="card-meta"></div>
                     </div>
 
@@ -625,7 +623,7 @@
                       <h3 class="h3 card-title">
                         <a href="https://www.citadel.com" class="card-link" target="_blank">Citadel <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
-                      We are an alternative investment manager working on behalf of the world's preeminent institutions.
+                      <!-- We are an alternative investment manager working on behalf of the world's preeminent institutions. -->
                       <div class="card-meta"></div>
                     </div>
                   
@@ -636,7 +634,7 @@
                       <h3 class="h3 card-title">
                         <a href="https://www.github.com" class="card-link" target="_blank">Github <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
-                      Founded in 2007, GitHub has brought millions of developers together to discover, share, and build better software.
+                      <!-- Founded in 2007, GitHub has brought millions of developers together to discover, share, and build better software. -->
                       <div class="card-meta"></div>
                     </div>
 
@@ -648,21 +646,8 @@
                       <h3 class="h3 card-title">
                         <a href="" class="card-link" target="_blank">TBD </a>
                       </h3>
-
                       <div class="card-meta"></div>
                     </div>
-
-
-                        <!-- <div class="sponsor-card">
-                          <a href="https://www.drw.com/" target="_blank">
-                            <img src="./images/drw.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
-                          </a>
-                          <h3 class="h3 card-title">
-                            <a href="https://www.drw.com/" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
-                          </h3>
-                          DRW is a diversified trading firm innovating across both traditional and cutting-edge markets.
-                        </div> -->
-
                   </div>
                   
                   
@@ -688,6 +673,7 @@
                       <h3 class="h3 card-title">StandOutStickers</h3>
                       <div class="card-meta"></div>
                     </div>
+
                     <div class="sponsor-card">
                       <img src="./images/coolant.png" width="100%" loading="lazy"
                         alt="Bronze Sponsor 1" class="card-banner">
@@ -700,7 +686,6 @@
                         <img src="./images/voltaic.png" width="100%" loading="lazy" alt="solar power systems" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">Voltaic Systems</h3>
-
                       <div class="card-meta"></div>
                     </div>
 
@@ -711,14 +696,13 @@
                       <div class="card-meta"></div>
                     </div>
 
-                    <div class="sponsor-card">
+                    <!-- <div class="sponsor-card">
                       <img src="./images/nord.png" width="100%" loading="lazy"
                         alt="Bronze Sponsor 3" class="card-banner">
                       <h3 class="h3 card-title">Nord Security</h3>
                       <div class="card-meta"></div>
                     </div>
 
-                    
                     <div class="sponsor-card">
                       <img src="./images/saily.png" width="100%" loading="lazy"
                         alt="Bronze Sponsor 2" class="card-banner">
@@ -731,27 +715,21 @@
                         alt="Bronze Sponsor 2" class="card-banner">
                       <h3 class="h3 card-title">Incogni</h3>
                       <div class="card-meta"></div>
-                    </div>
+                    </div> -->
 
-
-                    
                     <div class="sponsor-card">
                       <div class="image-container">
-                        <img src="./images/tbd.jpg" loading="lazy" alt="Silver Sponsor 2" class="card-banner">
+                        <img src="./images/12labs.png" loading="lazy" alt="Silver Sponsor 2" class="card-banner">
                       </div>
-                      <h3 class="h3 card-title">TBD</h3>
+                      <h3 class="h3 card-title">TwelveLabs</h3>
                       <div class="card-meta"></div>
                     </div>
-
 
                   </div>
 
 
-                  
-              
                 </div>
               </section>
-              
               
             </ol>
   
@@ -774,7 +752,7 @@
           If you can't find your answer here, feel free to contact us via our email or social media! FAQ last updated March 14th, 2025.
         </p>
 
-        <!-- <div class="faq-item">
+        <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             What is a Hackathon?
             <span class="faq-toggle-icon">+</span>
@@ -782,9 +760,9 @@
           <div class="faq-answer">
             In our Hackathon, you have 36 hours to code a product that regards one of our topics. Work by yourself or with a team of up to 4 people! 
           </div>
-        </div> -->
+        </div>
         
-        <!-- <div class="faq-item">
+        <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             What is Hacktech?
             <span class="faq-toggle-icon">+</span>
@@ -792,7 +770,7 @@
           <div class="faq-answer">
             Hacktech is Caltech’s annual hackathon bringing together innovators to showcase the latest advancements in technology and coding. There's food, speakers, recruiters, and of course, tons of building!
           </div>
-        </div> -->
+        </div>
         
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -865,7 +843,11 @@
           </div>
         </div>
 
-        <br><br>
+
+
+        <!-- Below is specific to Hacktech 2025 -->
+
+        <!-- <br><br>
         <section class="section faq2" id="faq2">
         <h2 class="h2 section-title" data-reveal="bottom">
           Updated 2025 FAQ
@@ -873,10 +855,10 @@
         <p class="section-text" data-reveal="bottom">
           If you have confirmed your participation in Hacktech 2025, please review all of these questions as they contain critical information. Last updated 3/28/2025.
         </p>
-        <br>
+        <br> -->
         
 
-        <div class="faq-item">
+        <!-- <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             Are you still reviewing applications? When will the last batch of acceptances come out? (NEW)
             <span class="faq-toggle-icon">+</span>
@@ -945,7 +927,7 @@
           <div class="faq-answer">
             We expect most participants to stay up through the night to work on projects. A sleeping space will be provided, however expect capacity to be limited. You should bring your own sleeping bag, pillows, etc.
             </div>
-        </div>
+        </div> -->
 
 
         </div>
@@ -1126,7 +1108,7 @@
               </li>
 
               <li>
-                <a href="/2025sponsor.pdf" class="footer-link" target="_blank">Sponsor Packet</a>
+                <a href="/2025/2025sponsor.pdf" class="footer-link" target="_blank">Sponsor Packet</a>
               </li>
               
               <li>
@@ -1225,6 +1207,8 @@
     <script src="./js/script.js"></script>
     <script src="./js/form.js"></script>
     <script src="./js/updates.js"></script>
+    <script src="./js/gallery.js"></script>
+
 
     <!--- ionicon link    -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
