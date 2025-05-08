@@ -451,12 +451,12 @@ main, header, footer {
 
 .slide-up {
   animation: slideUp 0.5s ease-out forwards;
-  opacity: 0.5;
+  opacity: 0;
   transform: translateY(80px);
 }
 
 .slide-up-delay {
-  animation: slideUp 0.5s ease-out 0.2s forwards;
+  animation: slideUp 0.5s ease-out 0.3s forwards;
   opacity: 0;
   transform: translateY(80px);
 }

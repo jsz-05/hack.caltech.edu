@@ -1,6 +1,6 @@
   (function() {
     const imgEl = document.getElementById('about-gallery-img');
-    const total = 5;
+    const total = 6;
     let idx = 1;
 
     const intervalTime   = 5000; // time each image stays visible (ms)
