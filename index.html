@@ -97,6 +97,7 @@
     <link rel="stylesheet" href="./css/sponsors.css">
     <link rel="stylesheet" href="./css/speakers.css">
     <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="stylesheet" href="./css/judges.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -153,7 +154,7 @@
                     - Increase your brand's visibility through Hacktech media channels/events <br>
                     - Facilitate interaction between participants and your employees & brand<br>
                 </p>
-                <a href="/2025/2025sponsor.pdf" class="footer-link" style="color: orange;" target="_blank">Click Here for our Sponsor Packet</a>
+                <a href="/2025/2025sponsor.pdf" class="footer-link" style="color: orange;" target="_blank">Click Here for our 2025 Sponsor Packet as a reference!</a>
             </div>
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="text" name="company" placeholder="Company/Organization Name" required>
@@ -161,24 +162,37 @@
             <textarea name="inquiry" placeholder="Inquiry" required></textarea>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
+
+
+
         <!-- Judge Form -->
         <form id="judge-form" onsubmit="submitForm(event, 'judge')">
           <!-- Judge applications Closed -->
-          <p style="font-size: 30px; font-weight: bold;">
+          <!-- <p style="font-size: 30px; font-weight: bold;">
             Thanks you for your interest in judging Hacktech!
           </p>
-          Unfortunately, all judging spots have been filled for this year. If you are a sponsor looking to send judges, please fill out the sponsor form.
-          <!-- Judge applications Open -->
+          Unfortunately, all judging spots have been filled for this year. If you are a sponsor looking to send judges, please fill out the sponsor form. -->
 
-          <!-- <p style="font-size: 30px; font-weight: bold;">
+
+          <!-- Judge applications Open -->
+          <p style="font-size: 30px; font-weight: bold;">
             Apply to be a Judge for Hacktech!
           </p>
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="text" name="company" placeholder="Company Name and Role" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="experience" placeholder="Have you judged at any other hackathon previously? If so, please specify which one." required></textarea>
-            <button type="submit" class="submit-btn">Submit</button> 
-          -->
+          <div class="bullet-points">
+            <p>
+              For our 2026 iteration, we are looking for judges who are passionate about technology, innovation and helping aspiring students. Note that spots are limited, and priority will be given to standout individuals, or sponsor company judges. If you are a sponsor looking to send judges, please review/fill out the sponsor form.
+            </p>
+            <br>
+            <p>
+              Interested in learning more or chatting about Hacktech? Connect with our Managing Director on <a href="https://www.linkedin.com/in/jeffreyszhou/" style="color: orange; display: inline;" target="_blank">Linkedin</a> - we'd love to hear from you!
+            </p>
+            
+          </div>
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="text" name="company" placeholder="Company Name and Role" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="experience" placeholder="Have you judged at any other hackathon previously? If so, please specify which one." required></textarea>
+          <button type="submit" class="submit-btn">Submit</button> 
         </form>
       </div>
     </div>
@@ -273,7 +287,7 @@
 
 
               <a href="https://hacktech2025.devpost.com/" class="btn" data-btn target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 12px 24px;">
-                Devpost
+                2025 Devpost
                 <i class="fas fa-external-link-alt" style="font-size: 0.8em; transform: translateY(-1px);"></i>
               </a>
 
@@ -286,7 +300,7 @@
               <!-- <button onclick="openUpdatesModal()" class="btn" data-btn>Hacker Updates</button> -->
 
                
-              <button onclick="openModal()" class="btn" data-btn>Sponsor us for 2026!</button>
+              <button onclick="openModal()" class="btn" data-btn>2026 Sponsors/Judges</button>
 
             </div>
             <div class="hero-banner">
@@ -737,6 +751,58 @@
         </section>
   
   
+
+
+
+
+
+
+
+    <!-- JUDGES SECTION -->
+    <div style="margin-top: -5rem;"></div>
+    <section class="section" id="judges">
+      <div class="container">
+        <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
+          Huge thanks to our 2025
+        </p>
+        <h2 class="h2 section-title" data-reveal="bottom">
+          Hacktech <span class="span">Judges</span>
+        </h2>
+        <p class="section-text" data-reveal="bottom">
+          Meet our panel of judges for Hacktech, representing academia and industry.
+        </p>
+        <div class="judges-grid">
+          <div class="judge-card"><div class="judge-name">Rosy Macedo</div><div class="judge-affiliation">Caltech</div></div>
+          <div class="judge-card"><div class="judge-name">Mike Vorhaus</div><div class="judge-affiliation">Caltech</div></div>
+          <div class="judge-card"><div class="judge-name">Isaac Garcia Munoz</div><div class="judge-affiliation">Caltech</div></div>
+          <div class="judge-card"><div class="judge-name">Jamie Robertson</div><div class="judge-affiliation">Caltech, Ex-Disney</div></div>
+          <div class="judge-card"><div class="judge-name">Will Heltsley</div><div class="judge-affiliation">Caltech, Ex-SpaceX</div></div>
+          <div class="judge-card"><div class="judge-name">Drew Brower</div><div class="judge-affiliation">Caltech</div></div>
+          <div class="judge-card"><div class="judge-name">Adam Blank</div><div class="judge-affiliation">Caltech</div></div>
+          <div class="judge-card"><div class="judge-name">Tom McWilliams</div><div class="judge-affiliation">Caltech</div></div>
+          <div class="judge-card"><div class="judge-name">Bach-Thuan Bui</div><div class="judge-affiliation">Coolant Climate</div></div>
+          <div class="judge-card"><div class="judge-name">Somil Gupta</div><div class="judge-affiliation">Broccoli Al</div></div>
+          <div class="judge-card"><div class="judge-name">Ada Cyborg</div><div class="judge-affiliation">Extraordinary.com</div></div>
+          <div class="judge-card"><div class="judge-name">Mokshit Jain</div><div class="judge-affiliation">Cognition</div></div>
+          <div class="judge-card"><div class="judge-name">Ter Seesillapachai</div><div class="judge-affiliation">Ramp</div></div>
+          <div class="judge-card"><div class="judge-name">Aryan Gulati</div><div class="judge-affiliation">Extraordinary.com</div></div>
+          <div class="judge-card"><div class="judge-name">Rushil Nagarsheth</div><div class="judge-affiliation">Hypercard</div></div>
+          <div class="judge-card"><div class="judge-name">Dennis Jin</div><div class="judge-affiliation">Snap</div></div>
+          <div class="judge-card"><div class="judge-name">Toby Brown</div><div class="judge-affiliation">Beem</div></div>
+          <div class="judge-card"><div class="judge-name">Sally Ragab</div><div class="judge-affiliation">Neunetix</div></div>
+          <div class="judge-card"><div class="judge-name">Andrew Herrera</div><div class="judge-affiliation">Wolfram</div></div>
+          <div class="judge-card"><div class="judge-name">Jeff Bull</div><div class="judge-affiliation">Orkes</div></div>
+          <div class="judge-card"><div class="judge-name">Jonas Ebrahimi</div><div class="judge-affiliation">Karmen</div></div>
+        </div>
+      </div>
+    </section>
+    <div style="margin-bottom: 5rem;"></div>
+    <!-- END JUDGES SECTION -->
+
+
+
+
+        
   
   
   <!--  FAQ SECTION    -->
@@ -1169,7 +1235,7 @@
             Made with &#129293; by &nbsp;
             <a href="https://jeffreyszhou.com/" class="name-link" target="_blank" onclick="gtag('event', 'click', { 'event_category': 'outbound', 'event_label': 'jeffreyszhou.com' });">
               Jeffrey Zhou
-            </a>.&nbsp; &copy; 2024 Hacktech.
+            </a>.&nbsp; &copy; 2025 Hacktech.
           </p>
           
           
