@@ -4,10 +4,10 @@
   --bg-orange: rgb(255, 129, 66); 
   --bg-orange-alpha-30: hsla(29, 100%, 63%, 0.3);
   --bg-dark-orange: rgb(33, 23, 13);
-  --bg-oxford-blue: rgb(23, 23, 23);
-  --bg-oxford-blue-alpha-95: hsla(27, 64%, 13%, 0.95);
-  --bg-oxford-blue-alpha-90: hsla(23, 64%, 13%, 0.9);
-  --bg-oxford-blue-alpha-80: hsla(26, 64%, 13%, 0.8);
+  --bg-oxford-orange: rgb(23, 23, 23);
+  --bg-oxford-orange-alpha-95: hsla(27, 64%, 13%, 0.95);
+  --bg-oxford-orange-alpha-90: hsla(23, 64%, 13%, 0.9);
+  --bg-oxford-orange-alpha-80: hsla(26, 64%, 13%, 0.8);
 
   /* gradient color */
   --gradient-1: linear-gradient(to right bottom, hsl(35, 100%, 52%), hsl(32, 100%, 58%), hsl(28, 100%, 60%), hsl(25, 100%, 62%), hsl(22, 100%, 63%), hsl(18, 100%, 69%), hsl(15, 100%, 62%), hsl(21, 100%, 50%));
@@ -346,7 +346,7 @@ main, header, footer {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--bg-oxford-blue);
+  background-color: var(--bg-oxford-orange);
   padding: 10px 12px;
   z-index: 4;
 }
@@ -391,7 +391,7 @@ main, header, footer {
   top: calc(100% - 1px);
   right: 12px;
   left: 12px;
-  background-color: var(--bg-oxford-blue);
+  background-color: var(--bg-oxford-orange);
   padding: 0 15px;
   clip-path: var(--clip-path-1);
   visibility: hidden;
@@ -648,7 +648,7 @@ main, header, footer {
 .footer .social-link {
   width: 40px;
   height: 40px;
-  background-color: var(--bg-orange-alpha-30);
+  background-color: var(--bg-oxford-orange-alpha-90);
   display: grid;
   place-items: center;
   clip-path: var(--clip-path-8);
@@ -696,7 +696,7 @@ main, header, footer {
 .contact-item:not(:last-child) { margin-block-end: 15px; }
 
 .input-field {
-  background-color: var(--bg-oxford-blue-alpha-90);
+  background-color: var(--bg-oxford-orange-alpha-90);
   color: var(--text-white);
   font-size: var(--fontSize-5);
   padding: 18px 12px;
@@ -710,7 +710,7 @@ main, header, footer {
 
 .footer-bottom {
   clip-path: var(--clip-path-9);
-  background-color: var(--bg-oxford-blue-alpha-80);
+  background-color: var(--bg-oxford-orange-alpha-90);
 }
 
 .copyright { padding: 30px 20px; }

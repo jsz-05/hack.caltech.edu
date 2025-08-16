@@ -29,10 +29,10 @@ Ionicon
 --bg-purple: hsla(267, 100%, 63%, 1);
 --bg-purple-alpha-30: hsla(267, 100%, 63%, 0.3);
 --bg-dark-purple: hsla(279, 42%, 9%, 1);
---bg-oxford-blue: hsla(240, 63%, 13%, 1);
---bg-oxford-blue-alpha-95: hsla(240, 63%, 13%, 0.95);
---bg-oxford-blue-alpha-90: hsla(240, 63%, 13%, 0.9);
---bg-oxford-blue-alpha-80: hsla(240, 63%, 13%, 0.8);
+--bg-oxford-orange: hsla(240, 63%, 13%, 1);
+--bg-oxford-orange-alpha-95: hsla(240, 63%, 13%, 0.95);
+--bg-oxford-orange-alpha-90: hsla(240, 63%, 13%, 0.9);
+--bg-oxford-orange-alpha-80: hsla(240, 63%, 13%, 0.8);
 ```
 
 ### Gradient color
