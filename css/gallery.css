@@ -1,24 +1,125 @@
 /* =========== ABOUT-SECTION GALLERY =========== */
 .about-gallery {
-    text-align: center;
+  text-align: center;
+}
+
+.gallery-wrapper {
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: var(--shadow);
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #000;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-image.fade-out {
+  opacity: 0;
+}
+
+/* Navigation arrows */
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.gallery-nav:hover {
+  background: rgba(255, 165, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.gallery-prev {
+  left: 15px;
+}
+
+.gallery-next {
+  right: 15px;
+}
+
+/* Dots indicator */
+.gallery-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  padding: 0;
+}
+
+.gallery-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.gallery-dot.active {
+  background: orange;
+  transform: scale(1.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-nav {
+    width: 35px;
+    height: 35px;
   }
   
-  .gallery-wrapper {
-    display: inline-block;
-    width: 100%;
-    max-width: 800px;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
+  .gallery-prev {
+    left: 10px;
   }
   
-  .gallery-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    opacity: 1;
-    transition: opacity 1s ease-in-out; /* 1s fade */
+  .gallery-next {
+    right: 10px;
   }
   
+  .gallery-dots {
+    bottom: 10px;
+  }
   
+  .gallery-dot {
+    width: 8px;
+    height: 8px;
+  }
+}

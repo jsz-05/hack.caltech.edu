@@ -29,12 +29,18 @@
   .tier-bronze { grid-template-columns: repeat(4, 1fr); }
   
   /* ---------- PYRAMID EFFECT for the Gold tier ---------- */
-  .tier-gold .sponsor-card:first-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 50ch;
-  }
-  
+/* Default: two sponsors side-by-side */
+.tier-gold {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Pyramid effect ONLY if there are 3+ gold sponsors */
+.tier-gold:has(.sponsor-card:nth-child(3)) .sponsor-card:first-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 50ch;
+}
+
   /* ---------- card look & feel ---------- */
   .sponsor-card {
     display: flex;
@@ -83,6 +89,8 @@
   .card-link i {
     margin-left: 0.15em;
   }
+
+  
   
   /* ==============================================================
      RESPONSIVE – phones (≤ 600 px)
