@@ -387,14 +387,15 @@
     <div class="about-gallery" data-reveal="bottom">
       <div class="gallery-wrapper">
         <div class="gallery-container">
-          <img
-            id="about-gallery-img"
-            src="/2025/previews/1.png"
-            alt="Hacktech Preview"
-            class="gallery-image"
-          >
+          <div class="gallery-track">
+            <img src="./2025/previews/1.png" alt="Hacktech Preview 1" class="gallery-image active">
+            <img src="./2025/previews/2.png" alt="Hacktech Preview 2" class="gallery-image">
+            <img src="./2025/previews/3.png" alt="Hacktech Preview 3" class="gallery-image">
+            <img src="./2025/previews/4.png" alt="Hacktech Preview 4" class="gallery-image">
+            <img src="./2025/previews/5.png" alt="Hacktech Preview 5" class="gallery-image">
+            <img src="./2025/previews/6.png" alt="Hacktech Preview 6" class="gallery-image">
+          </div>
           
-          <!-- Navigation arrows -->
           <button class="gallery-nav gallery-prev" aria-label="Previous image">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -406,19 +407,17 @@
             </svg>
           </button>
           
-          <!-- Dots indicator -->
           <div class="gallery-dots">
-            <button class="gallery-dot active" data-index="1"></button>
+            <button class="gallery-dot active" data-index="0"></button>
+            <button class="gallery-dot" data-index="1"></button>
             <button class="gallery-dot" data-index="2"></button>
             <button class="gallery-dot" data-index="3"></button>
             <button class="gallery-dot" data-index="4"></button>
             <button class="gallery-dot" data-index="5"></button>
-            <button class="gallery-dot" data-index="6"></button>
           </div>
         </div>
       </div>
     </div>
-
     <br>
 
   

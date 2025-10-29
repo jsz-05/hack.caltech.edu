@@ -1,64 +1,45 @@
 (function() {
-  const imgEl = document.getElementById('about-gallery-img');
+  const images = document.querySelectorAll('.gallery-image');
   const prevBtn = document.querySelector('.gallery-prev');
   const nextBtn = document.querySelector('.gallery-next');
   const dots = document.querySelectorAll('.gallery-dot');
+  const galleryContainer = document.querySelector('.gallery-container');
   
-  const total = 6;
-  let currentIdx = 1;
+  let currentIdx = 0;
   let autoplayInterval = null;
   let isTransitioning = false;
   
-  const AUTOPLAY_TIME = 5000;
+  const AUTOPLAY_TIME = 4000;
+  const TRANSITION_TIME = 400;
 
-  // Preload all images
-  for (let i = 1; i <= total; i++) {
-    const img = new Image();
-    img.src = `/2025/previews/${i}.png`;
-  }
-
-  function updateDots() {
-    dots.forEach((dot) => {
-      const dotIndex = parseInt(dot.getAttribute('data-index'));
-      if (dotIndex === currentIdx) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
-  }
-
-  function changeImage(newIdx) {
+  function updateGallery(newIdx) {
     if (newIdx === currentIdx || isTransitioning) return;
-    isTransitioning = true;
-    currentIdx = newIdx;
     
-    // Fade out current image
-    imgEl.classList.add('fade-out');
-    imgEl.src = `/2025/previews/${newIdx}.png`;
-
-    // Wait for fade out, then change src and fade in
+    isTransitioning = true;
+    
+    // Remove active class from current
+    images[currentIdx].classList.remove('active');
+    dots[currentIdx].classList.remove('active');
+    
+    // Add active class to new
+    currentIdx = newIdx;
+    images[currentIdx].classList.add('active');
+    dots[currentIdx].classList.add('active');
+    
+    // Prevent rapid clicking
     setTimeout(() => {
-      updateDots();
-      
-      // Force reflow to ensure the new image is loaded before fading in
-      imgEl.offsetHeight;
-      
-      imgEl.classList.remove('fade-out');
       isTransitioning = false;
-    }, 750);
+    }, TRANSITION_TIME);
   }
 
   function nextImage() {
-    const newIdx = currentIdx < total ? currentIdx + 1 : 1;
-    changeImage(newIdx);
-    resetAutoplay();
+    const newIdx = (currentIdx + 1) % images.length;
+    updateGallery(newIdx);
   }
 
   function prevImage() {
-    const newIdx = currentIdx > 1 ? currentIdx - 1 : total;
-    changeImage(newIdx);
-    resetAutoplay();
+    const newIdx = (currentIdx - 1 + images.length) % images.length;
+    updateGallery(newIdx);
   }
 
   function startAutoplay() {
@@ -79,29 +60,40 @@
   }
 
   // Event listeners
-  nextBtn.addEventListener('click', nextImage);
-  prevBtn.addEventListener('click', prevImage);
+  prevBtn.addEventListener('click', () => {
+    prevImage();
+    resetAutoplay();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextImage();
+    resetAutoplay();
+  });
 
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const newIdx = parseInt(dot.getAttribute('data-index'));
-      changeImage(newIdx);
+      updateGallery(newIdx);
       resetAutoplay();
     });
   });
 
   // Pause autoplay on hover
-  const galleryContainer = document.querySelector('.gallery-container');
   galleryContainer.addEventListener('mouseenter', stopAutoplay);
   galleryContainer.addEventListener('mouseleave', startAutoplay);
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevImage();
-    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') {
+      prevImage();
+      resetAutoplay();
+    }
+    if (e.key === 'ArrowRight') {
+      nextImage();
+      resetAutoplay();
+    }
   });
 
-  // Initialize
-  updateDots();
+  // Start autoplay
   startAutoplay();
 })();
