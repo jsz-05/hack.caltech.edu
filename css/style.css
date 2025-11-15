@@ -20,8 +20,8 @@
   --text-orange: hsla(30, 100%, 50%, 1);
   
   /* border color */
-  --border-space-cadet: hsl(240, 45%, 17%);
-  --border-orange-alpha-30: hsla(267, 100%, 63%, 0.3); 
+  --border-space-cadet: hsl(32, 45%, 17%);
+  --border-orange-alpha-30: hsla(34, 100%, 63%, 0.3); 
   
 
   /**
@@ -162,14 +162,14 @@ body {
 }
 
 #particles-js {
-  position: absolute;
+  position: absolute; /* or relative, depending on your layout */
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;           /* full coverage of .hero */
-  z-index: 0;          /* behind text, above background */
-  pointer-events: none;/* allow clicks on content */
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind other content but still clickable through the dom*/
 }
+
 
 main, header, footer {
   position: relative;
@@ -426,11 +426,6 @@ main, header, footer {
 .hero {
   padding-block-start: 170px;
   text-align: center;
-
-  /* ADD THESE: */
-  position: relative;
-  min-height: 100vh;   /* hero is at least one viewport tall */
-  overflow: hidden;    /* particles don’t bleed outside hero */
 }
 
 .hero .section-subtitle { letter-spacing: 5px; }
@@ -1242,7 +1237,7 @@ main, header, footer {
 
 
 .hero-title-wrapper {
-  margin-top: -70px; /* Adjust this value as needed */
+  margin-top: -65px; /* Adjust this value as needed */
 }
 
 
