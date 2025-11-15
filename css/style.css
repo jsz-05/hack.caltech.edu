@@ -162,14 +162,14 @@ body {
 }
 
 #particles-js {
-  position: absolute; /* or relative, depending on your layout */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Ensure it's behind other content but still clickable through the dom*/
+  right: 0;
+  bottom: 0;           /* full coverage of .hero */
+  z-index: 0;          /* behind text, above background */
+  pointer-events: none;/* allow clicks on content */
 }
-
 
 main, header, footer {
   position: relative;
@@ -426,6 +426,11 @@ main, header, footer {
 .hero {
   padding-block-start: 170px;
   text-align: center;
+
+  /* ADD THESE: */
+  position: relative;
+  min-height: 100vh;   /* hero is at least one viewport tall */
+  overflow: hidden;    /* particles don’t bleed outside hero */
 }
 
 .hero .section-subtitle { letter-spacing: 5px; }
@@ -1237,7 +1242,7 @@ main, header, footer {
 
 
 .hero-title-wrapper {
-  margin-top: -40px; /* Adjust this value as needed */
+  margin-top: -70px; /* Adjust this value as needed */
 }
 
 

@@ -1,5 +1,5 @@
-window.addEventListener("load", function () {
-  particlesJS("particles-js", {
+(function () {
+  const config = {
     particles: {
       number: { value: 50, density: { enable: true, value_area: 800 } },
       color: { value: "#ffffff" },
@@ -59,15 +59,47 @@ window.addEventListener("load", function () {
       },
     },
     retina_detect: true,
-  });
+  };
 
-  // Extra safety: force one manual resize after layout is settled
-  setTimeout(function () {
+  function resizeParticles() {
     if (window.pJSDom && window.pJSDom.length > 0) {
       const pJS = window.pJSDom[0].pJS;
       if (pJS && pJS.fn && pJS.fn.vendors && pJS.fn.vendors.resize) {
         pJS.fn.vendors.resize();
       }
     }
-  }, 150);
-});
+  }
+
+  function initParticles() {
+    // Make sure the container exists
+    if (!document.getElementById("particles-js")) return;
+
+    particlesJS("particles-js", config);
+
+    // Initial resize
+    resizeParticles();
+
+    // Safari can be late with layout — re-run a few times
+    [300, 1000, 2000].forEach((t) => {
+      setTimeout(resizeParticles, t);
+    });
+
+    // Watch .hero size changes
+    const hero = document.querySelector(".hero");
+    if (hero && "ResizeObserver" in window) {
+      const ro = new ResizeObserver(() => {
+        resizeParticles();
+      });
+      ro.observe(hero);
+    } else {
+      // Fallback: resize on window resize
+      window.addEventListener("resize", resizeParticles);
+    }
+  }
+
+  if (document.readyState === "complete") {
+    initParticles();
+  } else {
+    window.addEventListener("load", initParticles);
+  }
+})();
