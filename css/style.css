@@ -1243,8 +1243,8 @@ main, header, footer {
 
   /* Default logo size */
 .logo-img {
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
 }
 
 /* Media query for mobile devices (e.g., max-width 600px) */

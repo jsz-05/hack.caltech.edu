@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+function initParticles() {
   particlesJS("particles-js", {
     particles: {
       number: { value: 50, density: { enable: true, value_area: 800 } },
@@ -53,21 +53,26 @@ window.addEventListener("load", function () {
           opacity: 8,
           speed: 3,
         },
-        repulse: { distance: 100, duration: 0.4 },
+        repulse: { distance: 150, duration: 0.4 },
         push: { particles_nb: 4 },
         remove: { particles_nb: 2 },
       },
     },
     retina_detect: true,
   });
+}
 
-  // Extra safety: force one manual resize after layout is settled
-  setTimeout(function () {
-    if (window.pJSDom && window.pJSDom.length > 0) {
-      const pJS = window.pJSDom[0].pJS;
-      if (pJS && pJS.fn && pJS.fn.vendors && pJS.fn.vendors.resize) {
-        pJS.fn.vendors.resize();
-      }
+// 1) Start particles as soon as the DOM is ready (fast)
+document.addEventListener("DOMContentLoaded", function () {
+  initParticles();
+});
+
+// 2) Once everything (images, iframes) is loaded, force a clean resize
+window.addEventListener("load", function () {
+  if (window.pJSDom && window.pJSDom.length > 0) {
+    const pJS = window.pJSDom[0].pJS;
+    if (pJS && pJS.fn && pJS.fn.vendors && pJS.fn.vendors.resize) {
+      pJS.fn.vendors.resize();
     }
-  }, 150);
+  }
 });
