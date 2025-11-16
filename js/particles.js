@@ -1,4 +1,7 @@
-function initParticles() {
+// js/particles.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize particles as soon as the DOM is ready
   particlesJS("particles-js", {
     particles: {
       number: { value: 50, density: { enable: true, value_area: 800 } },
@@ -38,7 +41,7 @@ function initParticles() {
       },
     },
     interactivity: {
-      detect_on: "canvas",
+      detect_on: "window",
       events: {
         onhover: { enable: false, mode: "grab" },
         onclick: { enable: true, mode: "repulse" },
@@ -60,19 +63,16 @@ function initParticles() {
     },
     retina_detect: true,
   });
-}
 
-// 1) Start particles as soon as the DOM is ready (fast)
-document.addEventListener("DOMContentLoaded", function () {
-  initParticles();
-});
-
-// 2) Once everything (images, iframes) is loaded, force a clean resize
-window.addEventListener("load", function () {
-  if (window.pJSDom && window.pJSDom.length > 0) {
-    const pJS = window.pJSDom[0].pJS;
-    if (pJS && pJS.fn && pJS.fn.vendors && pJS.fn.vendors.resize) {
-      pJS.fn.vendors.resize();
-    }
-  }
+  // Optional: once *everything* is loaded, force a final resize
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      if (window.pJSDom && window.pJSDom.length > 0) {
+        const pJS = window.pJSDom[0].pJS;
+        if (pJS && pJS.fn && pJS.fn.vendors && pJS.fn.vendors.resize) {
+          pJS.fn.vendors.resize();
+        }
+      }
+    }, 100);
+  });
 });
