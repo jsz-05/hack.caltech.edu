@@ -773,98 +773,109 @@ main, header, footer {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
+/* ==================================
+   1) Small screens (phones & small tablets)
+   Fix hero gap + small tweaks
+   ================================== */
+@media (max-width: 767px) {
+
+  /* Stop forcing full-screen hero on mobile */
+  .hero {
+    min-height: auto;
+    padding-block-start: 140px;  /* a bit less than 170px */
+  }
+
+  /* Slightly smaller headings on small screens (optional but nicer) */
+  .section-title,
+  .section-subtitle {
+    font-size: 3rem;
+  }
+
+  /* Make sure hero banner just sits under the content without extra weird spacing */
+  .hero-banner {
+    margin-block-start: 20px;
+  }
+
+  /* Keep copyright readable on small screens */
+  .copyright {
+    font-size: 12px;
+  }
+}
+
+
+/* ==================================
+   2) ≥ 350px
+   Small layout improvements
+   ================================== */
 @media (min-width: 350px) {
-  .director-list { grid-template-columns: repeat(2, 1fr); }
+
+  .director-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
 }
 
-/**
- * responsive for large than 575px screen
- */
 
+/* ==================================
+   3) ≥ 575px
+   Container width + basic grid tweaks
+   ================================== */
 @media (min-width: 575px) {
 
-  /**
-   * REUSED STYLE
-   */
-
+  /* REUSED STYLE */
   .container {
     max-width: 540px;
     width: 100%;
     margin-inline: auto;
   }
 
+  .director-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-  .director-list { grid-template-columns: repeat(2, 1fr); }
-
-
-
-
-
-  /**
-   * UPCOMING
-   */
-
+  /* UPCOMING */
   .upcoming-card.left .card-meta {
     left: auto;
     right: -15%;
   }
 
-  .upcoming-card.right .card-meta { left: 25%; }
+  .upcoming-card.right .card-meta {
+    left: 25%;
+  }
 
-
-
-  /**
-   * FOOTER
-   */
-
-  .footer-top .container { grid-template-columns: 1fr 1fr; }
-
+  /* FOOTER */
+  .footer-top .container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 
 
-
-
-/**
- * responsive for large than 768px screen
- */
-
+/* ==================================
+   4) ≥ 768px
+   Tablet and up: typography, hero BG, cursor
+   ================================== */
 @media (min-width: 768px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
+  /* CUSTOM PROPERTY: bigger headings on larger screens */
   :root {
-
-    /**
-     * TYPOGRAPHY
-     */
-
-    /* font size */
     --fontSize-1: 6.5rem;
     --fontSize-2: 3.2rem;
-
   }
 
+  /* REUSED STYLE */
+  .container {
+    max-width: 720px;
+  }
 
+  .h1 {
+    line-height: 1;
+  }
 
-  /**
-   * REUSED STYLE
-   */
-
-  .container { max-width: 720px; }
-
-  .h1 { line-height: 1; }
-
-
-
-  /**
-   * HERO
-   */
-
-  .hero .section-subtitle { letter-spacing: 10px; }
+  /* HERO */
+  .hero .section-subtitle {
+    letter-spacing: 10px;
+  }
 
   .hero-banner-bg {
     display: block;
@@ -877,41 +888,38 @@ main, header, footer {
     z-index: -1;
   }
 
-
-
-  /**
-   * UPCOMING
-   */
-
-  .upcoming-card::before { height: 110px; }
+  /* UPCOMING */
+  .upcoming-card::before {
+    height: 110px;
+  }
 
   .upcoming-card .card-meta {
     padding-block: 12px;
     bottom: 20px;
   }
 
-  .upcoming-card .card-title { --fontSize-3: 2.8rem; }
+  .upcoming-card .card-title {
+    --fontSize-3: 2.8rem;
+  }
 
-  .upcoming-card.left .card-meta { right: -10%; }
+  .upcoming-card.left .card-meta {
+    right: -10%;
+  }
 
-  .upcoming-card.right .card-meta { left: 20%; }
+  .upcoming-card.right .card-meta {
+    left: 20%;
+  }
 
-  .upcoming-time .time { --fontSize-1: 5rem; }
+  .upcoming-time .time {
+    --fontSize-1: 5rem;
+  }
 
+  /* NEWS */
+  .news-list {
+    grid-template-columns: 1fr 1fr;
+  }
 
-
-  /**
-   * NEWS 
-   */
-
-  .news-list { grid-template-columns: 1fr 1fr; }
-
-
-
-  /**
-   * CUSTOM CURSOR
-   */
-
+  /* CUSTOM CURSOR */
   .cursor {
     display: block;
     position: fixed;
@@ -929,63 +937,43 @@ main, header, footer {
     transition-property: opacity, transform;
   }
 
-  body:hover .cursor { opacity: 0.5; }
+  body:hover .cursor {
+    opacity: 0.5;
+  }
 
   body .cursor.hovered {
     transform: translate(-50%, -50%) scale(1.3);
     opacity: 0.75;
   }
-
 }
 
 
 
-
-
-/**
- * responsive for large than 992px screen
- */
-
+/* ==================================
+   5) ≥ 992px
+   Desktop: header nav, 3-col grids, spacing
+   ================================== */
 @media (min-width: 992px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
+  /* CUSTOM PROPERTY */
   :root {
-    
-    /**
-     * TYPOGRAPHY
-     */
-
-    /* font size */
     --fontSize-2: 4.5rem;
-
-    /**
-     * SPACING
-     */
-
     --section-spacing: 100px;
-
   }
 
+  /* REUSED STYLE */
+  .container {
+    max-width: 960px;
+  }
 
+  .h2 {
+    line-height: 1.1;
+  }
 
-  /**
-   * REUSED STYLE
-   */
-
-  .container { max-width: 960px; }
-
-  .h2 { line-height: 1.1; }
-
-
-
-  /**
-   * HEADER
-   */
-
-  .nav-toggle-btn { display: none; }
+  /* HEADER: switch to full desktop nav */
+  .nav-toggle-btn {
+    display: none;
+  }
 
   .navbar,
   .navbar.active {
@@ -994,36 +982,34 @@ main, header, footer {
   }
 
   .navbar-item,
-  .navbar-item:last-child { border: none; }
+  .navbar-item:last-child {
+    border: none;
+  }
 
-  .navbar-list { display: flex; }
+  .navbar-list {
+    display: flex;
+  }
 
   .header .btn {
     display: grid;
     text-align: center;
   }
 
+  /* HERO */
+  .hero-banner-bg {
+    transform: scale(1.2);
+  }
 
-
-  /**
-   * HERO
-   */
-
-  .hero-banner-bg { transform: scale(1.2); }
-
-
-
-  /**
-   * UPCOMING
-   */
-
+  /* UPCOMING */
   .upcoming-item {
     display: grid;
     grid-template-columns: 1fr 0.5fr 1fr;
     align-items: center;
   }
 
-  .upcoming-time { margin-block: 0; }
+  .upcoming-time {
+    margin-block: 0;
+  }
 
   .upcoming-card .card-meta {
     left: 50%;
@@ -1031,119 +1017,89 @@ main, header, footer {
     transform: translateX(-50%);
   }
 
-  .upcoming-card.right .card-meta { left: 50%; }
+  .upcoming-card.right .card-meta {
+    left: 50%;
+  }
 
+  /* NEWS & DIRECTORS */
+  .news-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
+  .director-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-  /**
-   * NEWS
-   */
-
-  .news-list { grid-template-columns: repeat(3, 1fr); }
-  .director-list { grid-template-columns: repeat(4, 1fr); }
-
-
-
-  /**
-   * FOOTER
-   */
-   
-  .footer-top .container { grid-template-columns: repeat(4, 1fr); }
-
+  /* FOOTER */
+  .footer-top .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 
 
-
-
-/**
- * responsive for large than 1200px screen
- */
-
+/* ==================================
+   6) ≥ 1200px
+   Large desktop: wider container, hero tweaks
+   ================================== */
 @media (min-width: 1200px) {
 
-  /**
-   * REUSED STYLE
-   */
+  /* REUSED STYLE */
+  .container {
+    max-width: 1140px;
+  }
 
-  .container { max-width: 1140px; }
+  .section-text {
+    margin-block-end: 60px;
+  }
 
-  .section-text { margin-block-end: 60px; }
+  /* HERO */
+  .hero {
+    padding-block-start: 250px;
+  }
 
-
-
-  /**
-   * HERO
-   */
-
-  .hero { padding-block-start: 250px; }
-
-  .hero-banner-bg { transform: scale(1.2); }
+  .hero-banner-bg {
+    transform: scale(1.2);
+  }
 
   .hero-banner .w-100 {
     max-width: max-content;
     margin-inline: auto;
   }
 
-
-
-  /**
-   * UPCOMING
-   */
-
+  /* UPCOMING */
   .upcoming-card .card-banner {
     max-height: 180px;
     width: auto;
   }
 
-  .upcoming-card .card-meta { bottom: 0; }
+  .upcoming-card .card-meta {
+    bottom: 0;
+  }
 
-  .upcoming-card.right .card-meta { left: 35%; }
+  .upcoming-card.right .card-meta {
+    left: 35%;
+  }
 
-  .upcoming-time .time { --fontSize-1: 6.2rem; }
+  .upcoming-time .time {
+    --fontSize-1: 6.2rem;
+  }
 
+  /* FOOTER */
+  .footer-top .container {
+    grid-template-columns: 1f 0.5fr 0.5fr 1fr;
+  }
 
-
-  /**
-   * FOOTER
-   */
-
-  .footer-top .container { grid-template-columns: 1f 0.5fr 0.5fr 1fr; }
-
-  .footer .logo img { width: 205px; }
-  /* .logo-footer { width: 100px; } */
-
+  .footer .logo img {
+    width: 205px;
+  }
 }
 
-
+/* Keep desktop copyright alignment outside media query */
 .copyright {
   display: flex;
   align-items: center;
 }
-
-@media (max-width: 600px) {
-  .copyright {
-    font-size: 12px; 
-  }
-}
-
-.name-link {
-  color: inherit; 
-  text-decoration: underline; 
-  
-}
-
-.name-link:hover {
-  text-decoration: underline; 
-  color: #ff7300;
-}
-
-
-
-
-
-
-
 
 
 /* faq section */
