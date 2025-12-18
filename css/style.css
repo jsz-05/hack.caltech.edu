@@ -165,7 +165,7 @@ body {
 /* Hero should be the positioning context */
 .hero {
   position: relative;
-  min-height: 100vh;   /* hero fills the first screen */
+  min-height: auto; 
   overflow: hidden;
 }
 
