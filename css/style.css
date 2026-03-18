@@ -782,7 +782,7 @@ main, header, footer {
   /* Stop forcing full-screen hero on mobile */
   .hero {
     min-height: auto;
-    padding-block-start: 140px;  /* a bit less than 170px */
+    padding-block-start: 200px;  /* a bit less than 170px */
   }
 
   /* Slightly smaller headings on small screens (optional but nicer) */
@@ -1055,7 +1055,7 @@ main, header, footer {
 
   /* HERO */
   .hero {
-    padding-block-start: 250px;
+    padding-block-start: 275px;
   }
 
   .hero-banner-bg {
