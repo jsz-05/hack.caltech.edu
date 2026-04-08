@@ -28,14 +28,16 @@
   .tier-silver { grid-template-columns: repeat(3, 1fr); }
   .tier-bronze { grid-template-columns: repeat(4, 1fr); }
   
-  /* ---------- PYRAMID EFFECT for the Gold tier ---------- */
-/* Default: two sponsors side-by-side */
+  /* ---------- Gold tier: 2-column grid ---------- */
+/* Even count → pure 2-col grid (2×3 for 6, etc.).
+   Odd count (3+) → first card spans full width for a pyramid look. */
 .tier-gold {
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* Pyramid effect ONLY if there are 3+ gold sponsors */
-.tier-gold:has(.sponsor-card:nth-child(3)) .sponsor-card:first-child {
+/* Pyramid: only when there are an odd number of gold sponsors (3+).
+   Detects odd total: the last child sits at an odd position. */
+.tier-gold:has(.sponsor-card:last-child:nth-child(odd)):has(.sponsor-card:nth-child(3)) .sponsor-card:first-child {
   grid-column: 1 / -1;
   justify-self: center;
   max-width: 50ch;
