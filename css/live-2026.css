@@ -24,6 +24,7 @@
 }
 
 html {
+  background: var(--bg-page);
   color-scheme: dark;
   scroll-behavior: smooth;
 }
@@ -31,6 +32,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--bg-page);
   background:
     radial-gradient(circle at 24% 6%, rgba(255, 129, 66, 0.14), transparent 26rem),
     linear-gradient(180deg, #171717 0%, #201911 48%, #171717 100%);

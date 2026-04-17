@@ -182,8 +182,9 @@ function getCoordinateLink(location) {
   const label = encodeURIComponent(location.name);
   const coords = `${location.lat},${location.lng}`;
   const userAgent = navigator.userAgent || "";
+  const isAppleTouchDevice = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-  if (/iPad|iPhone|iPod/.test(userAgent)) {
+  if (isAppleTouchDevice) {
     return `https://maps.apple.com/?ll=${coords}&q=${label}`;
   }
 
