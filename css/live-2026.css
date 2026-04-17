@@ -37,6 +37,7 @@ body {
   color: var(--text-gainsboro);
   font-family: var(--font-body);
   line-height: 1.55;
+  position: relative;
 }
 
 body.modal-open {
@@ -80,37 +81,67 @@ code {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  min-height: 76px;
-  padding: 12px max(16px, calc((100vw - 1120px) / 2));
+  min-height: 66px;
+  padding: 9px max(14px, calc((100vw - 1120px) / 2));
   background: rgba(23, 23, 23, 0.88);
   border-bottom: 1px solid rgba(255, 129, 66, 0.18);
   backdrop-filter: blur(16px);
 }
 
 .live-brand {
-  width: clamp(150px, 22vw, 230px);
-  flex: 0 0 auto;
+  width: clamp(136px, 19vw, 205px);
 }
 
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 18px;
+  flex-direction: row;
+  gap: 10px;
   min-width: 0;
-}
-
-.event-date {
-  color: var(--text-orange);
-  font-size: clamp(0.82rem, 1.3vw, 0.98rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  white-space: nowrap;
 }
 
 .live-tabs {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 69, 69, 0.7);
+  border-radius: 6px;
+  color: #ff4545;
+  background: rgba(255, 69, 69, 0.08);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff4545;
+  box-shadow: 0 0 0 0 rgba(255, 69, 69, 0.72);
+  animation: livePulse 1.5s ease-out infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 69, 69, 0.72);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 69, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 69, 69, 0);
+  }
 }
 
 .live-tab-group {
@@ -125,12 +156,13 @@ code {
 
 .live-tab,
 .live-nav-action {
-  min-height: 42px;
-  padding: 0 18px;
+  min-height: 38px;
+  padding: 0 15px;
   border-radius: 6px;
   color: var(--text-white);
   display: grid;
   place-items: center;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0;
@@ -196,15 +228,6 @@ code {
     linear-gradient(180deg, rgba(23, 23, 23, 0.28), #171717 96%),
     url("../images/hero-banner-bg.webp") center bottom / cover no-repeat;
   opacity: 0.42;
-}
-
-.live-particles {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
 }
 
 .hero-live-content {
@@ -299,6 +322,8 @@ h3 {
 }
 
 .live-section {
+  position: relative;
+  z-index: 1;
   padding-block: clamp(26px, 4vw, 46px);
 }
 
@@ -853,17 +878,16 @@ h3 {
   }
 
   .brand-lockup {
-    justify-content: space-between;
-  }
-
-  .event-date {
-    white-space: normal;
-    text-align: right;
+    align-items: center;
   }
 
   .live-tabs {
     width: 100%;
     overflow-x: auto;
+  }
+
+  .live-tab-group {
+    margin-left: auto;
   }
 
   .live-tab {
@@ -928,7 +952,7 @@ h3 {
   }
 
   .live-brand {
-    width: 176px;
+    width: 158px;
   }
 
   h1 {
@@ -947,15 +971,11 @@ h3 {
     font-size: 0.86rem;
   }
 
-  .event-date {
-    font-size: 0.92rem;
-  }
-
   .live-tab,
   .live-nav-action {
-    min-height: 44px;
-    padding-inline: 16px;
-    font-size: 0.94rem;
+    min-height: 40px;
+    padding-inline: 14px;
+    font-size: 0.86rem;
   }
 
   .schedule-days {

@@ -184,7 +184,7 @@ function getCoordinateLink(location) {
   const userAgent = navigator.userAgent || "";
 
   if (/iPad|iPhone|iPod/.test(userAgent)) {
-    return `maps://?ll=${coords}&q=${label}`;
+    return `https://maps.apple.com/?ll=${coords}&q=${label}`;
   }
 
   if (/Android/.test(userAgent)) {
@@ -531,100 +531,6 @@ function setupCurrentLocation() {
   });
 }
 
-function setupLiveParticles() {
-  const canvas = document.querySelector("#live-particles");
-  const hero = document.querySelector(".hero-live");
-
-  if (!canvas || !hero) {
-    return;
-  }
-
-  const context = canvas.getContext("2d");
-  const particles = [];
-  const particleCount = 50;
-  const maxLinkDistance = 155;
-  let animationFrame;
-
-  function resizeCanvas() {
-    const bounds = hero.getBoundingClientRect();
-    const pixelRatio = window.devicePixelRatio || 1;
-
-    canvas.width = Math.floor(bounds.width * pixelRatio);
-    canvas.height = Math.floor(bounds.height * pixelRatio);
-    canvas.style.width = `${bounds.width}px`;
-    canvas.style.height = `${bounds.height}px`;
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-  }
-
-  function resetParticle(particle) {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-
-    particle.x = Math.random() * width;
-    particle.y = Math.random() * height;
-    particle.vx = (Math.random() - 0.5) * 0.6;
-    particle.vy = (Math.random() - 0.5) * 0.6;
-    particle.radius = 1 + Math.random() * 2;
-  }
-
-  function seedParticles() {
-    particles.length = 0;
-    for (let index = 0; index < particleCount; index += 1) {
-      const particle = {};
-      resetParticle(particle);
-      particles.push(particle);
-    }
-  }
-
-  function drawParticles() {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-
-    context.clearRect(0, 0, width, height);
-
-    particles.forEach((particle, index) => {
-      particle.x += particle.vx;
-      particle.y += particle.vy;
-
-      if (particle.x < -10 || particle.x > width + 10 || particle.y < -10 || particle.y > height + 10) {
-        resetParticle(particle);
-      }
-
-      context.beginPath();
-      context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      context.fillStyle = "rgba(255, 255, 255, 0.5)";
-      context.fill();
-
-      for (let nextIndex = index + 1; nextIndex < particles.length; nextIndex += 1) {
-        const nextParticle = particles[nextIndex];
-        const distance = Math.hypot(particle.x - nextParticle.x, particle.y - nextParticle.y);
-
-        if (distance < maxLinkDistance) {
-          context.beginPath();
-          context.moveTo(particle.x, particle.y);
-          context.lineTo(nextParticle.x, nextParticle.y);
-          context.strokeStyle = `rgba(255, 255, 255, ${0.28 * (1 - distance / maxLinkDistance)})`;
-          context.lineWidth = 1;
-          context.stroke();
-        }
-      }
-    });
-
-    animationFrame = requestAnimationFrame(drawParticles);
-  }
-
-  resizeCanvas();
-  seedParticles();
-  drawParticles();
-
-  window.addEventListener("resize", () => {
-    cancelAnimationFrame(animationFrame);
-    resizeCanvas();
-    seedParticles();
-    drawParticles();
-  });
-}
-
 function timeToMinutes(time) {
   const [hours, minutes] = time.split(":").map(Number);
   return hours * 60 + minutes;
@@ -855,7 +761,6 @@ function init() {
   setInterval(updateCountdown, 1000);
   setupTabs();
   setExternalLinks();
-  setupLiveParticles();
   setupMap();
   setupCurrentLocation();
   setupScheduleModal();
