@@ -3,7 +3,6 @@
 const liveConfig = {
   hackingStartsAt: "2026-04-24T17:00:00-07:00",
   hackingEndsAt: "2026-04-26T12:00:00-07:00",
-  scheduleTimeZoneLabel: "PST",
   googleMapsApiKey: "",
   mapTileUrl: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
   mapAttribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -541,7 +540,7 @@ function formatHour(hour) {
   const normalized = hour % 24;
   const displayHour = normalized % 12 || 12;
   const suffix = normalized < 12 ? "AM" : "PM";
-  return `${displayHour} ${suffix} ${liveConfig.scheduleTimeZoneLabel}`;
+  return `${displayHour} ${suffix}`;
 }
 
 function formatEventTime(time) {
@@ -615,7 +614,7 @@ function openScheduleModal(event, trigger) {
 
   activeScheduleModalTrigger = trigger;
   title.textContent = event.title;
-  time.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)} ${liveConfig.scheduleTimeZoneLabel}`;
+  time.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)}`;
   location.textContent = event.location;
   description.textContent = event.description || "More details coming soon.";
   links.innerHTML = "";
@@ -753,7 +752,7 @@ function renderSchedule(dayId) {
     contentEl.className = "schedule-event-content";
     titleEl.textContent = event.title;
     timeEl.className = "schedule-event-time";
-    timeEl.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)} ${liveConfig.scheduleTimeZoneLabel}`;
+    timeEl.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)}`;
     locationEl.className = "schedule-event-location";
     locationEl.textContent = event.location;
     contentEl.append(titleEl, timeEl, locationEl);

@@ -629,7 +629,7 @@ h3 {
 .schedule-board {
   --row-height: 88px;
   display: grid;
-  grid-template-columns: 86px minmax(0, 1fr);
+  grid-template-columns: 60px minmax(0, 1fr);
   min-height: 590px;
   overflow: visible;
   background:
@@ -650,7 +650,7 @@ h3 {
 
 .time-slot {
   height: var(--row-height);
-  padding: 8px 12px 0 0;
+  padding: 8px 9px 0 0;
   color: var(--text-muted);
   font-size: 0.82rem;
   font-weight: 700;
@@ -954,7 +954,7 @@ h3 {
   }
 
   .schedule-board {
-    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-columns: 56px minmax(0, 1fr);
   }
 
   .schedule-event {
@@ -1030,7 +1030,7 @@ h3 {
   .schedule-board {
     --row-height: 88px;
     min-height: 540px;
-    grid-template-columns: 58px minmax(0, 1fr);
+    grid-template-columns: 52px minmax(0, 1fr);
   }
 
   .schedule-event h3 {
