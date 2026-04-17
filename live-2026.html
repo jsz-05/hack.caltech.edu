@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacktech Live 2026</title>
+  <meta name="description" content="Live schedule, map, FAQ, and event links for Hacktech 2026 at Caltech.">
+  <link rel="canonical" href="https://hack.caltech.edu/live-2026">
+
+  <link rel="icon" href="./favicon.png" type="image/png">
+  <link rel="icon" href="./images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/live-2026.css">
+</head>
+<body>
+  <header class="live-header">
+    <div class="brand-lockup">
+      <a class="live-brand" href="/" aria-label="Hacktech home">
+        <img src="./images/logo-text.svg" alt="Hacktech">
+      </a>
+      <span class="event-date">April 24-26, 2026 at Caltech</span>
+    </div>
+
+    <nav class="live-tabs" aria-label="Live site navigation">
+      <button class="live-tab is-active" type="button" data-tab-target="home">Live</button>
+      <button class="live-tab" type="button" data-tab-target="faq">FAQ</button>
+      <a class="live-tab live-tab-link" href="https://devpost.com/software/example-project" target="_blank" rel="noopener">Devpost</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="tab-panel is-active" id="home" data-tab-panel>
+      <section class="hero-live" aria-label="Hacktech countdown">
+        <div class="hero-live-bg" aria-hidden="true"></div>
+        <div class="live-container hero-live-content">
+          <section class="countdown-panel" aria-label="Hacktech countdown">
+            <div class="countdown-status" id="countdown-status">Until hacking starts</div>
+            <div class="countdown-readout" aria-live="polite">
+              <span id="countdown-days">00</span><span aria-hidden="true">:</span><span id="countdown-hours">00</span><span aria-hidden="true">:</span><span id="countdown-minutes">00</span><span aria-hidden="true">:</span><span id="countdown-seconds">00</span>
+            </div>
+            <div class="countdown-labels" aria-hidden="true">
+              <span>Days</span>
+              <span>Hours</span>
+              <span>Mins</span>
+              <span>Sec</span>
+            </div>
+          </section>
+
+          <a class="discord-cta" href="https://discord.gg/9ykYzMSxyU" target="_blank" rel="noopener">Join Discord</a>
+        </div>
+      </section>
+
+      <section class="live-section live-container map-schedule-layout" aria-labelledby="map-title">
+        <div class="section-heading">
+          <p class="eyebrow">Campus guide</p>
+          <h2 id="map-title">Venue Map</h2>
+        </div>
+
+        <div class="map-shell">
+          <div class="map-toolbar" aria-label="Map filters">
+            <button class="map-filter is-active" type="button" data-map-filter="all">All</button>
+            <button class="map-filter" type="button" data-map-filter="ceremony">Ceremonies</button>
+            <button class="map-filter" type="button" data-map-filter="workspace">Workspaces</button>
+            <button class="map-filter" type="button" data-map-filter="logistics">Logistics</button>
+          </div>
+
+          <div class="map-grid">
+            <div class="campus-map" id="campus-map" aria-label="Interactive Caltech venue map"></div>
+            <aside class="location-panel" aria-live="polite">
+              <p class="location-kicker" id="location-type">Selected location</p>
+              <h3 id="location-name">Opening Ceremony</h3>
+              <p id="location-description">Check-in, opening remarks, and kickoff.</p>
+              <a id="location-link" href="https://maps.google.com/?q=Caltech+Pasadena+CA" target="_blank" rel="noopener">Open Map Coordinates</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="live-section live-container" aria-labelledby="schedule-title">
+        <div class="section-heading schedule-heading">
+          <div>
+            <p class="eyebrow">Weekend timeline</p>
+            <h2 id="schedule-title">Schedule</h2>
+          </div>
+          <p class="schedule-note">Edit the schedule data in <code>js/live-2026.js</code> when blocks are finalized.</p>
+        </div>
+
+        <div class="schedule-days" role="tablist" aria-label="Schedule days"></div>
+        <div class="schedule-board" id="schedule-board"></div>
+      </section>
+    </section>
+
+    <section class="tab-panel" id="faq" data-tab-panel>
+      <section class="live-section live-container faq-view" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <p class="eyebrow">Hacker packet</p>
+          <h1 id="faq-title">Live FAQ</h1>
+        </div>
+        <iframe
+          class="faq-frame"
+          src="https://docs.google.com/document/d/e/2PACX-EXAMPLE/pub?embedded=true"
+          title="Hacktech 2026 FAQ Google Doc">
+        </iframe>
+      </section>
+    </section>
+  </main>
+
+  <script src="./js/live-2026.js" defer></script>
+</body>
+</html>
