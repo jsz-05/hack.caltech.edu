@@ -819,6 +819,14 @@ h3 {
   font-size: clamp(1.9rem, 4.4vw, 3.3rem);
 }
 
+.faq-note {
+  max-width: 620px;
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .faq-frame {
   display: block;
   width: min(100%, 880px);

@@ -125,11 +125,6 @@ let activeMapController = null;
 let activeScheduleModalTrigger = null;
 let activeMapTooltipController = null;
 
-function withEmbeddedParam(url) {
-  const separator = url.includes("?") ? "&" : "?";
-  return url.includes("embedded=true") ? url : `${url}${separator}embedded=true`;
-}
-
 const countdownEls = {
   status: document.querySelector("#countdown-status"),
   days: document.querySelector("#countdown-days"),
@@ -137,6 +132,12 @@ const countdownEls = {
   minutes: document.querySelector("#countdown-minutes"),
   seconds: document.querySelector("#countdown-seconds")
 };
+
+function withEmbeddedParam(url) {
+  const separator = url.includes("?") ? "&" : "?";
+
+  return url.includes("embedded=true") ? url : `${url}${separator}embedded=true`;
+}
 
 function pad(value) {
   return String(value).padStart(2, "0");
