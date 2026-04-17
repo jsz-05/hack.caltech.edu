@@ -827,6 +827,17 @@ h3 {
   font-weight: 700;
 }
 
+.faq-backup-link {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.faq-backup-link a {
+  color: var(--text-orange);
+}
+
 .faq-frame {
   display: block;
   width: min(100%, 880px);
