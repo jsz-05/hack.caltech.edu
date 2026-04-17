@@ -1,0 +1,16 @@
+{
+  "name": "Hacktech 2026",
+  "short_name": "Hacktech 2026",
+  "start_url": "/live",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#171717",
+  "icons": [
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

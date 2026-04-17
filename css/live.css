@@ -957,8 +957,19 @@ h3 {
   font-size: clamp(1.6rem, 5vw, 2.6rem);
 }
 
-.construction-modal-card p:not(.construction-modal-kicker) {
+.construction-modal-card p:not(.construction-modal-kicker),
+.install-steps {
   color: var(--text-muted);
+}
+
+.install-steps {
+  margin: 14px 0 0;
+  padding-left: 1.35rem;
+  font-weight: 700;
+}
+
+.install-steps li + li {
+  margin-top: 8px;
 }
 
 .construction-modal-ack {

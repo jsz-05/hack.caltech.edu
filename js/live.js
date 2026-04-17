@@ -223,9 +223,8 @@ function getCoordinateLink(location) {
   const label = encodeURIComponent(location.name);
   const coords = `${location.lat},${location.lng}`;
   const userAgent = navigator.userAgent || "";
-  const isAppleTouchDevice = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-  if (isAppleTouchDevice) {
+  if (isAppleTouchDevice()) {
     return `https://maps.apple.com/?ll=${coords}&q=${label}`;
   }
 
@@ -234,6 +233,16 @@ function getCoordinateLink(location) {
   }
 
   return `https://www.google.com/maps/search/?api=1&query=${coords}`;
+}
+
+function isAppleTouchDevice() {
+  const userAgent = navigator.userAgent || "";
+
+  return /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+}
+
+function isStandaloneWebApp() {
+  return window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
 }
 
 function getScheduleLocationVenue(locationName) {
@@ -789,7 +798,12 @@ function setupScheduleModal() {
 function openConstructionModal() {
   const modal = document.querySelector("#construction-modal");
 
-  if (!modal || sessionStorage.getItem("hacktechLiveConstructionDismissed") === "true") {
+  if (
+    !modal ||
+    !isAppleTouchDevice() ||
+    isStandaloneWebApp() ||
+    sessionStorage.getItem("hacktechLiveInstallDismissed") === "true"
+  ) {
     return;
   }
 
@@ -809,7 +823,7 @@ function closeConstructionModal() {
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
-  sessionStorage.setItem("hacktechLiveConstructionDismissed", "true");
+  sessionStorage.setItem("hacktechLiveInstallDismissed", "true");
 }
 
 function setupConstructionModal() {
