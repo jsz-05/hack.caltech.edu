@@ -777,7 +777,8 @@ h3 {
   text-transform: uppercase;
 }
 
-.schedule-modal {
+.schedule-modal,
+.construction-modal {
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -786,18 +787,21 @@ h3 {
   padding: 18px;
 }
 
-.schedule-modal.is-open {
+.schedule-modal.is-open,
+.construction-modal.is-open {
   display: grid;
 }
 
-.schedule-modal-backdrop {
+.schedule-modal-backdrop,
+.construction-modal-backdrop {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.68);
   backdrop-filter: blur(8px);
 }
 
-.schedule-modal-card {
+.schedule-modal-card,
+.construction-modal-card {
   position: relative;
   z-index: 1;
   width: min(560px, 100%);
@@ -810,7 +814,8 @@ h3 {
   box-shadow: 0 24px 90px rgba(0, 0, 0, 0.58);
 }
 
-.schedule-modal-close {
+.schedule-modal-close,
+.construction-modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -824,7 +829,8 @@ h3 {
   line-height: 1;
 }
 
-.schedule-modal-kicker {
+.schedule-modal-kicker,
+.construction-modal-kicker {
   margin-bottom: 8px;
   padding-right: 42px;
   color: var(--text-orange);
@@ -833,10 +839,28 @@ h3 {
   text-transform: uppercase;
 }
 
-.schedule-modal-card h2 {
+.schedule-modal-card h2,
+.construction-modal-card h2 {
   margin-bottom: 10px;
   padding-right: 42px;
   font-size: clamp(1.6rem, 5vw, 2.6rem);
+}
+
+.construction-modal-card p:not(.construction-modal-kicker) {
+  color: var(--text-muted);
+}
+
+.construction-modal-ack {
+  display: inline-grid;
+  min-height: 42px;
+  place-items: center;
+  margin-top: 10px;
+  padding-inline: 18px;
+  border-radius: 6px;
+  color: var(--text-white);
+  background-image: var(--gradient-1);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .schedule-modal-location {

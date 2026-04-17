@@ -660,6 +660,47 @@ function setupScheduleModal() {
   });
 }
 
+function openConstructionModal() {
+  const modal = document.querySelector("#construction-modal");
+
+  if (!modal || sessionStorage.getItem("hacktechLiveConstructionDismissed") === "true") {
+    return;
+  }
+
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  document.querySelector(".construction-modal-ack").focus();
+}
+
+function closeConstructionModal() {
+  const modal = document.querySelector("#construction-modal");
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  sessionStorage.setItem("hacktechLiveConstructionDismissed", "true");
+}
+
+function setupConstructionModal() {
+  document.querySelectorAll("[data-construction-modal-close]").forEach((element) => {
+    element.addEventListener("click", closeConstructionModal);
+  });
+  document.addEventListener("keydown", (event) => {
+    const modal = document.querySelector("#construction-modal");
+    const modalIsOpen = modal && modal.classList.contains("is-open");
+
+    if (event.key === "Escape" && modalIsOpen) {
+      closeConstructionModal();
+    }
+  });
+  window.setTimeout(openConstructionModal, 300);
+}
+
 function renderSchedule(dayId) {
   const day = liveConfig.schedule.find((item) => item.id === dayId) || liveConfig.schedule[0];
   const board = document.querySelector("#schedule-board");
@@ -765,6 +806,7 @@ function init() {
   setupMap();
   setupCurrentLocation();
   setupScheduleModal();
+  setupConstructionModal();
   setupSchedule();
 }
 
