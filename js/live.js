@@ -1,12 +1,12 @@
 "use strict";
 
 const liveConfig = {
-  hackingStartsAt: "2026-04-24T17:00:00-07:00",
-  hackingEndsAt: "2026-04-26T12:00:00-07:00",
+  hackingStartsAt: "2026-04-24T21:00:00-07:00",
+  hackingEndsAt: "2026-04-26T09:00:00-07:00",
   googleMapsApiKey: "",
   mapTileUrl: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
   mapAttribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  googleDocUrl: "https://docs.google.com/document/d/e/2PACX-EXAMPLE/pub",
+  googleDocUrl: "https://docs.google.com/document/d/e/2PACX-1vSECEOQdmjsEYdCLzoW1GNKm5xZ7RRbv6XibaOzwGRrLj4qr3rxBVLhQimLFxJ4UZbm8VSqCdjN6_Kx/pub",
   devpostUrl: "https://devpost.com/software/example-project",
   mapBounds: {
     north: 34.1419,
@@ -22,6 +22,14 @@ const liveConfig = {
       description: "Check-in and workspace.",
       lat: 34.140281,
       lng: -118.123599
+    },
+    {
+      id: "moore-walk",
+      name: "Moore Walk",
+      type: "events",
+      description: "Check-in, company fair, and more is here.",
+      lat: 34.140061131534715,
+      lng: -118.12400769604251
     },
     {
       id: "parking-structure",
@@ -68,44 +76,46 @@ const liveConfig = {
     {
       id: "friday",
       label: "Fri Apr 24",
-      startHour: 16,
+      startHour: 15,
       endHour: 24,
       events: [
-        { title: "Check-in", location: "Beckman Lawn", start: "16:00", end: "17:00", description: "Pick up your badge, wristband, and weekend materials." },
-        { title: "Sponsor Expo", location: "Hameetman Lobby", start: "16:15", end: "17:00", description: "Meet sponsors and learn about prizes, APIs, and recruiting opportunities.", links: [{ label: "Sponsor list", url: "#" }] },
-        { title: "Opening Ceremony", location: "Ramo Auditorium", start: "17:00", end: "18:00", description: "Welcome remarks, rules, theme reveal, and kickoff." },
-        { title: "Team Formation", location: "Main Hacking Space", start: "18:00", end: "19:00", description: "Find teammates or add people to your group before hacking begins." },
-        { title: "First-Time Hacker Meetup", location: "Avery Courtyard", start: "18:15", end: "19:00", description: "A low-pressure intro session for first-time participants." },
-        { title: "Dinner", location: "Beckman Mall", start: "19:00", end: "20:00", description: "Dinner pickup and seating." }
+        { title: "Check-in", category: "checkin", location: "Moore Walk", start: "15:00", end: "17:00", description: "Please bring your ID. More details will be shared closer to the event." },
+        { title: "Opening Ceremony", category: "key", location: "Baxter Lecture Hall", start: "17:00", end: "18:30", description: "More details will be shared closer to the event." },
+        { title: "Dinner", category: "food", location: "Moore Walk", start: "18:30", end: "19:30", description: "More details will be shared closer to the event." },
+        { title: "Team Matching", category: "sponsor", location: "Avery Outer Courtyard", start: "19:30", end: "21:00", description: "More details will be shared closer to the event." },
+        { title: "IFM Workshop + Talk", category: "program", location: "Annenberg 104", start: "19:30", end: "21:00", description: "More details will be shared closer to the event." },
+        { title: "Hacking Begins", category: "key", location: "Hacktech", start: "21:00", end: "21:15", description: "More details will be shared closer to the event." },
+        { title: "MLH Workshops", category: "program", location: "Annenberg 104", start: "21:00", end: "22:00", description: "More details will be shared closer to the event." }
       ]
     },
     {
       id: "saturday",
       label: "Sat Apr 25",
-      startHour: 8,
-      endHour: 24,
+      startHour: 7,
+      endHour: 22,
       events: [
-        { title: "Breakfast", location: "Beckman Mall", start: "09:00", end: "10:00", description: "Morning food service for hackers." },
-        { title: "Workshop Block", location: "Annenberg 105", start: "11:00", end: "12:30", description: "Technical workshops and sponsor demos.", links: [{ label: "Slides", url: "#" }] },
-        { title: "Hardware Lab Hours", location: "Moore B270", start: "11:30", end: "13:00", description: "Borrow parts, debug circuits, and get hardware support." },
-        { title: "Sponsor Office Hours", location: "Hameetman Lobby", start: "12:00", end: "13:00", description: "Ask sponsor engineers questions about APIs, careers, and prizes." },
-        { title: "Lunch", location: "Beckman Mall", start: "13:00", end: "14:00", description: "Lunch pickup and seating." },
-        { title: "Mentor Hours", location: "Main Hacking Space", start: "15:00", end: "17:00", description: "Mentors circulate through the hacking space to help teams unblock." },
-        { title: "Mini Event", location: "Avery Courtyard", start: "15:30", end: "16:30", description: "Take a break and meet other hackers." },
-        { title: "Dinner", location: "Beckman Mall", start: "19:00", end: "20:00", description: "Dinner pickup and seating." }
+        { title: "Breakfast", category: "food", location: "Avery Dining Hall", start: "07:00", end: "10:00", description: "More details will be shared closer to the event." },
+        { title: "Company Career Fair", category: "sponsor", location: "Moore Walk", start: "09:00", end: "17:00", description: "More details will be shared closer to the event." },
+        { title: "Listen Labs Talk", category: "program", location: "Annenberg 104", start: "11:00", end: "12:00", description: "More details will be shared closer to the event." },
+        { title: "Lunch", category: "food", location: "Avery Dining Hall", start: "12:00", end: "13:00", description: "More details will be shared closer to the event." },
+        { title: "Rox Talk", category: "program", location: "Annenberg 104", start: "13:00", end: "14:00", description: "More details will be shared closer to the event." },
+        { title: "Y Combinator Talk", category: "program", location: "Annenberg 104", start: "16:00", end: "17:30", description: "More details will be shared closer to the event." },
+        { title: "Ironsite Fireside", category: "program", location: "Annenberg 104", start: "18:00", end: "19:00", description: "More details will be shared closer to the event." },
+        { title: "Dinner", category: "food", location: "Avery Dining Hall", start: "19:00", end: "21:00", description: "More details will be shared closer to the event." }
       ]
     },
     {
       id: "sunday",
       label: "Sun Apr 26",
-      startHour: 8,
+      startHour: 7,
       endHour: 16,
       events: [
-        { title: "Breakfast", location: "Beckman Mall", start: "09:00", end: "10:00", description: "Morning food service for hackers." },
-        { title: "Hacking Ends", location: "Main Hacking Space", start: "12:00", end: "12:15", description: "Submission deadline. Make sure your Devpost is complete." },
-        { title: "Judging", location: "Judging Hall", start: "13:00", end: "15:00", description: "Teams present projects to judges." },
-        { title: "Sponsor Demos", location: "Annenberg 105", start: "13:00", end: "14:00", description: "Sponsor challenge finalists present selected demos." },
-        { title: "Closing Ceremony", location: "Ramo Auditorium", start: "15:00", end: "16:00", description: "Awards, closing remarks, and wrap-up." }
+        { title: "Breakfast", category: "food", location: "Avery Dining", start: "07:00", end: "10:00", description: "More details will be shared closer to the event." },
+        { title: "Projects Due", category: "key", location: "Hacktech", start: "09:00", end: "09:15", description: "More details will be shared closer to the event." },
+        { title: "Judging: Round 1", category: "judging", location: "Bechtel Dining Hall", start: "10:00", end: "12:00", description: "More details will be shared closer to the event." },
+        { title: "Lunch", category: "food", location: "Avery Dining", start: "12:00", end: "13:00", description: "More details will be shared closer to the event." },
+        { title: "Judging: Round 2", category: "judging", location: "Bechtel Dining Hall", start: "13:00", end: "13:30", description: "More details will be shared closer to the event." },
+        { title: "Closing Ceremony", category: "key", location: "Baxter Lecture Hall", start: "14:00", end: "15:00", description: "Winners announced. More details will be shared closer to the event." }
       ]
     }
   ]
@@ -164,16 +174,31 @@ function updateCountdown() {
 function setupTabs() {
   const tabControls = document.querySelectorAll("[data-tab-target]");
   const tabPanels = document.querySelectorAll("[data-tab-panel]");
+  const liveHomeLink = document.querySelector("[data-live-home-link]");
+
+  function showTab(targetId) {
+    tabControls.forEach((item) => item.classList.toggle("is-active", item.dataset.tabTarget === targetId));
+    tabPanels.forEach((panel) => panel.classList.toggle("is-active", panel.id === targetId));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   tabControls.forEach((control) => {
     control.addEventListener("click", () => {
-      const targetId = control.dataset.tabTarget;
-
-      tabControls.forEach((item) => item.classList.toggle("is-active", item === control));
-      tabPanels.forEach((panel) => panel.classList.toggle("is-active", panel.id === targetId));
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      showTab(control.dataset.tabTarget);
     });
   });
+
+  if (liveHomeLink) {
+    liveHomeLink.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (document.querySelector("#home")?.classList.contains("is-active")) {
+        return;
+      }
+
+      showTab("home");
+    });
+  }
 }
 
 function setExternalLinks() {
@@ -209,6 +234,22 @@ function getCoordinateLink(location) {
   }
 
   return `https://www.google.com/maps/search/?api=1&query=${coords}`;
+}
+
+function getScheduleLocationVenue(locationName) {
+  const locationToVenueId = {
+    "Moore Walk": "moore-walk",
+    "Baxter Lecture Hall": "baxter-hall-entrance",
+    "Avery Outer Courtyard": "avery-house",
+    "Avery Dining Hall": "avery-house",
+    "Avery Dining": "avery-house",
+    "Bechtel Dining Hall": "bechtel-center",
+    "Annenberg 104": "annenberg-center",
+    "Parking Structure": "parking-structure"
+  };
+  const venueId = locationToVenueId[locationName];
+
+  return liveConfig.locations.find((location) => location.id === venueId) || null;
 }
 
 function drawFallbackMap(mapEl) {
@@ -688,12 +729,21 @@ function openScheduleModal(event, trigger) {
   const location = document.querySelector("#schedule-modal-location");
   const description = document.querySelector("#schedule-modal-description");
   const links = document.querySelector("#schedule-modal-links");
+  const directions = document.querySelector("#schedule-modal-directions");
+  const venue = getScheduleLocationVenue(event.location);
 
   activeScheduleModalTrigger = trigger;
   title.textContent = event.title;
   time.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)}`;
   location.textContent = event.location;
   description.textContent = event.description || "More details coming soon.";
+  if (venue) {
+    directions.href = getCoordinateLink(venue);
+    directions.hidden = false;
+  } else {
+    directions.removeAttribute("href");
+    directions.hidden = true;
+  }
   links.innerHTML = "";
   (event.links || []).forEach((link) => {
     const linkEl = document.createElement("a");
@@ -810,6 +860,7 @@ function renderSchedule(dayId) {
     const eventWidth = `calc((100% - 20px - ${gap * (event.columnCount - 1)}px) / ${event.columnCount})`;
 
     eventEl.className = "schedule-event";
+    eventEl.classList.add(`schedule-event-${event.category || "default"}`);
     if (duration <= 30) {
       eventEl.classList.add("is-short");
     }
@@ -818,6 +869,9 @@ function renderSchedule(dayId) {
     }
     if (event.columnCount > 1) {
       eventEl.classList.add("is-overlapping");
+    }
+    if (duration <= 45 || event.columnCount >= 3) {
+      eventEl.classList.add("is-cramped");
     }
     eventEl.tabIndex = 0;
     eventEl.setAttribute("role", "button");

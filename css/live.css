@@ -453,15 +453,15 @@ h3 {
 
 .map-marker {
   position: absolute;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border: 0;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: #171717;
   background-image: var(--gradient-1);
-  box-shadow: 0 0 0 7px rgba(255, 129, 66, 0.13), 0 10px 32px rgba(0, 0, 0, 0.46);
+  box-shadow: 0 0 0 6px rgba(255, 129, 66, 0.13), 0 10px 32px rgba(0, 0, 0, 0.46);
   transform: translate(-50%, -50%);
   transition: transform 180ms ease, opacity 180ms ease;
 }
@@ -513,8 +513,8 @@ h3 {
 
 .map-marker::after {
   content: "";
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #171717;
 }
@@ -691,18 +691,67 @@ h3 {
 .schedule-event {
   position: absolute;
   padding: 8px 10px;
-  border: 1px solid rgba(255, 129, 66, 0.32);
+  border: 1px solid var(--event-border, rgba(255, 129, 66, 0.32));
   border-radius: 6px;
-  background: linear-gradient(135deg, rgba(255, 129, 66, 0.22), rgba(0, 0, 0, 0.38));
+  background: var(--event-bg, linear-gradient(135deg, rgba(255, 129, 66, 0.22), rgba(0, 0, 0, 0.38)));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 14px 28px var(--event-shadow, rgba(0, 0, 0, 0.18));
   overflow: visible;
   z-index: 1;
   cursor: pointer;
 }
 
 .schedule-event:is(:hover, :focus-visible) {
-  border-color: rgba(255, 129, 66, 0.68);
+  border-color: var(--event-hover-border, rgba(255, 129, 66, 0.68));
   outline: none;
   z-index: 6;
+}
+
+.schedule-event-checkin {
+  --event-bg: linear-gradient(135deg, rgba(20, 184, 166, 0.36), rgba(8, 47, 73, 0.58));
+  --event-border: rgba(45, 212, 191, 0.58);
+  --event-hover-border: rgba(94, 234, 212, 0.92);
+  --event-shadow: rgba(20, 184, 166, 0.2);
+  --event-accent: #5eead4;
+}
+
+.schedule-event-key {
+  --event-bg: linear-gradient(135deg, rgba(239, 68, 68, 0.58), rgba(127, 29, 29, 0.64));
+  --event-border: rgba(248, 113, 113, 0.74);
+  --event-hover-border: rgba(254, 202, 202, 0.96);
+  --event-shadow: rgba(239, 68, 68, 0.24);
+  --event-accent: #fecaca;
+}
+
+.schedule-event-food {
+  --event-bg: linear-gradient(135deg, rgba(234, 179, 8, 0.38), rgba(120, 53, 15, 0.5));
+  --event-border: rgba(250, 204, 21, 0.62);
+  --event-hover-border: rgba(254, 240, 138, 0.95);
+  --event-shadow: rgba(234, 179, 8, 0.18);
+  --event-accent: #fde68a;
+}
+
+.schedule-event-judging {
+  --event-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(30, 64, 175, 0.5));
+  --event-border: rgba(96, 165, 250, 0.62);
+  --event-hover-border: rgba(147, 197, 253, 0.95);
+  --event-shadow: rgba(59, 130, 246, 0.18);
+  --event-accent: #bfdbfe;
+}
+
+.schedule-event-program {
+  --event-bg: linear-gradient(135deg, rgba(168, 85, 247, 0.38), rgba(76, 29, 149, 0.5));
+  --event-border: rgba(192, 132, 252, 0.6);
+  --event-hover-border: rgba(216, 180, 254, 0.95);
+  --event-shadow: rgba(168, 85, 247, 0.18);
+  --event-accent: #e9d5ff;
+}
+
+.schedule-event-sponsor {
+  --event-bg: linear-gradient(135deg, rgba(6, 182, 212, 0.38), rgba(8, 47, 73, 0.56));
+  --event-border: rgba(34, 211, 238, 0.62);
+  --event-hover-border: rgba(103, 232, 249, 0.95);
+  --event-shadow: rgba(6, 182, 212, 0.18);
+  --event-accent: #a5f3fc;
 }
 
 .schedule-event-content {
@@ -735,12 +784,12 @@ h3 {
 }
 
 .schedule-event-location {
-  color: var(--text-orange);
+  color: var(--event-accent, var(--text-orange));
   font-weight: 700;
 }
 
 .schedule-event.is-short .schedule-event-location,
-.schedule-event.is-overlapping .schedule-event-location {
+.schedule-event.is-cramped .schedule-event-location {
   display: none;
 }
 
@@ -772,8 +821,9 @@ h3 {
 
 .faq-frame {
   display: block;
-  width: 100%;
+  width: min(100%, 880px);
   min-height: 72vh;
+  margin-right: auto;
 }
 
 .live-footer {
@@ -856,7 +906,36 @@ h3 {
   line-height: 1;
 }
 
-.schedule-modal-kicker,
+.schedule-modal-directions {
+  position: absolute;
+  top: 10px;
+  right: 58px;
+  display: inline-grid;
+  min-height: 40px;
+  place-items: center;
+  padding-inline: 14px;
+  border: 1px solid rgba(255, 129, 66, 0.32);
+  border-radius: 6px;
+  color: var(--text-white);
+  background-image: var(--gradient-1);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.schedule-modal-directions[hidden] {
+  display: none;
+}
+
+.schedule-modal-kicker {
+  margin-bottom: 8px;
+  padding-right: 190px;
+  color: var(--text-orange);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .construction-modal-kicker {
   margin-bottom: 8px;
   padding-right: 42px;
@@ -866,7 +945,12 @@ h3 {
   text-transform: uppercase;
 }
 
-.schedule-modal-card h2,
+.schedule-modal-card h2 {
+  margin-bottom: 10px;
+  padding-right: 190px;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+}
+
 .construction-modal-card h2 {
   margin-bottom: 10px;
   padding-right: 42px;
@@ -1045,8 +1129,8 @@ h3 {
   }
 
   .map-marker {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
   }
 
   .map-marker-tooltip {
@@ -1072,9 +1156,15 @@ h3 {
     font-size: 0.68rem;
   }
 
-  .schedule-event-time,
-  .schedule-event-location {
-    display: none;
+  .schedule-modal-directions {
+    right: 54px;
+    padding-inline: 10px;
+    font-size: 0.7rem;
+  }
+
+  .schedule-modal-kicker,
+  .schedule-modal-card h2 {
+    padding-right: 150px;
   }
 
   .time-slot {
