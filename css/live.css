@@ -1027,6 +1027,12 @@ h3 {
 }
 
 @media (max-width: 820px) {
+  .construction-modal {
+    align-items: start;
+    padding-top: calc(112px + env(safe-area-inset-top));
+    overflow-y: auto;
+  }
+
   .live-header {
     align-items: stretch;
     flex-direction: column;

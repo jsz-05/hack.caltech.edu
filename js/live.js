@@ -362,6 +362,16 @@ function setupLeafletMap(mapEl) {
   let userMarker = null;
   let userCircle = null;
 
+  function applyDefaultMapView() {
+    map.invalidateSize();
+
+    if (bounds.length > 1) {
+      map.fitBounds(bounds, { padding: [52, 52], maxZoom: 18 });
+    } else {
+      map.setView([center.lat, center.lng], 17);
+    }
+  }
+
   mapEl.classList.add("interactive-map");
 
   L.tileLayer(liveConfig.mapTileUrl, {
@@ -414,24 +424,19 @@ function setupLeafletMap(mapEl) {
     }
   });
 
-  if (bounds.length > 1) {
-    map.fitBounds(bounds, { padding: [52, 52], maxZoom: 18 });
-  }
+  applyDefaultMapView();
 
   if (defaultMarker) {
     window.setTimeout(() => {
-      map.invalidateSize();
+      applyDefaultMapView();
       activeMapTooltipController.show(defaultLocation);
     }, 500);
+    window.setTimeout(applyDefaultMapView, 1000);
   }
 
   activeMapController = {
     recenter() {
-      if (bounds.length > 1) {
-        map.fitBounds(bounds, { padding: [52, 52], maxZoom: 18 });
-      } else {
-        map.setView([center.lat, center.lng], 17);
-      }
+      applyDefaultMapView();
 
       if (defaultMarker) {
         selectLocation(defaultLocation, defaultMarker);
