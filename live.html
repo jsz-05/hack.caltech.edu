@@ -71,12 +71,15 @@
 
         <div class="map-shell">
           <div class="map-grid">
-            <div class="campus-map" id="campus-map" aria-label="Interactive Caltech venue map"></div>
+            <div class="campus-map-wrap">
+              <div class="campus-map" id="campus-map" aria-label="Interactive Caltech venue map"></div>
+              <button class="map-recenter-btn" id="map-recenter-btn" type="button">Recenter</button>
+            </div>
             <aside class="location-panel" aria-live="polite">
               <p class="location-kicker" id="location-type">Selected location</p>
-              <h3 id="location-name">Opening Ceremony</h3>
-              <p id="location-description">Check-in, opening remarks, and kickoff.</p>
-              <a id="map-coordinates-link" href="https://maps.apple.com/?ll=34.1377,-118.1253&q=Opening%20Ceremony">Open Map Coordinates</a>
+              <h3 id="location-name">Avery House</h3>
+              <p id="location-description">Check-in and workspace.</p>
+              <a id="map-coordinates-link" href="https://maps.apple.com/?ll=34.140281,-118.123599&q=Avery%20House">Get Directions</a>
               <button class="locate-button" id="locate-me-btn" type="button">Show My Location</button>
               <p class="location-status" id="location-status" aria-live="polite"></p>
             </aside>

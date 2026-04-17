@@ -16,36 +16,52 @@ const liveConfig = {
   },
   locations: [
     {
-      id: "opening",
-      name: "Opening Ceremony",
-      type: "ceremony",
-      description: "Check-in, opening remarks, and kickoff.",
-      lat: 34.1377,
-      lng: -118.1253
+      id: "avery-house",
+      name: "Avery House",
+      type: "check-in + workspace",
+      description: "Check-in and workspace.",
+      lat: 34.140281,
+      lng: -118.123599
     },
     {
-      id: "judging",
-      name: "Judging Hall",
-      type: "ceremony",
-      description: "Final demos and project judging.",
-      lat: 34.1386,
-      lng: -118.1236
+      id: "parking-structure",
+      name: "Parking Structure",
+      type: "parking",
+      description: "Free parking.",
+      lat: 34.13946894834286,
+      lng: -118.12263107314755
     },
     {
-      id: "workspace",
-      name: "Main Hacking Space",
+      id: "annenberg-center",
+      name: "Annenberg Center",
+      type: "talks + workspace",
+      description: "Talks and workspace.",
+      lat: 34.13979734638861,
+      lng: -118.12385699753644
+    },
+    {
+      id: "bechtel-center",
+      name: "Bechtel Center",
+      type: "judging",
+      description: "Judging area.",
+      lat: 34.14021157809335,
+      lng: -118.12446813086468
+    },
+    {
+      id: "baxter-hall-entrance",
+      name: "Baxter Hall Entrance",
+      type: "ceremonies",
+      description: "Opening and closing ceremonies.",
+      lat: 34.13799806624361,
+      lng: -118.12519245598114
+    },
+    {
+      id: "chen-neuroscience-building",
+      name: "Chen Neuroscience Building",
       type: "workspace",
-      description: "Primary workspace for teams throughout the weekend.",
-      lat: 34.1379,
-      lng: -118.1267
-    },
-    {
-      id: "parking",
-      name: "Parking",
-      type: "logistics",
-      description: "Recommended arrival and parking location.",
-      lat: 34.1364,
-      lng: -118.1248
+      description: "Workspace.",
+      lat: 34.140194070445055,
+      lng: -118.12709575186697
     }
   ],
   schedule: [
@@ -97,6 +113,7 @@ const liveConfig = {
 
 let activeMapController = null;
 let activeScheduleModalTrigger = null;
+let activeMapTooltipController = null;
 
 function withEmbeddedParam(url) {
   const separator = url.includes("?") ? "&" : "?";
@@ -235,6 +252,10 @@ function selectLocation(location, marker) {
   document.querySelector("#location-name").textContent = location.name;
   document.querySelector("#location-description").textContent = location.description;
   document.querySelector("#map-coordinates-link").href = getCoordinateLink(location);
+
+  if (activeMapTooltipController) {
+    activeMapTooltipController.show(location);
+  }
 }
 
 function setupFallbackMarkers(mapEl) {
@@ -296,6 +317,29 @@ function setupLeafletMap(mapEl) {
     attribution: liveConfig.mapAttribution
   }).addTo(map);
 
+  const selectedTooltip = L.tooltip({
+    className: "venue-tooltip",
+    direction: "top",
+    offset: [0, -18],
+    opacity: 1,
+    permanent: true,
+    interactive: false
+  });
+  let defaultLocation = null;
+  let defaultMarker = null;
+
+  activeMapTooltipController = {
+    show(location) {
+      selectedTooltip
+        .setLatLng([location.lat, location.lng])
+        .setContent(`${location.name}<span>${location.type}</span>`);
+
+      if (!map.hasLayer(selectedTooltip)) {
+        selectedTooltip.addTo(map);
+      }
+    }
+  };
+
   liveConfig.locations.forEach((location, index) => {
     const icon = L.divIcon({
       className: "",
@@ -308,16 +352,12 @@ function setupLeafletMap(mapEl) {
       title: `${location.name} / ${location.type}`
     }).addTo(map);
 
-    marker.bindTooltip(`${location.name}<span>${location.type}</span>`, {
-      className: "venue-tooltip",
-      direction: "top",
-      offset: [0, -18],
-      opacity: 1
-    });
     marker.on("click", () => selectLocation(location, marker));
     bounds.push([location.lat, location.lng]);
 
     if (index === 0) {
+      defaultLocation = location;
+      defaultMarker = marker;
       selectLocation(location, marker);
     }
   });
@@ -326,7 +366,25 @@ function setupLeafletMap(mapEl) {
     map.fitBounds(bounds, { padding: [52, 52], maxZoom: 18 });
   }
 
+  if (defaultMarker) {
+    window.setTimeout(() => {
+      map.invalidateSize();
+      activeMapTooltipController.show(defaultLocation);
+    }, 500);
+  }
+
   activeMapController = {
+    recenter() {
+      if (bounds.length > 1) {
+        map.fitBounds(bounds, { padding: [52, 52], maxZoom: 18 });
+      } else {
+        map.setView([center.lat, center.lng], 17);
+      }
+
+      if (defaultMarker) {
+        selectLocation(defaultLocation, defaultMarker);
+      }
+    },
     setUserLocation(location) {
       const latLng = [location.lat, location.lng];
       const userIcon = L.divIcon({
@@ -409,6 +467,14 @@ function setupGoogleMap(mapEl) {
   }
 
   activeMapController = {
+    recenter() {
+      if (liveConfig.locations.length > 1) {
+        map.fitBounds(bounds, 52);
+      } else {
+        map.setCenter(center);
+        map.setZoom(17);
+      }
+    },
     setUserLocation(location) {
       const position = { lat: location.lat, lng: location.lng };
 
@@ -486,10 +552,21 @@ function setupMap() {
   drawFallbackMap(mapEl);
   setupFallbackMarkers(mapEl);
   activeMapController = {
+    recenter() {},
     setUserLocation(location) {
       setupFallbackUserLocation(mapEl, location);
     }
   };
+}
+
+function setupMapRecenter() {
+  const recenterButton = document.querySelector("#map-recenter-btn");
+
+  recenterButton.addEventListener("click", () => {
+    if (activeMapController && activeMapController.recenter) {
+      activeMapController.recenter();
+    }
+  });
 }
 
 function setupCurrentLocation() {
@@ -803,6 +880,7 @@ function init() {
   setupTabs();
   setExternalLinks();
   setupMap();
+  setupMapRecenter();
   setupCurrentLocation();
   setupScheduleModal();
   setupConstructionModal();

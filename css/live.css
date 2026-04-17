@@ -78,7 +78,7 @@ code {
 .live-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -381,6 +381,33 @@ h3 {
   background-size: 54px 54px, 54px 54px, auto;
 }
 
+.campus-map-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.map-recenter-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 700;
+  min-height: 36px;
+  padding-inline: 12px;
+  border: 1px solid rgba(255, 129, 66, 0.34);
+  border-radius: 6px;
+  color: var(--text-white);
+  background: rgba(23, 23, 23, 0.86);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.map-recenter-btn:is(:hover, :focus-visible) {
+  outline: none;
+  background-image: var(--gradient-1);
+}
+
 .leaflet-container {
   background: #1f1f1f;
   color: #1f1f1f;
@@ -531,7 +558,7 @@ h3 {
 .venue-tooltip {
   border: 1px solid rgba(255, 129, 66, 0.35);
   border-radius: 6px;
-  background: rgba(23, 23, 23, 0.95);
+  background: rgba(23, 23, 23, 0.8);
   color: var(--text-white);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
   font-family: var(--font-body);
