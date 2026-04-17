@@ -124,6 +124,7 @@ const liveConfig = {
 let activeMapController = null;
 let activeScheduleModalTrigger = null;
 let activeMapTooltipController = null;
+let installAckNeedsConfirmation = false;
 
 const countdownEls = {
   status: document.querySelector("#countdown-status"),
@@ -811,6 +812,8 @@ function openConstructionModal() {
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+  installAckNeedsConfirmation = false;
+  document.querySelector(".construction-modal-ack").textContent = "Got it";
   document.querySelector(".construction-modal-ack").focus();
 }
 
@@ -831,6 +834,17 @@ function setupConstructionModal() {
   document.querySelectorAll("[data-construction-modal-close]").forEach((element) => {
     element.addEventListener("click", closeConstructionModal);
   });
+
+  document.querySelector("[data-install-ack]")?.addEventListener("click", (event) => {
+    if (!installAckNeedsConfirmation) {
+      installAckNeedsConfirmation = true;
+      event.currentTarget.textContent = "Did you really get it?";
+      return;
+    }
+
+    closeConstructionModal();
+  });
+
   document.addEventListener("keydown", (event) => {
     const modal = document.querySelector("#construction-modal");
     const modalIsOpen = modal && modal.classList.contains("is-open");
