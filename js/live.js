@@ -79,7 +79,7 @@ const liveConfig = {
       startHour: 15,
       endHour: 24,
       events: [
-        { title: "Check-in", category: "checkin", location: "Moore Walk", start: "15:00", end: "17:00", description: "Please bring your ID. More details will be shared closer to the event." },
+        { title: "Check-in", category: "checkin", location: "Moore Walk", start: "15:00", end: "17:00", description: "To check in, you MUST bring your Photo ID and School ID. Hacktech 2026 standard merch includes a T-shirt, Tote bag, Lanyard/Badge, Phone Wallet, Deodorant, and Stickers!" },
         { title: "Opening Ceremony", category: "key", location: "Baxter Lecture Hall", start: "17:00", end: "18:30", description: "More details will be shared closer to the event." },
         { title: "Dinner", category: "food", location: "Moore Walk", start: "18:30", end: "19:30", description: "More details will be shared closer to the event." },
         { title: "Team Matching", category: "sponsor", location: "Avery Outer Courtyard", start: "19:30", end: "21:00", description: "More details will be shared closer to the event." },
@@ -111,7 +111,7 @@ const liveConfig = {
       endHour: 16,
       events: [
         { title: "Breakfast", category: "food", location: "Avery Dining", start: "07:00", end: "10:00", description: "More details will be shared closer to the event." },
-        { title: "Projects Due", category: "key", location: "Hacktech", start: "09:00", end: "09:15", description: "More details will be shared closer to the event." },
+        { title: "Projects Due", category: "key", location: "Hacktech", start: "09:00", end: "09:15", description: "ALL PROJECTS MUST BE SUBMITTED TO DEVPOST BY THIS TIME. NO EXCEPTIONS CAN BE MADE! Please plan accordingly!" },
         { title: "Judging: Round 1", category: "judging", location: "Bechtel Dining Hall", start: "10:00", end: "12:00", description: "More details will be shared closer to the event." },
         { title: "Lunch", category: "food", location: "Avery Dining", start: "12:00", end: "13:00", description: "More details will be shared closer to the event." },
         { title: "Judging: Round 2", category: "judging", location: "Bechtel Dining Hall", start: "13:00", end: "13:30", description: "More details will be shared closer to the event." },
