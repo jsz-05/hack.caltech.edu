@@ -13,6 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="">
 
   <link rel="stylesheet" href="./css/live-2026.css">
 </head>
@@ -26,9 +31,12 @@
     </div>
 
     <nav class="live-tabs" aria-label="Live site navigation">
-      <button class="live-tab is-active" type="button" data-tab-target="home">Live</button>
-      <button class="live-tab" type="button" data-tab-target="faq">FAQ</button>
-      <a class="live-tab live-tab-link" href="https://devpost.com/software/example-project" target="_blank" rel="noopener">Devpost</a>
+      <a class="live-nav-action live-nav-action-devpost live-tab-link" href="https://devpost.com/software/example-project" target="_blank" rel="noopener">Devpost</a>
+      <a class="live-nav-action live-nav-action-discord" href="https://discord.gg/9ykYzMSxyU" target="_blank" rel="noopener">Discord</a>
+      <div class="live-tab-group">
+        <button class="live-tab is-active" type="button" data-tab-target="home">Live</button>
+        <button class="live-tab" type="button" data-tab-target="faq">FAQ</button>
+      </div>
     </nav>
   </header>
 
@@ -36,21 +44,20 @@
     <section class="tab-panel is-active" id="home" data-tab-panel>
       <section class="hero-live" aria-label="Hacktech countdown">
         <div class="hero-live-bg" aria-hidden="true"></div>
+        <canvas class="live-particles" id="live-particles" aria-hidden="true"></canvas>
         <div class="live-container hero-live-content">
           <section class="countdown-panel" aria-label="Hacktech countdown">
-            <div class="countdown-status" id="countdown-status">Until hacking starts</div>
-            <div class="countdown-readout" aria-live="polite">
-              <span id="countdown-days">00</span><span aria-hidden="true">:</span><span id="countdown-hours">00</span><span aria-hidden="true">:</span><span id="countdown-minutes">00</span><span aria-hidden="true">:</span><span id="countdown-seconds">00</span>
-            </div>
             <div class="countdown-labels" aria-hidden="true">
               <span>Days</span>
               <span>Hours</span>
               <span>Mins</span>
               <span>Sec</span>
             </div>
+            <div class="countdown-readout" aria-live="polite">
+              <span id="countdown-days">00</span><span aria-hidden="true">:</span><span id="countdown-hours">00</span><span aria-hidden="true">:</span><span id="countdown-minutes">00</span><span aria-hidden="true">:</span><span id="countdown-seconds">00</span>
+            </div>
+            <div class="countdown-status" id="countdown-status">Until hacking starts</div>
           </section>
-
-          <a class="discord-cta" href="https://discord.gg/9ykYzMSxyU" target="_blank" rel="noopener">Join Discord</a>
         </div>
       </section>
 
@@ -61,20 +68,15 @@
         </div>
 
         <div class="map-shell">
-          <div class="map-toolbar" aria-label="Map filters">
-            <button class="map-filter is-active" type="button" data-map-filter="all">All</button>
-            <button class="map-filter" type="button" data-map-filter="ceremony">Ceremonies</button>
-            <button class="map-filter" type="button" data-map-filter="workspace">Workspaces</button>
-            <button class="map-filter" type="button" data-map-filter="logistics">Logistics</button>
-          </div>
-
           <div class="map-grid">
             <div class="campus-map" id="campus-map" aria-label="Interactive Caltech venue map"></div>
             <aside class="location-panel" aria-live="polite">
               <p class="location-kicker" id="location-type">Selected location</p>
               <h3 id="location-name">Opening Ceremony</h3>
               <p id="location-description">Check-in, opening remarks, and kickoff.</p>
-              <a id="location-link" href="https://maps.google.com/?q=Caltech+Pasadena+CA" target="_blank" rel="noopener">Open Map Coordinates</a>
+              <a id="map-coordinates-link" href="geo:34.1377,-118.1253?q=34.1377,-118.1253(Opening%20Ceremony)">Open Map Coordinates</a>
+              <button class="locate-button" id="locate-me-btn" type="button">Show My Location</button>
+              <p class="location-status" id="location-status" aria-live="polite"></p>
             </aside>
           </div>
         </div>
@@ -109,6 +111,34 @@
     </section>
   </main>
 
+  <div class="schedule-modal" id="schedule-modal" aria-hidden="true">
+    <div class="schedule-modal-backdrop" data-schedule-modal-close></div>
+    <section class="schedule-modal-card" role="dialog" aria-modal="true" aria-labelledby="schedule-modal-title">
+      <button class="schedule-modal-close" type="button" aria-label="Close event details" data-schedule-modal-close>&times;</button>
+      <p class="schedule-modal-kicker" id="schedule-modal-time"></p>
+      <h2 id="schedule-modal-title"></h2>
+      <p class="schedule-modal-location" id="schedule-modal-location"></p>
+      <p class="schedule-modal-description" id="schedule-modal-description"></p>
+      <div class="schedule-modal-links" id="schedule-modal-links"></div>
+    </section>
+  </div>
+
+  <footer class="live-footer">
+    <div class="live-container live-footer-inner">
+      <a class="footer-home-link" href="/">Back to hack.caltech.edu</a>
+      <p>
+        Made with &#129293; by
+        <a href="https://jeffreyszhou.com/" target="_blank" rel="noopener">Jeffrey Zhou</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer>
+  </script>
   <script src="./js/live-2026.js" defer></script>
 </body>
 </html>

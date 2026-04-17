@@ -4,9 +4,9 @@ const liveConfig = {
   hackingStartsAt: "2026-04-24T17:00:00-07:00",
   hackingEndsAt: "2026-04-26T12:00:00-07:00",
   scheduleTimeZoneLabel: "PST",
-  // Add a browser-restricted Google Maps JavaScript API key here to render the real map.
-  // Leave blank to use the built-in static campus fallback.
   googleMapsApiKey: "",
+  mapTileUrl: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+  mapAttribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   googleDocUrl: "https://docs.google.com/document/d/e/2PACX-EXAMPLE/pub",
   devpostUrl: "https://devpost.com/software/example-project",
   mapBounds: {
@@ -22,8 +22,7 @@ const liveConfig = {
       type: "ceremony",
       description: "Check-in, opening remarks, and kickoff.",
       lat: 34.1377,
-      lng: -118.1253,
-      mapsUrl: "https://maps.google.com/?q=34.1377,-118.1253"
+      lng: -118.1253
     },
     {
       id: "judging",
@@ -31,8 +30,7 @@ const liveConfig = {
       type: "ceremony",
       description: "Final demos and project judging.",
       lat: 34.1386,
-      lng: -118.1236,
-      mapsUrl: "https://maps.google.com/?q=34.1386,-118.1236"
+      lng: -118.1236
     },
     {
       id: "workspace",
@@ -40,8 +38,7 @@ const liveConfig = {
       type: "workspace",
       description: "Primary workspace for teams throughout the weekend.",
       lat: 34.1379,
-      lng: -118.1267,
-      mapsUrl: "https://maps.google.com/?q=34.1379,-118.1267"
+      lng: -118.1267
     },
     {
       id: "parking",
@@ -49,8 +46,7 @@ const liveConfig = {
       type: "logistics",
       description: "Recommended arrival and parking location.",
       lat: 34.1364,
-      lng: -118.1248,
-      mapsUrl: "https://maps.google.com/?q=34.1364,-118.1248"
+      lng: -118.1248
     }
   ],
   schedule: [
@@ -60,10 +56,12 @@ const liveConfig = {
       startHour: 16,
       endHour: 24,
       events: [
-        { title: "Check-in", location: "TBD", start: "16:00", end: "17:00" },
-        { title: "Opening Ceremony", location: "Opening Ceremony", start: "17:00", end: "18:00" },
-        { title: "Team Formation", location: "Main Hacking Space", start: "18:00", end: "19:00" },
-        { title: "Dinner", location: "TBD", start: "19:00", end: "20:00" }
+        { title: "Check-in", location: "Beckman Lawn", start: "16:00", end: "17:00", description: "Pick up your badge, wristband, and weekend materials." },
+        { title: "Sponsor Expo", location: "Hameetman Lobby", start: "16:15", end: "17:00", description: "Meet sponsors and learn about prizes, APIs, and recruiting opportunities.", links: [{ label: "Sponsor list", url: "#" }] },
+        { title: "Opening Ceremony", location: "Ramo Auditorium", start: "17:00", end: "18:00", description: "Welcome remarks, rules, theme reveal, and kickoff." },
+        { title: "Team Formation", location: "Main Hacking Space", start: "18:00", end: "19:00", description: "Find teammates or add people to your group before hacking begins." },
+        { title: "First-Time Hacker Meetup", location: "Avery Courtyard", start: "18:15", end: "19:00", description: "A low-pressure intro session for first-time participants." },
+        { title: "Dinner", location: "Beckman Mall", start: "19:00", end: "20:00", description: "Dinner pickup and seating." }
       ]
     },
     {
@@ -72,11 +70,14 @@ const liveConfig = {
       startHour: 8,
       endHour: 24,
       events: [
-        { title: "Breakfast", location: "TBD", start: "09:00", end: "10:00" },
-        { title: "Workshop Block", location: "TBD", start: "11:00", end: "12:30" },
-        { title: "Lunch", location: "TBD", start: "13:00", end: "14:00" },
-        { title: "Mentor Hours", location: "Main Hacking Space", start: "15:00", end: "17:00" },
-        { title: "Dinner", location: "TBD", start: "19:00", end: "20:00" }
+        { title: "Breakfast", location: "Beckman Mall", start: "09:00", end: "10:00", description: "Morning food service for hackers." },
+        { title: "Workshop Block", location: "Annenberg 105", start: "11:00", end: "12:30", description: "Technical workshops and sponsor demos.", links: [{ label: "Slides", url: "#" }] },
+        { title: "Hardware Lab Hours", location: "Moore B270", start: "11:30", end: "13:00", description: "Borrow parts, debug circuits, and get hardware support." },
+        { title: "Sponsor Office Hours", location: "Hameetman Lobby", start: "12:00", end: "13:00", description: "Ask sponsor engineers questions about APIs, careers, and prizes." },
+        { title: "Lunch", location: "Beckman Mall", start: "13:00", end: "14:00", description: "Lunch pickup and seating." },
+        { title: "Mentor Hours", location: "Main Hacking Space", start: "15:00", end: "17:00", description: "Mentors circulate through the hacking space to help teams unblock." },
+        { title: "Mini Event", location: "Avery Courtyard", start: "15:30", end: "16:30", description: "Take a break and meet other hackers." },
+        { title: "Dinner", location: "Beckman Mall", start: "19:00", end: "20:00", description: "Dinner pickup and seating." }
       ]
     },
     {
@@ -85,14 +86,18 @@ const liveConfig = {
       startHour: 8,
       endHour: 16,
       events: [
-        { title: "Breakfast", location: "TBD", start: "09:00", end: "10:00" },
-        { title: "Hacking Ends", location: "Main Hacking Space", start: "12:00", end: "12:15" },
-        { title: "Judging", location: "Judging Hall", start: "13:00", end: "15:00" },
-        { title: "Closing Ceremony", location: "TBD", start: "15:00", end: "16:00" }
+        { title: "Breakfast", location: "Beckman Mall", start: "09:00", end: "10:00", description: "Morning food service for hackers." },
+        { title: "Hacking Ends", location: "Main Hacking Space", start: "12:00", end: "12:15", description: "Submission deadline. Make sure your Devpost is complete." },
+        { title: "Judging", location: "Judging Hall", start: "13:00", end: "15:00", description: "Teams present projects to judges." },
+        { title: "Sponsor Demos", location: "Annenberg 105", start: "13:00", end: "14:00", description: "Sponsor challenge finalists present selected demos." },
+        { title: "Closing Ceremony", location: "Ramo Auditorium", start: "15:00", end: "16:00", description: "Awards, closing remarks, and wrap-up." }
       ]
     }
   ]
 };
+
+let activeMapController = null;
+let activeScheduleModalTrigger = null;
 
 function withEmbeddedParam(url) {
   const separator = url.includes("?") ? "&" : "?";
@@ -173,6 +178,22 @@ function projectLocation(location) {
   };
 }
 
+function getCoordinateLink(location) {
+  const label = encodeURIComponent(location.name);
+  const coords = `${location.lat},${location.lng}`;
+  const userAgent = navigator.userAgent || "";
+
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    return `maps://?ll=${coords}&q=${label}`;
+  }
+
+  if (/Android/.test(userAgent)) {
+    return `geo:${coords}?q=${coords}(${label})`;
+  }
+
+  return `https://www.google.com/maps/search/?api=1&query=${coords}`;
+}
+
 function drawFallbackMap(mapEl) {
   const fragments = document.createDocumentFragment();
   const paths = [
@@ -213,7 +234,7 @@ function selectLocation(location, marker) {
   document.querySelector("#location-type").textContent = location.type;
   document.querySelector("#location-name").textContent = location.name;
   document.querySelector("#location-description").textContent = location.description;
-  document.querySelector("#location-link").href = location.mapsUrl;
+  document.querySelector("#map-coordinates-link").href = getCoordinateLink(location);
 }
 
 function setupFallbackMarkers(mapEl) {
@@ -244,20 +265,108 @@ function setupFallbackMarkers(mapEl) {
   });
 }
 
-function setupMapFilters() {
-  const filters = document.querySelectorAll("[data-map-filter]");
+function setupFallbackUserLocation(mapEl, location) {
+  let userMarker = document.querySelector(".map-user-marker");
+  const point = projectLocation(location);
 
-  filters.forEach((filter) => {
-    filter.addEventListener("click", () => {
-      const activeFilter = filter.dataset.mapFilter;
+  if (!userMarker) {
+    userMarker = document.createElement("span");
+    userMarker.className = "map-marker map-user-marker";
+    userMarker.innerHTML = '<span class="map-marker-tooltip">You are here<span>Current location</span></span>';
+    mapEl.append(userMarker);
+  }
 
-      filters.forEach((item) => item.classList.toggle("is-active", item === filter));
-      document.querySelectorAll(".map-marker").forEach((marker) => {
-        const isVisible = activeFilter === "all" || marker.dataset.locationType === activeFilter;
-        marker.classList.toggle("is-hidden", !isVisible);
-      });
+  userMarker.style.left = `${point.x}%`;
+  userMarker.style.top = `${point.y}%`;
+}
+
+function setupLeafletMap(mapEl) {
+  const center = liveConfig.locations[0] || { lat: 34.1377, lng: -118.1253 };
+  const map = L.map(mapEl, {
+    scrollWheelZoom: false
+  }).setView([center.lat, center.lng], 17);
+  const bounds = [];
+  let userMarker = null;
+  let userCircle = null;
+
+  mapEl.classList.add("interactive-map");
+
+  L.tileLayer(liveConfig.mapTileUrl, {
+    maxZoom: 19,
+    attribution: liveConfig.mapAttribution
+  }).addTo(map);
+
+  liveConfig.locations.forEach((location, index) => {
+    const icon = L.divIcon({
+      className: "",
+      html: '<span class="venue-pin" aria-hidden="true"></span>',
+      iconSize: [34, 34],
+      iconAnchor: [17, 17]
     });
+    const marker = L.marker([location.lat, location.lng], {
+      icon,
+      title: `${location.name} / ${location.type}`
+    }).addTo(map);
+
+    marker.bindTooltip(`${location.name}<span>${location.type}</span>`, {
+      className: "venue-tooltip",
+      direction: "top",
+      offset: [0, -18],
+      opacity: 1
+    });
+    marker.on("click", () => selectLocation(location, marker));
+    bounds.push([location.lat, location.lng]);
+
+    if (index === 0) {
+      selectLocation(location, marker);
+    }
   });
+
+  if (bounds.length > 1) {
+    map.fitBounds(bounds, { padding: [52, 52], maxZoom: 18 });
+  }
+
+  activeMapController = {
+    setUserLocation(location) {
+      const latLng = [location.lat, location.lng];
+      const userIcon = L.divIcon({
+        className: "",
+        html: '<span class="user-pin" aria-hidden="true"></span>',
+        iconSize: [22, 22],
+        iconAnchor: [11, 11]
+      });
+
+      if (!userMarker) {
+        userMarker = L.marker(latLng, {
+          icon: userIcon,
+          title: "You are here"
+        }).addTo(map);
+        userMarker.bindTooltip("You are here<span>Current location</span>", {
+          className: "venue-tooltip",
+          direction: "top",
+          offset: [0, -12],
+          opacity: 1
+        });
+      } else {
+        userMarker.setLatLng(latLng);
+      }
+
+      if (!userCircle) {
+        userCircle = L.circle(latLng, {
+          radius: location.accuracy || 20,
+          color: "#2f8cff",
+          fillColor: "#2f8cff",
+          fillOpacity: 0.12,
+          weight: 1
+        }).addTo(map);
+      } else {
+        userCircle.setLatLng(latLng);
+        userCircle.setRadius(location.accuracy || 20);
+      }
+
+      map.setView(latLng, Math.max(map.getZoom(), 18));
+    }
+  };
 }
 
 function setupGoogleMap(mapEl) {
@@ -269,7 +378,9 @@ function setupGoogleMap(mapEl) {
     streetViewControl: false,
     fullscreenControl: true
   });
-  const markers = [];
+  const bounds = new google.maps.LatLngBounds();
+  let userMarker = null;
+  let userCircle = null;
 
   mapEl.classList.add("google-map");
 
@@ -279,32 +390,66 @@ function setupGoogleMap(mapEl) {
       map,
       title: `${location.name} / ${location.type}`
     });
-
-    marker.dataset = { locationType: location.type };
-    marker.addListener("click", () => {
-      selectLocation(location, marker);
-      map.panTo({ lat: location.lat, lng: location.lng });
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<strong>${location.name}</strong><br>${location.type}`
     });
-    markers.push(marker);
+
+    marker.addListener("mouseover", () => infoWindow.open({ anchor: marker, map }));
+    marker.addListener("mouseout", () => infoWindow.close());
+    marker.addListener("click", () => selectLocation(location, marker));
+    bounds.extend(marker.getPosition());
 
     if (index === 0) {
       selectLocation(location, marker);
     }
   });
 
-  document.querySelectorAll("[data-map-filter]").forEach((filter) => {
-    filter.addEventListener("click", () => {
-      const activeFilter = filter.dataset.mapFilter;
+  if (liveConfig.locations.length > 1) {
+    map.fitBounds(bounds, 52);
+  }
 
-      document.querySelectorAll("[data-map-filter]").forEach((item) => {
-        item.classList.toggle("is-active", item === filter);
-      });
-      markers.forEach((marker) => {
-        const isVisible = activeFilter === "all" || marker.dataset.locationType === activeFilter;
-        marker.setVisible(isVisible);
-      });
-    });
-  });
+  activeMapController = {
+    setUserLocation(location) {
+      const position = { lat: location.lat, lng: location.lng };
+
+      if (!userMarker) {
+        userMarker = new google.maps.Marker({
+          position,
+          map,
+          title: "You are here",
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: "#2f8cff",
+            fillOpacity: 1,
+            strokeColor: "#ffffff",
+            strokeWeight: 3
+          }
+        });
+      } else {
+        userMarker.setPosition(position);
+      }
+
+      if (!userCircle) {
+        userCircle = new google.maps.Circle({
+          map,
+          center: position,
+          radius: location.accuracy || 20,
+          strokeColor: "#2f8cff",
+          strokeOpacity: 0.8,
+          strokeWeight: 1,
+          fillColor: "#2f8cff",
+          fillOpacity: 0.12
+        });
+      } else {
+        userCircle.setCenter(position);
+        userCircle.setRadius(location.accuracy || 20);
+      }
+
+      map.setCenter(position);
+      map.setZoom(Math.max(map.getZoom() || 17, 18));
+    }
+  };
 }
 
 function loadGoogleMap(mapEl) {
@@ -315,9 +460,12 @@ function loadGoogleMap(mapEl) {
   script.async = true;
   script.defer = true;
   script.onerror = () => {
+    if (window.L) {
+      setupLeafletMap(mapEl);
+      return;
+    }
     drawFallbackMap(mapEl);
     setupFallbackMarkers(mapEl);
-    setupMapFilters();
   };
   document.head.append(script);
 }
@@ -330,9 +478,151 @@ function setupMap() {
     return;
   }
 
+  if (window.L) {
+    setupLeafletMap(mapEl);
+    return;
+  }
+
   drawFallbackMap(mapEl);
   setupFallbackMarkers(mapEl);
-  setupMapFilters();
+  activeMapController = {
+    setUserLocation(location) {
+      setupFallbackUserLocation(mapEl, location);
+    }
+  };
+}
+
+function setupCurrentLocation() {
+  const locateButton = document.querySelector("#locate-me-btn");
+  const status = document.querySelector("#location-status");
+
+  locateButton.addEventListener("click", () => {
+    if (!navigator.geolocation) {
+      status.textContent = "Location is not supported by this browser.";
+      return;
+    }
+
+    status.textContent = "Requesting location...";
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const location = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        };
+
+        if (!activeMapController) {
+          status.textContent = "Map is still loading. Try again in a moment.";
+          return;
+        }
+
+        activeMapController.setUserLocation(location);
+        status.textContent = "Current location shown on map.";
+      },
+      () => {
+        status.textContent = "Location permission was denied or unavailable.";
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 30000
+      }
+    );
+  });
+}
+
+function setupLiveParticles() {
+  const canvas = document.querySelector("#live-particles");
+  const hero = document.querySelector(".hero-live");
+
+  if (!canvas || !hero) {
+    return;
+  }
+
+  const context = canvas.getContext("2d");
+  const particles = [];
+  const particleCount = 50;
+  const maxLinkDistance = 155;
+  let animationFrame;
+
+  function resizeCanvas() {
+    const bounds = hero.getBoundingClientRect();
+    const pixelRatio = window.devicePixelRatio || 1;
+
+    canvas.width = Math.floor(bounds.width * pixelRatio);
+    canvas.height = Math.floor(bounds.height * pixelRatio);
+    canvas.style.width = `${bounds.width}px`;
+    canvas.style.height = `${bounds.height}px`;
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+  }
+
+  function resetParticle(particle) {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    particle.x = Math.random() * width;
+    particle.y = Math.random() * height;
+    particle.vx = (Math.random() - 0.5) * 0.6;
+    particle.vy = (Math.random() - 0.5) * 0.6;
+    particle.radius = 1 + Math.random() * 2;
+  }
+
+  function seedParticles() {
+    particles.length = 0;
+    for (let index = 0; index < particleCount; index += 1) {
+      const particle = {};
+      resetParticle(particle);
+      particles.push(particle);
+    }
+  }
+
+  function drawParticles() {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    context.clearRect(0, 0, width, height);
+
+    particles.forEach((particle, index) => {
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+
+      if (particle.x < -10 || particle.x > width + 10 || particle.y < -10 || particle.y > height + 10) {
+        resetParticle(particle);
+      }
+
+      context.beginPath();
+      context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      context.fillStyle = "rgba(255, 255, 255, 0.5)";
+      context.fill();
+
+      for (let nextIndex = index + 1; nextIndex < particles.length; nextIndex += 1) {
+        const nextParticle = particles[nextIndex];
+        const distance = Math.hypot(particle.x - nextParticle.x, particle.y - nextParticle.y);
+
+        if (distance < maxLinkDistance) {
+          context.beginPath();
+          context.moveTo(particle.x, particle.y);
+          context.lineTo(nextParticle.x, nextParticle.y);
+          context.strokeStyle = `rgba(255, 255, 255, ${0.28 * (1 - distance / maxLinkDistance)})`;
+          context.lineWidth = 1;
+          context.stroke();
+        }
+      }
+    });
+
+    animationFrame = requestAnimationFrame(drawParticles);
+  }
+
+  resizeCanvas();
+  seedParticles();
+  drawParticles();
+
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(animationFrame);
+    resizeCanvas();
+    seedParticles();
+    drawParticles();
+  });
 }
 
 function timeToMinutes(time) {
@@ -361,10 +651,112 @@ function getScheduleStartHour(day) {
   return Math.max(0, Math.floor(firstEventMinutes / 60) - 1);
 }
 
+function layoutScheduleEvents(events) {
+  const sortedEvents = events
+    .map((event, index) => ({
+      ...event,
+      index,
+      startMinutes: timeToMinutes(event.start),
+      endMinutes: timeToMinutes(event.end)
+    }))
+    .sort((first, second) => first.startMinutes - second.startMinutes || first.endMinutes - second.endMinutes);
+  const clusters = [];
+  let currentCluster = [];
+  let currentClusterEnd = -1;
+
+  sortedEvents.forEach((event) => {
+    if (!currentCluster.length || event.startMinutes < currentClusterEnd) {
+      currentCluster.push(event);
+      currentClusterEnd = Math.max(currentClusterEnd, event.endMinutes);
+      return;
+    }
+
+    clusters.push(currentCluster);
+    currentCluster = [event];
+    currentClusterEnd = event.endMinutes;
+  });
+
+  if (currentCluster.length) {
+    clusters.push(currentCluster);
+  }
+
+  return clusters.flatMap((cluster) => {
+    const columns = [];
+
+    cluster.forEach((event) => {
+      const columnIndex = columns.findIndex((columnEnd) => columnEnd <= event.startMinutes);
+      const assignedColumn = columnIndex === -1 ? columns.length : columnIndex;
+
+      columns[assignedColumn] = event.endMinutes;
+      event.column = assignedColumn;
+    });
+
+    return cluster.map((event) => ({
+      ...event,
+      columnCount: columns.length
+    }));
+  });
+}
+
+function openScheduleModal(event, trigger) {
+  const modal = document.querySelector("#schedule-modal");
+  const title = document.querySelector("#schedule-modal-title");
+  const time = document.querySelector("#schedule-modal-time");
+  const location = document.querySelector("#schedule-modal-location");
+  const description = document.querySelector("#schedule-modal-description");
+  const links = document.querySelector("#schedule-modal-links");
+
+  activeScheduleModalTrigger = trigger;
+  title.textContent = event.title;
+  time.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)} ${liveConfig.scheduleTimeZoneLabel}`;
+  location.textContent = event.location;
+  description.textContent = event.description || "More details coming soon.";
+  links.innerHTML = "";
+  (event.links || []).forEach((link) => {
+    const linkEl = document.createElement("a");
+
+    linkEl.href = link.url;
+    linkEl.textContent = link.label;
+    linkEl.target = "_blank";
+    linkEl.rel = "noopener";
+    links.append(linkEl);
+  });
+
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  document.querySelector(".schedule-modal-close").focus();
+}
+
+function closeScheduleModal() {
+  const modal = document.querySelector("#schedule-modal");
+
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  if (activeScheduleModalTrigger) {
+    activeScheduleModalTrigger.focus();
+  }
+}
+
+function setupScheduleModal() {
+  document.querySelectorAll("[data-schedule-modal-close]").forEach((element) => {
+    element.addEventListener("click", closeScheduleModal);
+  });
+  document.addEventListener("keydown", (event) => {
+    const modalIsOpen = document.querySelector("#schedule-modal").classList.contains("is-open");
+
+    if (event.key === "Escape" && modalIsOpen) {
+      closeScheduleModal();
+    }
+  });
+}
+
 function renderSchedule(dayId) {
   const day = liveConfig.schedule.find((item) => item.id === dayId) || liveConfig.schedule[0];
   const board = document.querySelector("#schedule-board");
-  const rowHeight = window.matchMedia("(max-width: 480px)").matches ? 66 : 72;
+  const rowHeight = parseFloat(getComputedStyle(board).getPropertyValue("--row-height")) || 88;
   const visibleStartHour = getScheduleStartHour(day);
   const totalHours = day.endHour - visibleStartHour;
   const totalHeight = totalHours * rowHeight;
@@ -382,19 +774,49 @@ function renderSchedule(dayId) {
     timeColumn.append(slot);
   }
 
-  day.events.forEach((event) => {
+  layoutScheduleEvents(day.events).forEach((event) => {
     const eventEl = document.createElement("article");
+    const contentEl = document.createElement("div");
     const titleEl = document.createElement("h3");
-    const detailEl = document.createElement("p");
-    const startOffset = timeToMinutes(event.start) - visibleStartHour * 60;
-    const duration = timeToMinutes(event.end) - timeToMinutes(event.start);
+    const timeEl = document.createElement("p");
+    const locationEl = document.createElement("p");
+    const startOffset = event.startMinutes - visibleStartHour * 60;
+    const duration = event.endMinutes - event.startMinutes;
+    const gap = 8;
+    const eventWidth = `calc((100% - 20px - ${gap * (event.columnCount - 1)}px) / ${event.columnCount})`;
 
     eventEl.className = "schedule-event";
+    if (duration <= 30) {
+      eventEl.classList.add("is-short");
+    }
+    if (duration <= 15) {
+      eventEl.classList.add("is-tiny");
+    }
+    if (event.columnCount > 1) {
+      eventEl.classList.add("is-overlapping");
+    }
+    eventEl.tabIndex = 0;
+    eventEl.setAttribute("role", "button");
+    eventEl.setAttribute("aria-label", `${event.title}, ${formatEventTime(event.start)} to ${formatEventTime(event.end)}, ${event.location}`);
     eventEl.style.top = `${(startOffset / 60) * rowHeight}px`;
-    eventEl.style.height = `${Math.max(54, (duration / 60) * rowHeight - 8)}px`;
+    eventEl.style.height = `${Math.max(22, (duration / 60) * rowHeight - 6)}px`;
+    eventEl.style.left = `calc(10px + (${eventWidth} + ${gap}px) * ${event.column})`;
+    eventEl.style.width = eventWidth;
+    contentEl.className = "schedule-event-content";
     titleEl.textContent = event.title;
-    detailEl.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)} ${liveConfig.scheduleTimeZoneLabel} / ${event.location}`;
-    eventEl.append(titleEl, detailEl);
+    timeEl.className = "schedule-event-time";
+    timeEl.textContent = `${formatEventTime(event.start)}-${formatEventTime(event.end)} ${liveConfig.scheduleTimeZoneLabel}`;
+    locationEl.className = "schedule-event-location";
+    locationEl.textContent = event.location;
+    contentEl.append(titleEl, timeEl, locationEl);
+    eventEl.append(contentEl);
+    eventEl.addEventListener("click", () => openScheduleModal(event, eventEl));
+    eventEl.addEventListener("keydown", (keyboardEvent) => {
+      if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+        keyboardEvent.preventDefault();
+        openScheduleModal(event, eventEl);
+      }
+    });
     eventColumn.append(eventEl);
   });
 
@@ -433,7 +855,10 @@ function init() {
   setInterval(updateCountdown, 1000);
   setupTabs();
   setExternalLinks();
+  setupLiveParticles();
   setupMap();
+  setupCurrentLocation();
+  setupScheduleModal();
   setupSchedule();
 }
 
