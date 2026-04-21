@@ -7,7 +7,7 @@ const liveConfig = {
   mapTileUrl: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
   mapAttribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   googleDocUrl: "https://docs.google.com/document/d/e/2PACX-1vSECEOQdmjsEYdCLzoW1GNKm5xZ7RRbv6XibaOzwGRrLj4qr3rxBVLhQimLFxJ4UZbm8VSqCdjN6_Kx/pub",
-  devpostUrl: "https://devpost.com/software/example-project",
+  devpostUrl: "https://hacktech-by-caltech-2026.devpost.com/",
   mapBounds: {
     north: 34.1419,
     south: 34.1354,
