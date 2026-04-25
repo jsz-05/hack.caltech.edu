@@ -101,7 +101,7 @@ const liveConfig = {
         { title: "Listen Labs Talk", category: "program", location: "Annenberg 104", start: "11:00", end: "12:00", description: "More details will be shared closer to the event." },
         { title: "Lunch", category: "food", location: "Avery Dining Hall", start: "12:00", end: "13:00", description: "More details will be shared closer to the event." },
         { title: "Rox Talk", category: "program", location: "Annenberg 104", start: "13:00", end: "14:00", description: "More details will be shared closer to the event." },
-        { title: "Y Combinator Talk", category: "program", location: "Annenberg 104", start: "16:00", end: "17:30", description: "More details will be shared closer to the event." },
+        { title: "Y Combinator Talk", category: "program", location: "Annenberg 104", start: "16:15", end: "17:45", description: "More details will be shared closer to the event." },
         { title: "Ironsite Fireside", category: "program", location: "Annenberg 104", start: "18:00", end: "19:00", description: "More details will be shared closer to the event." },
         { title: "Dinner", category: "food", location: "Avery Dining Hall", start: "19:00", end: "21:00", description: "More details will be shared closer to the event." }
       ]
