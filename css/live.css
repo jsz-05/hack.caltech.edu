@@ -688,6 +688,50 @@ h3 {
   min-width: 0;
 }
 
+.schedule-now-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  height: 0;
+  pointer-events: none;
+}
+
+.schedule-now-indicator::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-top: 2px solid #ff4d4d;
+  opacity: 0.95;
+}
+
+.schedule-now-dot {
+  position: absolute;
+  left: -5px;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff4d4d;
+  box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.18);
+}
+
+.schedule-now-label {
+  position: absolute;
+  top: -15px;
+  right: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--text-white);
+  background: rgba(255, 77, 77, 0.18);
+  border: 1px solid rgba(255, 77, 77, 0.42);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .schedule-event {
   position: absolute;
   padding: 8px 10px;
@@ -1178,6 +1222,11 @@ h3 {
     --row-height: 88px;
     min-height: 540px;
     grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .schedule-now-label {
+    right: 8px;
+    font-size: 0.66rem;
   }
 
   .schedule-event h3 {

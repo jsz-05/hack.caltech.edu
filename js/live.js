@@ -75,6 +75,7 @@ const liveConfig = {
   schedule: [
     {
       id: "friday",
+      date: "2026-04-24",
       label: "Fri Apr 24",
       startHour: 15,
       endHour: 24,
@@ -90,6 +91,7 @@ const liveConfig = {
     },
     {
       id: "saturday",
+      date: "2026-04-25",
       label: "Sat Apr 25",
       startHour: 7,
       endHour: 22,
@@ -106,6 +108,7 @@ const liveConfig = {
     },
     {
       id: "sunday",
+      date: "2026-04-26",
       label: "Sun Apr 26",
       startHour: 7,
       endHour: 16,
@@ -125,6 +128,8 @@ let activeMapController = null;
 let activeScheduleModalTrigger = null;
 let activeMapTooltipController = null;
 let installAckNeedsConfirmation = false;
+let scheduleNowTimer = null;
+let lastAutoScheduleDayId = null;
 
 const countdownEls = {
   status: document.querySelector("#countdown-status"),
@@ -691,6 +696,63 @@ function getScheduleStartHour(day) {
   return Math.max(0, Math.floor(firstEventMinutes / 60) - 1);
 }
 
+function getTodayString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function getCurrentScheduleDayId() {
+  const today = getTodayString();
+  const exactDay = liveConfig.schedule.find((day) => day.date === today);
+
+  if (exactDay) {
+    return exactDay.id;
+  }
+
+  if (today < liveConfig.schedule[0].date) {
+    return liveConfig.schedule[0].id;
+  }
+
+  return liveConfig.schedule[liveConfig.schedule.length - 1].id;
+}
+
+function updateScheduleNowIndicator(day, eventColumn, visibleStartHour, rowHeight) {
+  const existingIndicator = eventColumn.querySelector(".schedule-now-indicator");
+
+  if (existingIndicator) {
+    existingIndicator.remove();
+  }
+
+  if (day.date !== getTodayString()) {
+    return;
+  }
+
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
+  const dayStartMinutes = visibleStartHour * 60;
+  const dayEndMinutes = day.endHour * 60;
+
+  if (currentMinutes < dayStartMinutes || currentMinutes > dayEndMinutes) {
+    return;
+  }
+
+  const indicator = document.createElement("div");
+  const timeLabel = document.createElement("span");
+  const dot = document.createElement("span");
+
+  indicator.className = "schedule-now-indicator";
+  indicator.style.top = `${(currentMinutes - dayStartMinutes) / 60 * rowHeight}px`;
+  dot.className = "schedule-now-dot";
+  timeLabel.className = "schedule-now-label";
+  timeLabel.textContent = `Now ${formatEventTime(`${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`)}`;
+  indicator.append(dot, timeLabel);
+  eventColumn.append(indicator);
+}
+
 function layoutScheduleEvents(events) {
   const sortedEvents = events
     .map((event, index) => ({
@@ -932,6 +994,8 @@ function renderSchedule(dayId) {
     eventColumn.append(eventEl);
   });
 
+  updateScheduleNowIndicator(day, eventColumn, visibleStartHour, rowHeight);
+
   board.innerHTML = "";
   board.style.minHeight = `${totalHeight}px`;
   board.append(timeColumn, eventColumn);
@@ -939,22 +1003,48 @@ function renderSchedule(dayId) {
 
 function setupSchedule() {
   const daysEl = document.querySelector(".schedule-days");
+  const dayButtons = [];
 
-  liveConfig.schedule.forEach((day, index) => {
+  function activateScheduleDay(dayId) {
+    dayButtons.forEach(({ button, day }) => {
+      button.classList.toggle("is-active", day.id === dayId);
+    });
+    renderSchedule(dayId);
+  }
+
+  liveConfig.schedule.forEach((day) => {
     const dayButton = document.createElement("button");
-    dayButton.className = `schedule-day${index === 0 ? " is-active" : ""}`;
+    dayButton.className = "schedule-day";
     dayButton.type = "button";
     dayButton.textContent = day.label;
     dayButton.addEventListener("click", () => {
-      document.querySelectorAll(".schedule-day").forEach((item) => {
-        item.classList.toggle("is-active", item === dayButton);
-      });
-      renderSchedule(day.id);
+      activateScheduleDay(day.id);
     });
     daysEl.append(dayButton);
+    dayButtons.push({ button: dayButton, day });
   });
 
-  renderSchedule(liveConfig.schedule[0].id);
+  lastAutoScheduleDayId = getCurrentScheduleDayId();
+  activateScheduleDay(lastAutoScheduleDayId);
+
+  if (scheduleNowTimer) {
+    window.clearInterval(scheduleNowTimer);
+  }
+
+  scheduleNowTimer = window.setInterval(() => {
+    const currentScheduleDayId = getCurrentScheduleDayId();
+
+    if (currentScheduleDayId !== lastAutoScheduleDayId) {
+      lastAutoScheduleDayId = currentScheduleDayId;
+      activateScheduleDay(currentScheduleDayId);
+      return;
+    }
+
+    const activeDay = document.querySelector(".schedule-day.is-active");
+    const activeIndex = [...document.querySelectorAll(".schedule-day")].indexOf(activeDay);
+    renderSchedule(liveConfig.schedule[Math.max(0, activeIndex)].id);
+  }, 60000);
+
   window.addEventListener("resize", () => {
     const activeDay = document.querySelector(".schedule-day.is-active");
     const activeIndex = [...document.querySelectorAll(".schedule-day")].indexOf(activeDay);
