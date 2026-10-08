@@ -19,27 +19,21 @@ const judgeFormFields = {
 
 // Modal functions
 function openModal() {
-    document.getElementById('application-modal').style.display = 'block';
     document.getElementById('role-selection').style.display = 'block';
     document.getElementById('sponsor-form').style.display = 'none';
     document.getElementById('judge-form').style.display = 'none';
+    openSiteDialog('application-modal');
 }
 
 function closeModal() {
-    document.getElementById('application-modal').style.display = 'none';
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('application-modal');
-    if (event.target == modal) {
-        closeModal();
-    }
+    closeSiteDialog();
 }
 
 function showForm(role) {
     document.getElementById('role-selection').style.display = 'none';
-    document.getElementById(`${role}-form`).style.display = 'block';
+    const form = document.getElementById(`${role}-form`);
+    form.style.display = 'block';
+    form.querySelector('input')?.focus();
 }
 
 async function submitForm(event, role) {

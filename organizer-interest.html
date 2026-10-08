@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Help organize Hacktech, Caltech's student-run hackathon."
+    />
+    <title>Organizer Interest | Hacktech</title>
+    <link rel="icon" href="./images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/organizer.css" />
+    <script type="module" src="./js/organizer.js"></script>
+  </head>
+  <body class="organizer-page">
+    <header class="organizer-header">
+      <a href="./" aria-label="Hacktech home"
+        ><img src="./images/logo-text.svg" alt="Hacktech" width="180"
+      /></a>
+      <a class="home-link" href="./">Back to home</a>
+    </header>
+    <main class="organizer-main">
+      <h1>Organizer <span>Interest</span></h1>
+      <p class="intro">
+        Help make Hacktech happen. Join our student organizing team — no
+        experience needed.
+      </p>
+      <form
+        id="organizer-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSduE7XjfdQ8-dhFlVV5wkyV5YRda7D8SI2xniZ3yvl3pPR4Dg/formResponse"
+        method="post"
+      >
+        <div class="field-pair">
+          <div class="field">
+            <label for="name">Name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="username"
+              >Caltech username <span aria-hidden="true">*</span></label
+            >
+            <div class="email-input">
+              <input
+                id="username"
+                name="username"
+                placeholder="jzhou3"
+                autocomplete="username"
+                autocapitalize="none"
+                spellcheck="false"
+                aria-describedby="email-suffix"
+                required
+              />
+              <span id="email-suffix">@caltech.edu</span>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="year">Year <span aria-hidden="true">*</span></label>
+          <select id="year" name="year" required>
+            <option value="" disabled selected>Select your year</option>
+            <option>Freshman</option>
+            <option>Sophomore</option>
+            <option>Junior</option>
+            <option>Senior</option>
+          </select>
+        </div>
+        <fieldset class="field">
+          <legend>Expected hours per week</legend>
+          <p class="hint">
+            Usually 1–2 hours/week, rising to 3–4 closer to the event.
+          </p>
+          <div class="hours-options">
+            <label><input type="radio" name="hours" value="2" />2</label>
+            <label><input type="radio" name="hours" value="3" />3</label>
+            <label><input type="radio" name="hours" value="4" />4</label>
+            <label><input type="radio" name="hours" value="5" />5</label>
+            <label><input type="radio" name="hours" value="6" />6</label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Anything in particular you want to work on?</legend>
+          <p class="hint">Choose any that interest you.</p>
+          <div class="role-options">
+            <label
+              ><input
+                type="checkbox"
+                name="roles"
+                value="Logistics &amp; Operations (event setup, scheduling, day-of coordination)"
+              />Logistics &amp; Operations
+              <span>Event setup, scheduling, day-of coordination</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="roles"
+                value="Sponsorship &amp; Outreach (talking to companies and raising funds)"
+              />Sponsorship &amp; Outreach
+              <span>Talking to companies and raising funds</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="roles"
+                value="Tech &amp; Dev (building internal tools and maintaining the Hacktech website)"
+              />Tech &amp; Dev
+              <span>Internal tools and the Hacktech website</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="roles"
+                value="Design &amp; Branding (graphics, merch, vibes)"
+              />Design &amp; Branding <span>Graphics, merch, vibes</span></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="roles"
+                value="Marketing &amp; Social Media"
+              />Marketing &amp; Social Media</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="roles"
+                value="Hacker Experience (workshops, events, food, swag!)"
+              />Hacker Experience
+              <span>Workshops, events, food, swag</span></label
+            >
+          </div>
+          <label class="other-label" for="otherRole">Other</label>
+          <input
+            id="otherRole"
+            name="otherRole"
+            placeholder="Anything else you’re interested in?"
+          />
+        </fieldset>
+        <button class="btn" type="submit">Submit</button>
+        <p id="organizer-status" role="status" tabindex="-1"></p>
+        <a
+          id="google-fallback"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSduE7XjfdQ8-dhFlVV5wkyV5YRda7D8SI2xniZ3yvl3pPR4Dg/viewform"
+          hidden
+          >Finish in Google Forms</a
+        >
+        <noscript
+          ><p>
+            Please
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSduE7XjfdQ8-dhFlVV5wkyV5YRda7D8SI2xniZ3yvl3pPR4Dg/viewform"
+              >open the Google Form</a
+            >
+            to submit without JavaScript.
+          </p></noscript
+        >
+      </form>
+    </main>
+  </body>
+</html>

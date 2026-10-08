@@ -69,11 +69,6 @@
 			  "url": "https://hack.caltech.edu"
 			}
 			</script>
-      <script>
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-      </script>
 
 
 
@@ -81,7 +76,6 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" href="./favicon.png" type="image/png">
     <link rel="icon" href="./images/favicon.png" />
 
     <!--- google font link    -->
@@ -98,6 +92,7 @@
     <link rel="stylesheet" href="./css/speakers.css">
     <link rel="stylesheet" href="./css/gallery.css">
     <link rel="stylesheet" href="./css/judges.css">
+    <link rel="stylesheet" href="./css/touchups.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -127,13 +122,14 @@
   </head>
   
 
-  <body id="top">
+  <body id="top" class="home-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
 
     <!-- APPLICATION MODAL -->
-    <div class="modal" id="application-modal">
+    <div class="modal" id="application-modal" role="dialog" aria-modal="true" aria-label="Sponsor or judge inquiry" tabindex="-1">
       <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
+          <button type="button" class="close" aria-label="Close inquiry" onclick="closeModal()">&times;</button>
           <!-- Role Selection -->
           <div id="role-selection">
               <h2>Select your role below:</h2>
@@ -154,12 +150,12 @@
                     - Increase your brand's visibility through Hacktech media channels/events <br>
                     - Facilitate interaction between participants and your employees & brand<br>
                 </p>
-                <a href="/2026/hacktech_2026_sponsor_tentative.pdf" class="footer-link" style="color: orange;" target="_blank">Click Here for our tentative 2026 Sponsorship Packet!</a>
+                <a href="/2026/hacktech_2026_sponsor_tentative.pdf" class="footer-link" style="color: orange;" target="_blank" rel="noopener">Click Here for our tentative 2026 Sponsorship Packet!</a>
             </div>
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="text" name="company" placeholder="Company/Organization Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="inquiry" placeholder="Inquiry" required></textarea>
+            <input type="text" name="name" placeholder="Full Name" required aria-label="Full name" autocomplete="name">
+            <input type="text" name="company" placeholder="Company/Organization Name" required aria-label="Company or organization" autocomplete="organization">
+            <input type="email" name="email" placeholder="Email" required aria-label="Email address" autocomplete="email">
+            <textarea name="inquiry" placeholder="Inquiry" required aria-label="Your inquiry"></textarea>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
 
@@ -188,10 +184,10 @@
             </p>
             
           </div>
-          <input type="text" name="name" placeholder="Full Name" required>
-          <input type="text" name="company" placeholder="Company Name and Role" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="experience" placeholder="Have you judged at any other hackathon previously? If so, please specify which one." required></textarea>
+          <input type="text" name="name" placeholder="Full Name" required aria-label="Full name" autocomplete="name">
+          <input type="text" name="company" placeholder="Company Name and Role" required aria-label="Company or organization" autocomplete="organization">
+          <input type="email" name="email" placeholder="Email" required aria-label="Email address" autocomplete="email">
+          <textarea name="experience" placeholder="Have you judged at any other hackathon previously? If so, please specify which one." required aria-label="Previous judging experience"></textarea>
           <button type="submit" class="submit-btn">Submit</button> 
         </form>
       </div>
@@ -199,9 +195,9 @@
 
 
     <!-- Hacker Updates Modal -->
-    <!-- <div class="modal" id="updates-modal">
+    <!-- <div class="modal" id="updates-modal" role="dialog" aria-modal="true" aria-label="Hacker updates" tabindex="-1">
       <div class="modal-content">
-        <span class="close" onclick="closeUpdatesModal()">&times;</span>
+        <button type="button" class="close" aria-label="Close updates" onclick="closeUpdatesModal()">&times;</button>
         <h2 style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color: orange;">Hacker Updates - April 24, 2025</h2>
         <div class="updates-content">
           <p>• At this time, all late adds and acceptances have been sent out, and we are unable to consider further applications or late requests!</p>
@@ -212,9 +208,9 @@
       </div>
     </div> -->
 
-    <div class="modal" id="updates-modal">
+    <div class="modal" id="updates-modal" role="dialog" aria-modal="true" aria-label="Hacker updates" tabindex="-1">
       <div class="modal-content">
-        <span class="close" onclick="closeUpdatesModal()">&times;</span>
+        <button type="button" class="close" aria-label="Close updates" onclick="closeUpdatesModal()">&times;</button>
         <h2 style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color: orange;">Hacker Updates - March 16, 2025</h2>
         <div class="updates-content">
           <p>We are still working on finalizing details for the event, including tracks, sponsors, speakers, and more. </p>
@@ -228,14 +224,14 @@
 
     <!--- #HEADER --->
   
-    <header class="header active" data-header>
+    <header class="header" data-header>
       <div class="container">
     
         <a href="#" class="logo">
-          <img src="./images/logo.webp" class="logo-img" alt="unigine home">
+          <img src="./images/logo.webp" class="logo-img" alt="Hacktech home">
         </a>
         
-        <nav class="navbar" data-navbar>
+        <nav class="navbar" id="primary-navigation" aria-label="Main navigation" data-navbar>
           <ul class="navbar-list">
     
             <li class="navbar-item">
@@ -262,7 +258,7 @@
           </ul>
         </nav>
     
-        <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <button type="button" class="nav-toggle-btn" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggler>
           <span class="line line-1"></span>
           <span class="line line-2"></span>
           <span class="line line-3"></span>
@@ -275,7 +271,7 @@
   
   
   
-    <main>
+    <main id="main-content" tabindex="-1">
       <article>
         <!--- #landing PAGE --->
         <div class="hero has-before" id="home">
@@ -283,9 +279,9 @@
           <div id="particles-js"></div>
           <div class="container">
         
-            <div class="hero-title-wrapper">
-              <img src="./images/logo-text.svg" alt="Hacktech Logo" class="hero-title-image">
-            </div>
+            <h1 class="hero-title-wrapper">
+              <img src="./images/logo-text.svg" alt="Hacktech" class="hero-title-image">
+            </h1>
             <br>
   
             <p class="section-subtitle">April 24 - 26, 2026</p><br>
@@ -294,10 +290,10 @@
             <div style="display: flex; gap: 20px; justify-content: center; margin: 0 auto; max-width: 500px; flex-wrap: wrap;">
 
               <!-- Use below for hacker Application -->
-              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="btn" data-btn target="_blank" style="flex: 0 1 auto; margin: 0px;">I'm a Hacker</a> -->
+              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="btn" data-btn target="_blank" rel="noopener" style="flex: 0 1 auto; margin: 0px;">I'm a Hacker</a> -->
 
 
-              <!-- <a href="https://hacktech2025.devpost.com/" class="btn" data-btn target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 12px 24px;">
+              <!-- <a href="https://hacktech2025.devpost.com/" class="btn" data-btn target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 12px 24px;">
                 2025 Devpost
                 <i class="fas fa-external-link-alt" style="font-size: 0.8em; transform: translateY(-1px);"></i>
               </a> -->
@@ -312,7 +308,7 @@
               <!-- <button onclick="openUpdatesModal()" class="btn" data-btn>I'm a Hacker!</button> -->
 
               <div class="btn-wrapper">
-                <a href="https://hack.caltech.edu/live" target="_blank" class="btn" data-btn>
+                <a href="https://hack.caltech.edu/live" target="_blank" rel="noopener" class="btn" data-btn>
                   Hacker Live Site!
                 </a>
                 <div class="notification-bubble">!</div>
@@ -325,7 +321,7 @@
             </div>
             <div class="hero-banner">
               <img src="./images/hero-banner-2.png" width="850" height="414" alt="Hacker banner" class="w-100 slide-up">
-              <img src="./images/hero-banner-bg.webp" alt="Hacker banner background" class="hero-banner-bg slide-up-delay">
+              <img src="./images/hero-banner-bg.webp" alt="" aria-hidden="true" class="hero-banner-bg slide-up-delay">
             </div>
           </div>
         </div>
@@ -342,29 +338,29 @@
       Our mission is to create "Realistic Impact," which entails encouraging participants to create projects that could be feasibly implemented in real-world scenarios to make tangible change.
     </p> -->
 
-    <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
+    <p class="section-subtitle" id="stats-label" data-reveal="bottom">
       2025 Stats: 
     </p>
   
     <div class="hero-stats-overlay">
       <div class="stat">
-        <span class="stat-number" data-target="10">5</span>
+        <span class="stat-number" data-target="10">10+</span>
         <span class="stat-text">countries</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="60">45</span>
+        <span class="stat-number" data-target="60">60+</span>
         <span class="stat-text">universities</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="400">0</span>
+        <span class="stat-number" data-target="400">400+</span>
         <span class="stat-text">hackers</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="60">0</span>
+        <span class="stat-number" data-target="60">60+</span>
         <span class="stat-text">prizes</span>
       </div>
       <div class="stat">
-        <span class="stat-number" data-target="36">0</span>
+        <span class="stat-number" data-target="36">36</span>
         <span class="stat-text">hours</span>
       </div>
     </div>
@@ -373,7 +369,7 @@
       <div class="about-text" >
         <p class="section-text-about" style="text-align: center;">
           Hacktech is Caltech's annual intercollegiate hackathon. During the 36‑hour event, participants will collaborate in teams of 1 to 4 members to develop projects that align with our themes. Whether you're a seasoned coder or a beginner, Hacktech invites you to join a vibrant community of problem solvers, dreamers, and builders on Caltech's campus. Check out our <a href="https://hacktech2025.devpost.com/" 
-            target="_blank" 
+            target="_blank" rel="noopener"
             style="color: orange; display: inline; white-space: nowrap;">
             2025 Devpost <i class="fas fa-external-link-alt" style="font-size: 0.8em; transform: translateY(-1px);"></i>
           </a> to see the amazing projects our hackers built during our 2025 event!
@@ -385,14 +381,14 @@
     <br>
     <div class="about-gallery" data-reveal="bottom">
       <div class="gallery-wrapper">
-        <div class="gallery-container">
+        <div class="gallery-container" role="region" aria-label="Hacktech 2025 photos" tabindex="0">
           <div class="gallery-track">
-            <img src="./2025/previews/1.png" alt="Hacktech Preview 1" class="gallery-image active">
-            <img src="./2025/previews/2.png" alt="Hacktech Preview 2" class="gallery-image">
-            <img src="./2025/previews/3.png" alt="Hacktech Preview 3" class="gallery-image">
-            <img src="./2025/previews/4.png" alt="Hacktech Preview 4" class="gallery-image">
-            <img src="./2025/previews/5.png" alt="Hacktech Preview 5" class="gallery-image">
-            <img src="./2025/previews/6.png" alt="Hacktech Preview 6" class="gallery-image">
+            <img src="./2025/previews/1.png" alt="Hacktech Preview 1" class="gallery-image active" loading="lazy" decoding="async">
+            <img src="./2025/previews/2.png" alt="Hacktech Preview 2" class="gallery-image" loading="lazy" decoding="async">
+            <img src="./2025/previews/3.png" alt="Hacktech Preview 3" class="gallery-image" loading="lazy" decoding="async">
+            <img src="./2025/previews/4.png" alt="Hacktech Preview 4" class="gallery-image" loading="lazy" decoding="async">
+            <img src="./2025/previews/5.png" alt="Hacktech Preview 5" class="gallery-image" loading="lazy" decoding="async">
+            <img src="./2025/previews/6.png" alt="Hacktech Preview 6" class="gallery-image" loading="lazy" decoding="async">
           </div>
           
           <button class="gallery-nav gallery-prev" aria-label="Previous image">
@@ -406,13 +402,14 @@
             </svg>
           </button>
           
+          <button class="gallery-pause" type="button" aria-label="Pause photo slideshow" aria-pressed="false" hidden>Pause</button>
           <div class="gallery-dots">
-            <button class="gallery-dot active" data-index="0"></button>
-            <button class="gallery-dot" data-index="1"></button>
-            <button class="gallery-dot" data-index="2"></button>
-            <button class="gallery-dot" data-index="3"></button>
-            <button class="gallery-dot" data-index="4"></button>
-            <button class="gallery-dot" data-index="5"></button>
+            <button class="gallery-dot active" data-index="0" type="button" aria-label="Show photo 1" aria-pressed="true"></button>
+            <button class="gallery-dot" data-index="1" type="button" aria-label="Show photo 2" aria-pressed="false"></button>
+            <button class="gallery-dot" data-index="2" type="button" aria-label="Show photo 3" aria-pressed="false"></button>
+            <button class="gallery-dot" data-index="3" type="button" aria-label="Show photo 4" aria-pressed="false"></button>
+            <button class="gallery-dot" data-index="4" type="button" aria-label="Show photo 5" aria-pressed="false"></button>
+            <button class="gallery-dot" data-index="5" type="button" aria-label="Show photo 6" aria-pressed="false"></button>
           </div>
         </div>
       </div>
@@ -571,8 +568,7 @@
             </ul>
           </div>
         </section>
-      </article>
-    </main>
+
   
   
   
@@ -607,11 +603,11 @@
                   <div class="sponsor-row tier-gold">
 
                     <!-- <div class="sponsor-card">
-                      <a href="https://www.openai.com/" target="_blank">
+                      <a href="https://www.openai.com/" target="_blank" rel="noopener">
                         <img src="./images/openai.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://www.openai.com/" class="card-link" target="_blank">OpenAI <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.openai.com/" class="card-link" target="_blank" rel="noopener">OpenAI <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       OpenAI is an AI research and deployment company dedicated to ensuring that general-purpose artificial intelligence benefits all of humanity.
                     </div> -->
@@ -619,30 +615,30 @@
 
 
                     <!-- <div class="sponsor-card">
-                      <a href="https://www.extraordinary.com/" target="_blank">
+                      <a href="https://www.extraordinary.com/" target="_blank" rel="noopener">
                         <img src="./images/e.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://www.extraordinary.com/" class="card-link" target="_blank">Extraordinary.com <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.extraordinary.com/" class="card-link" target="_blank" rel="noopener">Extraordinary.com <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                     </div> -->
 
                     <div class="sponsor-card">
-                      <a href="https://www.ycombinator.com/" target="_blank">
+                      <a href="https://www.ycombinator.com/" target="_blank" rel="noopener">
                         <img src="./images/yc.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://www.ycombinator.com/" class="card-link" target="_blank">Y Combinator <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.ycombinator.com/" class="card-link" target="_blank" rel="noopener">Y Combinator <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       Make something people want.
                     </div>
                     
                     <div class="sponsor-card">
-                    <a href="https://www.kleinerperkins.com/" target="_blank">
+                    <a href="https://www.kleinerperkins.com/" target="_blank" rel="noopener">
                         <img src="./images/kp.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://www.kleinerperkins.com/" class="card-link" target="_blank">Kleiner Perkins <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.kleinerperkins.com/" class="card-link" target="_blank" rel="noopener">Kleiner Perkins <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       Kleiner Perkins is an American venture capital firm headquartered on Sand Hill Road in Menlo Park in Silicon Valley.
                     </div>
@@ -650,51 +646,51 @@
 
 
                     <div class="sponsor-card">
-                      <a href="https://listenlabs.ai/" target="_blank">
+                      <a href="https://listenlabs.ai/" target="_blank" rel="noopener">
                         <img src="./images/listen.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://listenlabs.ai/" class="card-link" target="_blank">Listen Labs <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://listenlabs.ai/" class="card-link" target="_blank" rel="noopener">Listen Labs <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       Listen is an end-to-end research platform. Our customers replace surveys, focus groups, and in-depth interviews with Listen's AI-moderated interviews.
                     </div>
 
                     <div class="sponsor-card">
-                      <a href="https://www.rox.com/" target="_blank">
+                      <a href="https://www.rox.com/" target="_blank" rel="noopener">
                         <img src="./images/rox.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://www.rox.com/" class="card-link" target="_blank">Rox <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.rox.com/" class="card-link" target="_blank" rel="noopener">Rox <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       The Rox agent generates pipeline, qualifies leads, books meetings, manages deals, and expands accounts — all on autopilot. Built for the Global 2000.
                     </div>
 
                     <div class="sponsor-card">
-                      <a href="https://ironsite.ai/" target="_blank">
+                      <a href="https://ironsite.ai/" target="_blank" rel="noopener">
                         <img src="./images/ironsite.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://ironsite.ai/" class="card-link" target="_blank">Ironsite AI <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://ironsite.ai/" class="card-link" target="_blank" rel="noopener">Ironsite AI <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       We use spatial intelligence and AI to help humans do what we do best: build.
                     </div>
 
                     <div class="sponsor-card">
-                      <a href="https://ifm.ai/" target="_blank">
+                      <a href="https://ifm.ai/" target="_blank" rel="noopener">
                         <img src="./images/ifm.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://ifm.ai/" class="card-link" target="_blank">Institute of Foundation Models <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://ifm.ai/" class="card-link" target="_blank" rel="noopener">Institute of Foundation Models <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       The Institute of Foundation Models (IFM) at MBZUAI — the world’s first AI university — is a global research center focused on advancing open, scientifically rigorous foundation models.
                     </div>
 
                     <!-- <div class="sponsor-card">
-                      <a href="" target="_blank">
+                      <a href="" target="_blank" rel="noopener">
                         <img src="./images/tbd_large.png" width="100%" loading="lazy"alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="" class="card-link" target="_blank">TBD</a>
+                        <a href="" class="card-link" target="_blank" rel="noopener">TBD</a>
                       </h3>
                     </div> -->
                   </div>
@@ -710,7 +706,7 @@
                         <img src="./images/orkes.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.orkes.io" class="card-link" target="_blank">Orkes <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.orkes.io" class="card-link" target="_blank" rel="noopener">Orkes <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                       Unified Application Platform for building Highly Reliable Applications & AI Agents.
@@ -721,7 +717,7 @@
                         <img src="./images/drw.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.drw.com" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.drw.com" class="card-link" target="_blank" rel="noopener">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       DRW is a diversified trading firm innovating across both traditional and cutting-edge markets.
                     </div>
@@ -731,18 +727,18 @@
                         <img src="./images/dryft.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.godryft.com" class="card-link" target="_blank">Dryft <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.godryft.com" class="card-link" target="_blank" rel="noopener">Dryft <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       Dryft builds AI supply chain planners that mimic, optimize and automate human operational decision in manufacturing. 
                       <div class="card-meta"></div>
                     </div> -->
 
                     <!-- <div class="sponsor-card">
-                      <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" target="_blank">
+                      <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" target="_blank" rel="noopener">
                         <img src="./images/mhf_small.png" width="100%" loading="lazy" alt="Gold Sponsor 1" class="card-banner">
                       </a>
                       <h3 class="h3 card-title">
-                        <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" class="card-link" target="_blank">Moore-Hufstedler Fund <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://studentaffairs.caltech.edu/funding/moore-hufstedler-fund-mhf" class="card-link" target="_blank" rel="noopener">Moore-Hufstedler Fund <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                     </div> -->
@@ -752,7 +748,7 @@
                         <img src="./images/citadel.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.citadel.com" class="card-link" target="_blank">Citadel <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.citadel.com" class="card-link" target="_blank" rel="noopener">Citadel <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                     </div>
@@ -762,7 +758,7 @@
                         <img src="./images/deshaw.png" loading="lazy" alt="Silver Sponsor 2" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.deshaw.com/" class="card-link" target="_blank">D.E. Shaw Group <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.deshaw.com/" class="card-link" target="_blank" rel="noopener">D.E. Shaw Group <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                     </div>
@@ -772,7 +768,7 @@
                         <img src="./images/drw.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.drw.com" class="card-link" target="_blank">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.drw.com" class="card-link" target="_blank" rel="noopener">DRW Holdings <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                     </div>
 
@@ -781,7 +777,7 @@
                         <img src="./images/hrt.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.hudsonrivertrading.com/" class="card-link" target="_blank">Hudson River Trading <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.hudsonrivertrading.com/" class="card-link" target="_blank" rel="noopener">Hudson River Trading <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                     </div>
@@ -791,7 +787,7 @@
                         <img src="./images/sideshift.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://www.sideshift.app/" class="card-link" target="_blank">Sideshift <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://www.sideshift.app/" class="card-link" target="_blank" rel="noopener">Sideshift <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                     </div>
@@ -801,7 +797,7 @@
                         <img src="./images/sif.png" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="https://sif.caltech.edu/" class="card-link" target="_blank">Caltech SIF <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://sif.caltech.edu/" class="card-link" target="_blank" rel="noopener">Caltech SIF <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
                       </h3>
                       <div class="card-meta"></div>
                     </div>                    
@@ -811,7 +807,7 @@
                         <img src="./images/tbd.jpg" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="" class="card-link" target="_blank">TBD </a>
+                        <a href="" class="card-link" target="_blank" rel="noopener">TBD </a>
                       </h3>
                       <div class="card-meta"></div>
                     </div>
@@ -821,7 +817,7 @@
                         <img src="./images/tbd.jpg" loading="lazy" alt="Silver Sponsor 1" class="card-banner">
                       </div>
                       <h3 class="h3 card-title">
-                        <a href="" class="card-link" target="_blank">TBD </a>
+                        <a href="" class="card-link" target="_blank" rel="noopener">TBD </a>
                       </h3>
                       <div class="card-meta"></div>
                     </div> -->
@@ -834,7 +830,7 @@
 
                     <!-- <div class="sponsor-card">
                       <div class="image-container">
-                        <a href="" target="_blank">
+                        <a href="" target="_blank" rel="noopener">
                           <img src="./images/wolfram.png" loading="lazy" alt="Silver Sponsor 2" class="card-banner">
                         </a>
                       </div>
@@ -1213,9 +1209,12 @@
 
 <div class="container">
   <br><br>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1620.9574245094923!2d-118.12406515684576!3d34.140600657516416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c3578e9cecc3%3A0x43f1b95ee71bc1a9!2sAvery%20House!5e1!3m2!1sen!2sus!4v1724978307008!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe title="Caltech event venue map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1620.9574245094923!2d-118.12406515684576!3d34.140600657516416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c3578e9cecc3%3A0x43f1b95ee71bc1a9!2sAvery%20House!5e1!3m2!1sen!2sus!4v1724978307008!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
+
+    </article>
+    </main>
 
     <!--- #FOOTER    -->
   
@@ -1227,7 +1226,7 @@
           <div class="footer-brand">
   
             <a href="#" class="logo-footer">
-              <img src="./images/logo.svg" width="75" loading="lazy" alt="Unigine logo">
+              <img src="./images/logo.svg" width="75" loading="lazy" alt="Hacktech home">
             </a>
   
             <p class="footer-text">
@@ -1237,31 +1236,31 @@
             <ul class="social-list">
   
               <li>
-                <a href="https://www.facebook.com/thehacktech/" class="social-link" target="_blank">
+                <a href="https://www.facebook.com/thehacktech/" aria-label="Hacktech on Facebook" class="social-link" target="_blank" rel="noopener">
                   <ion-icon name="logo-facebook"></ion-icon>
                 </a>
               </li>
               
               <li>
-                <a href="https://x.com/thehacktech?lang=en" class="social-link" target="_blank">
+                <a href="https://x.com/thehacktech?lang=en" aria-label="Hacktech on X" class="social-link" target="_blank" rel="noopener">
                   <ion-icon name="logo-twitter"></ion-icon>
                 </a>
               </li>
               
               <li>
-                <a href="https://www.instagram.com/hacktechbycaltech/" class="social-link" target="_blank">
+                <a href="https://www.instagram.com/hacktechbycaltech/" aria-label="Hacktech on Instagram" class="social-link" target="_blank" rel="noopener">
                   <ion-icon name="logo-instagram"></ion-icon>
                 </a>
               </li>
   
               <li>
-                <a href="https://m.twitch.tv/teamhacktech/home" class="social-link" target="_blank">
+                <a href="https://m.twitch.tv/teamhacktech/home" aria-label="Hacktech on Twitch" class="social-link" target="_blank" rel="noopener">
                   <ion-icon name="logo-twitch"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="https://github.com/jsz-05/hack.caltech.edu" class="social-link" target="_blank">
+                <a href="https://github.com/jsz-05/hack.caltech.edu" aria-label="Hacktech on GitHub" class="social-link" target="_blank" rel="noopener">
                   <ion-icon name="logo-github"></ion-icon>
                 </a>
               </li>
@@ -1278,7 +1277,7 @@
               </li>
 
               <li>
-                <a href="/2026/hacktech_2026_sponsor_tentative.pdf" class="footer-link" target="_blank">2026 Sponsor Packet</a>
+                <a href="/2026/hacktech_2026_sponsor_tentative.pdf" class="footer-link" target="_blank" rel="noopener">2026 Sponsor Packet</a>
               </li>
               
               <li>
@@ -1290,7 +1289,7 @@
               </li>
   
               <li>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdWQJnnruQG_c-ZLPqr3cfu-XAckvQTqCbcbgd0h8tDUv5OiQ/viewform?usp=dialog" class="footer-link">Organizer Interest Form</a>
+                <a href="./organizer-interest" class="footer-link">Organizer Interest Form</a>
               </li>
   
               <!-- <li>
@@ -1337,7 +1336,7 @@
   
           <p class="copyright">
             Made with &#129293; by &nbsp;
-            <a href="https://jeffreyszhou.com/" class="name-link" target="_blank" onclick="gtag('event', 'click', { 'event_category': 'outbound', 'event_label': 'jeffreyszhou.com' });">
+            <a href="https://jeffreyszhou.com/" class="name-link" target="_blank" rel="noopener" onclick="gtag('event', 'click', { 'event_category': 'outbound', 'event_label': 'jeffreyszhou.com' });">
               Jeffrey Zhou
             </a>.&nbsp; &copy; 2025 Hacktech.
           </p>
@@ -1386,7 +1385,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   
 
-    <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:absolute;right:70px;top:0;width:10%;z-index:4" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg" alt="Major League Hacking 2026 Hackathon Season" style="width:100%"></a>
+    <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:absolute;right:70px;top:0;width:10%;z-index:4" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg" alt="Major League Hacking 2026 Hackathon Season" style="width:100%"></a>
   </body>
   
   </html>

@@ -1,0 +1,295 @@
+/* Small, homepage-only refinements to the existing Hacktech design. */
+.home-page {
+  cursor: auto;
+}
+.home-page :is(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--text-orange);
+  outline-offset: 5px;
+}
+.home-page :is(section, #home, #main-content) {
+  scroll-margin-top: 24px;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1100;
+  padding: 10px 18px;
+  background: var(--bg-orange);
+  color: #171717;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.home-page .header,
+.home-page .header.active {
+  position: absolute;
+  animation: none;
+  background: var(--bg-oxford-orange);
+}
+.home-page .navbar-link {
+  transition: color 150ms ease;
+}
+.home-page .navbar-link:is(:hover, :focus-visible) {
+  color: var(--text-orange);
+}
+.home-page .nav-toggle-btn {
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+}
+.home-page .btn {
+  border-radius: 4px;
+  transition: filter 150ms ease;
+}
+.home-page .btn:hover {
+  filter: brightness(1.08);
+}
+.home-page .section-title,
+.home-page #about .section-title {
+  font-size: clamp(3rem, 5vw, 6.4rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.home-page .section-text {
+  max-width: 60ch;
+  line-height: 1.75;
+}
+.home-page .about-text {
+  max-width: 72ch;
+}
+.home-page .hero-stats-overlay {
+  flex-wrap: wrap;
+  gap: 18px 10px;
+  padding-inline: 16px;
+}
+.home-page .stat {
+  min-width: 120px;
+}
+.home-page .stat-number {
+  font-variant-numeric: tabular-nums;
+}
+.home-page .stat-text {
+  padding-bottom: 24px;
+}
+.home-page :is(.news-card, .sponsor-card) {
+  border: 1px solid rgba(255, 129, 66, 0.14);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.home-page .sponsors-container,
+.home-page .sponsor-row {
+  gap: 16px;
+}
+.home-page .sponsor-card {
+  min-width: 0;
+}
+.home-page .card-link {
+  overflow-wrap: anywhere;
+}
+.home-page .faq-item {
+  overflow: hidden;
+  border: 1px solid rgba(255, 129, 66, 0.18);
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+.home-page .faq-question {
+  gap: 20px;
+  padding: 16px 20px;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+.home-page .faq-toggle-icon {
+  font-size: 2.8rem;
+  flex-shrink: 0;
+}
+.home-page .faq-answer {
+  display: block;
+  padding: 20px;
+  font-size: 1.7rem;
+  line-height: 1.75;
+  background: #252525;
+}
+.home-page .faq-answer[hidden] {
+  display: none;
+}
+.home-page .gallery-wrapper {
+  max-width: 800px;
+  padding-inline: 12px;
+}
+.home-page .gallery-container {
+  border: 1px solid rgba(255, 129, 66, 0.18);
+  border-radius: 8px;
+}
+.home-page .gallery-nav {
+  width: 44px;
+  height: 44px;
+}
+.home-page .gallery-dots {
+  gap: 2px;
+  padding: 4px 8px;
+}
+.home-page .gallery-dot {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  transform: none;
+  display: grid;
+  place-items: center;
+}
+.home-page .gallery-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+.home-page .gallery-dot.active::before {
+  background: var(--text-orange);
+}
+.home-page .gallery-pause {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  padding: 7px 12px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 1.3rem;
+  min-height: 36px;
+}
+.home-page .gallery-pause[hidden] {
+  display: none;
+}
+.home-page .modal {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px 16px;
+}
+.home-page .modal-content {
+  width: min(800px, 100%);
+  margin: 0 auto;
+  padding: 40px 28px 28px;
+  border: 1px solid rgba(255, 129, 66, 0.2);
+  border-radius: 10px;
+}
+.home-page .close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  right: 8px;
+  top: 4px;
+  padding: 0;
+}
+.home-page .footer-top {
+  border-top: 1px solid rgba(255, 129, 66, 0.12);
+}
+.home-page .copyright {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+}
+.home-page .cursor {
+  width: 22px;
+  height: 22px;
+}
+.home-page:hover .cursor {
+  opacity: 0.15;
+}
+.home-page .cursor.hovered {
+  opacity: 0.25;
+}
+@media (min-width: 992px) {
+  .home-page .navbar-link {
+    padding-inline: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .home-page .hero {
+    padding-block-start: 180px;
+  }
+  .home-page .hero .section-subtitle {
+    font-size: clamp(1.8rem, 4.6vw, 3rem);
+    letter-spacing: 0.15em;
+  }
+  .home-page .section-subtitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .home-page .about-container {
+    padding-inline: 20px;
+  }
+  .home-page .stat {
+    min-width: 90px;
+    padding-inline: 8px;
+  }
+  .home-page .stat-number {
+    font-size: 3.8rem;
+  }
+  .home-page .stat-text {
+    padding-bottom: 4px;
+  }
+  .home-page .news-list {
+    scroll-snap-type: x proximity;
+    padding-bottom: 12px;
+  }
+  .home-page .news-list > li {
+    scroll-snap-align: center;
+  }
+  .home-page .faq-section {
+    padding-inline: 12px;
+  }
+  .home-page .role-buttons {
+    flex-wrap: wrap;
+  }
+  .home-page #mlh-trust-badge {
+    right: 70px !important;
+    max-width: 72px !important;
+  }
+}
+@media (pointer: coarse), (hover: none) {
+  .home-page .cursor {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .home-page *,
+  .home-page *::before,
+  .home-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .home-page [data-reveal],
+  .home-page .slide-up,
+  .home-page .slide-up-delay {
+    opacity: 1;
+    transform: none;
+  }
+  .home-page #particles-js,
+  .home-page .cursor {
+    display: none;
+  }
+}
+
+/* Keep content readable when JavaScript is unavailable. */
+.home-page [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+.home-page [data-reveal].reveal-pending {
+  opacity: 0;
+  transform: translateY(16px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page [data-reveal].reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}

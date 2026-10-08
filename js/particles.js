@@ -1,6 +1,7 @@
 // js/particles.js
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof particlesJS !== 'function') return;
   // Initialize particles as soon as the DOM is ready
   particlesJS("particles-js", {
     particles: {
