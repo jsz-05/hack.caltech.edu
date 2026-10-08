@@ -7,7 +7,7 @@
       name="description"
       content="Help organize Hacktech, Caltech's student-run hackathon."
     />
-    <title>Organizer Interest | Hacktech</title>
+    <title>Become an organizer | Hacktech</title>
     <link rel="icon" href="./images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,8 +18,12 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/organizer.css" />
     <script type="module" src="./js/organizer.js"></script>
+    <script type="module" src="./js/organizer-photos.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script defer src="./js/particles.js"></script>
   </head>
   <body class="organizer-page">
+    <div id="particles-js" aria-hidden="true"></div>
     <header class="organizer-header">
       <a href="./" aria-label="Hacktech home"
         ><img src="./images/logo-text.svg" alt="Hacktech" width="180"
@@ -27,16 +31,70 @@
       <a class="home-link" href="./">Back to home</a>
     </header>
     <main class="organizer-main">
-      <h1>Organizer <span>Interest</span></h1>
-      <p class="intro">
-        Help make Hacktech happen. Join our student organizing team — no
-        experience needed.
-      </p>
+      <section class="organizer-intro" aria-labelledby="organizer-title">
+        <h1 id="organizer-title">Become an <span>organizer</span></h1>
+        <h2>Who we are</h2>
+        <p class="intro">
+          We organize Hacktech, Caltech’s nonprofit, 36-hour hackathon.
+          Our goal is to bring 500+ hackers to campus each
+          year and give them a weekend to build something they’re excited about.
+        </p>
+      </section>
+      <section class="organizer-photos" aria-label="Life on the Hacktech team">
+        <div class="photo-collage" id="photo-collage" tabindex="0" aria-label="Hacktech team photos; swipe or use arrow keys on mobile">
+          <figure class="polaroid polaroid-dinner">
+            <img src="./images/organizers/team-dinner.webp" alt="Hacktech teammates sharing a meal together" width="1100" height="825" decoding="async" />
+          </figure>
+          <figure class="polaroid">
+            <img src="./images/organizers/behind-the-scenes.webp" alt="Hacktech organizers at the evening check-in table" width="1100" height="733" decoding="async" />
+          </figure>
+          <figure class="polaroid">
+            <img src="./images/organizers/building-together.webp" alt="Three Hacktech teammates working together around a laptop" width="1100" height="619" decoding="async" />
+          </figure>
+          <figure class="polaroid">
+            <img src="./images/organizers/welcome-to-hacktech.webp" alt="The Hacktech team welcoming hackers at check-in" width="1100" height="618" decoding="async" />
+          </figure>
+        </div>
+        <div class="photo-controls" hidden>
+          <button type="button" class="photo-prev" aria-label="Previous team photo" aria-controls="photo-collage">←</button>
+          <span class="photo-count" aria-live="polite" aria-atomic="true">1 / 4</span>
+          <button type="button" class="photo-next" aria-label="Next team photo" aria-controls="photo-collage">→</button>
+        </div>
+      </section>
+      <section class="organizer-timeline" aria-labelledby="timeline-title">
+        <h2 id="timeline-title">Timeline</h2>
+        <ol class="team-timeline">
+          <li><time datetime="2026-10-09">Friday, October 9</time><strong>Registration form open below</strong></li>
+          <li><time datetime="2026-10-23">Friday, October 23</time><strong>Decision email &amp; kickoff details</strong></li>
+          <li><time datetime="2026-10-30">Friday, October 30</time><strong>First team meeting</strong></li>
+        </ol>
+      </section>
+      <section class="organizer-sponsors" aria-labelledby="past-sponsors-title">
+        <h2 id="past-sponsors-title">Companies We’ve Worked With</h2>
+        <ul class="company-logos">
+          <li><img src="./images/organizers/companies/openai.svg" alt="OpenAI" width="270" height="73" /></li>
+          <li><img src="./images/organizers/companies/github.svg" alt="GitHub" width="250" height="64" /></li>
+          <li><img src="./images/organizers/companies/cubist.png" alt="Cubist Systematic Strategies" width="600" height="314" /></li>
+          <li><img src="./images/organizers/companies/rox.png" alt="Rox" width="600" height="185" /></li>
+          <li><img src="./images/organizers/companies/citadel.png" alt="Citadel" width="600" height="193" /></li>
+          <li><img src="./images/organizers/companies/drw.svg" alt="DRW" width="81" height="27" /></li>
+          <li><img src="./images/organizers/companies/deshaw.png" alt="D. E. Shaw" width="600" height="138" /></li>
+          <li><img src="./images/organizers/companies/hrt.png" alt="Hudson River Trading" width="600" height="354" /></li>
+          <li><img src="./images/organizers/companies/kp.png" alt="Kleiner Perkins" width="600" height="150" /></li>
+          <li><img src="./images/organizers/companies/yc.png" alt="Y Combinator" width="600" height="129" /></li>
+          <li><img src="./images/organizers/companies/listen.png" alt="Listen Labs" width="600" height="135" /></li>
+          <li><img src="./images/organizers/companies/mlh.svg" alt="Major League Hacking" width="240" height="100" /></li>
+        </ul>
+      </section>
       <form
         id="organizer-form"
         action="https://docs.google.com/forms/d/e/1FAIpQLSduE7XjfdQ8-dhFlVV5wkyV5YRda7D8SI2xniZ3yvl3pPR4Dg/formResponse"
         method="post"
       >
+        <div class="form-intro">
+          <h2>Application Form</h2>
+          <p><span aria-hidden="true">*</span> Required</p>
+        </div>
         <div class="field-pair">
           <div class="field">
             <label for="name">Name <span aria-hidden="true">*</span></label>
@@ -71,10 +129,10 @@
             <option>Senior</option>
           </select>
         </div>
-        <fieldset class="field">
-          <legend>Expected hours per week</legend>
-          <p class="hint">
-            Usually 1–2 hours/week, rising to 3–4 closer to the event.
+        <fieldset class="field" aria-describedby="hours-hint">
+          <legend>How many hours can you dedicate per week?</legend>
+          <p class="hint" id="hours-hint">
+            Plan for 2–6 hours a week. Work ramps up closer to the event.
           </p>
           <div class="hours-options">
             <label><input type="radio" name="hours" value="2" />2</label>
@@ -85,8 +143,8 @@
           </div>
         </fieldset>
         <fieldset class="field">
-          <legend>Anything in particular you want to work on?</legend>
-          <p class="hint">Choose any that interest you.</p>
+          <legend>Teams</legend>
+          <p class="hint">Choose any you’d like to help with.</p>
           <div class="role-options">
             <label
               ><input
@@ -94,7 +152,7 @@
                 name="roles"
                 value="Logistics &amp; Operations (event setup, scheduling, day-of coordination)"
               />Logistics &amp; Operations
-              <span>Event setup, scheduling, day-of coordination</span></label
+              <span>Coordinate the venue, schedule, judging, speakers, and day-of operations.</span></label
             >
             <label
               ><input
@@ -102,7 +160,7 @@
                 name="roles"
                 value="Sponsorship &amp; Outreach (talking to companies and raising funds)"
               />Sponsorship &amp; Outreach
-              <span>Talking to companies and raising funds</span></label
+              <span>Reach out to companies and secure funding and partnerships.</span></label
             >
             <label
               ><input
@@ -110,21 +168,22 @@
                 name="roles"
                 value="Tech &amp; Dev (building internal tools and maintaining the Hacktech website)"
               />Tech &amp; Dev
-              <span>Internal tools and the Hacktech website</span></label
+              <span>Build the website, judging systems, and internal tools.</span></label
             >
             <label
               ><input
                 type="checkbox"
                 name="roles"
                 value="Design &amp; Branding (graphics, merch, vibes)"
-              />Design &amp; Branding <span>Graphics, merch, vibes</span></label
+              />Design &amp; Branding <span>Create graphics, merch, and the event’s visual identity.</span></label
             >
             <label
               ><input
                 type="checkbox"
                 name="roles"
                 value="Marketing &amp; Social Media"
-              />Marketing &amp; Social Media</label
+              />Marketing &amp; Social Media
+              <span>Create reels, TikToks, flyers, and social posts to get the word out.</span></label
             >
             <label
               ><input
@@ -132,17 +191,21 @@
                 name="roles"
                 value="Hacker Experience (workshops, events, food, swag!)"
               />Hacker Experience
-              <span>Workshops, events, food, swag</span></label
+              <span>Plan workshops, activities, food, and swag for hackers.</span></label
             >
           </div>
-          <label class="other-label" for="otherRole">Other</label>
-          <input
+        </fieldset>
+        <div class="field">
+          <label for="otherRole">Questions or anything else?</label>
+          <textarea
             id="otherRole"
             name="otherRole"
-            placeholder="Anything else you’re interested in?"
-          />
-        </fieldset>
-        <button class="btn" type="submit">Submit</button>
+            rows="3"
+            placeholder="Enter your response here."
+          ></textarea>
+        </div>
+        <button class="btn" type="submit">Express interest</button>
+        <p class="follow-up">Look out for an email from Hacktech within 1–2 weeks with next steps and kickoff meeting details.</p>
         <p id="organizer-status" role="status" tabindex="-1"></p>
         <a
           id="google-fallback"
@@ -161,6 +224,11 @@
           </p></noscript
         >
       </form>
+      <p class="hacker-note">
+        <strong>Here to hack, too?</strong> You can help organize or volunteer
+        and still participate as a hacker. This form is just for interest in
+        the organizing team.
+      </p>
     </main>
   </body>
 </html>

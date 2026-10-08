@@ -104,7 +104,7 @@ if (form) {
     fallback.href = prefilledUrl(entries);
     if (entries.toString() === lastSent) {
       status.textContent =
-        "You’ve already sent these details. We’ll follow up at your Caltech email.";
+        "You’ve already sent these details. Look out for an email from Hacktech in your Caltech inbox within 1–2 weeks with next steps and kickoff meeting details.";
       return;
     }
     submitting = true;
@@ -117,7 +117,7 @@ if (form) {
       fallback.hidden = true;
       status.dataset.kind = "sent";
       status.textContent =
-        "Your interest has been sent. We’ll follow up at your Caltech email. Thanks for helping make Hacktech happen!";
+        "Your interest has been sent. Thanks for helping make Hacktech happen! Look out for an email from Hacktech in your Caltech inbox within 1–2 weeks with next steps and kickoff meeting details.";
       // Keep the answers available for the prefilled fallback; do not reset on an opaque response.
       status.focus();
     } catch (error) {
@@ -129,7 +129,7 @@ if (form) {
     } finally {
       submitting = false;
       submit.disabled = false;
-      submit.textContent = "Submit";
+      submit.textContent = "Express interest";
     }
   });
 }
