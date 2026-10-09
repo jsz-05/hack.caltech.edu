@@ -79,8 +79,36 @@ if (form) {
   const status = document.querySelector("#organizer-status");
   const submit = form.querySelector("[type=submit]");
   const fallback = document.querySelector("#google-fallback");
+  const fields = document.querySelector("#organizer-fields");
+  const review = document.querySelector("#organizer-review");
   let submitting = false;
   let lastSent = "";
+  const scrollToForm = () => {
+    form.scrollIntoView({
+      block: "start",
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  };
+  const showConfirmation = () => {
+    fallback.hidden = true;
+    status.dataset.kind = "sent";
+    status.textContent =
+      "Thanks for your interest in helping make Hacktech happen. Your interest has been sent. Look out for an email from Hacktech in your Caltech inbox within 1–2 weeks with next steps and kickoff meeting details.";
+    status.focus({ preventScroll: true });
+    fields.inert = true;
+    form.dataset.state = "sent";
+    review.hidden = false;
+    scrollToForm();
+  };
+  review.addEventListener("click", () => {
+    fields.inert = false;
+    delete form.dataset.state;
+    status.textContent = "";
+    delete status.dataset.kind;
+    review.hidden = true;
+    form.elements.name.focus({ preventScroll: true });
+    scrollToForm();
+  });
   const normalize = () => {
     username.value = normalizeUsername(username.value);
     username.setCustomValidity("");
@@ -103,23 +131,19 @@ if (form) {
     }
     fallback.href = prefilledUrl(entries);
     if (entries.toString() === lastSent) {
-      status.textContent =
-        "You’ve already sent these details. Look out for an email from Hacktech in your Caltech inbox within 1–2 weeks with next steps and kickoff meeting details.";
+      showConfirmation();
       return;
     }
     submitting = true;
     submit.disabled = true;
     submit.textContent = "Sending…";
+    form.setAttribute("aria-busy", "true");
     status.textContent = "";
     try {
       await sendToGoogleForm(form.action, entries);
       lastSent = entries.toString();
-      fallback.hidden = true;
-      status.dataset.kind = "sent";
-      status.textContent =
-        "Your interest has been sent. Thanks for helping make Hacktech happen! Look out for an email from Hacktech in your Caltech inbox within 1–2 weeks with next steps and kickoff meeting details.";
-      // Keep the answers available for the prefilled fallback; do not reset on an opaque response.
-      status.focus();
+      // Collapse rather than discard answers: the opaque response cannot confirm storage.
+      showConfirmation();
     } catch (error) {
       status.dataset.kind = "error";
       fallback.hidden = false;
@@ -128,6 +152,7 @@ if (form) {
       status.focus();
     } finally {
       submitting = false;
+      form.removeAttribute("aria-busy");
       submit.disabled = false;
       submit.textContent = "Express interest";
     }

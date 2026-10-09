@@ -112,118 +112,123 @@
           <h2>Application Form</h2>
           <p><span aria-hidden="true">*</span> Required</p>
         </div>
-        <div class="field-pair">
-          <div class="field">
-            <label for="name">Name <span aria-hidden="true">*</span></label>
-            <input id="name" name="name" autocomplete="name" required />
-          </div>
-          <div class="field">
-            <label for="username"
-              >Caltech username <span aria-hidden="true">*</span></label
-            >
-            <div class="email-input">
-              <input
-                id="username"
-                name="username"
-                placeholder="jzhou3"
-                autocomplete="username"
-                autocapitalize="none"
-                spellcheck="false"
-                aria-describedby="email-suffix"
-                required
-              />
-              <span id="email-suffix">@caltech.edu</span>
+        <div class="form-fields" id="organizer-fields">
+          <div class="form-fields-inner">
+            <div class="field-pair">
+              <div class="field">
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="username"
+                  >Caltech username <span aria-hidden="true">*</span></label
+                >
+                <div class="email-input">
+                  <input
+                    id="username"
+                    name="username"
+                    placeholder="jzhou3"
+                    autocomplete="username"
+                    autocapitalize="none"
+                    spellcheck="false"
+                    aria-describedby="email-suffix"
+                    required
+                  />
+                  <span id="email-suffix">@caltech.edu</span>
+                </div>
+              </div>
             </div>
+            <div class="field">
+              <label for="year">Year <span aria-hidden="true">*</span></label>
+              <select id="year" name="year" required>
+                <option value="" disabled selected>Select your year</option>
+                <option>Freshman</option>
+                <option>Sophomore</option>
+                <option>Junior</option>
+                <option>Senior</option>
+              </select>
+            </div>
+            <fieldset class="field" aria-describedby="hours-hint">
+              <legend>How many hours can you dedicate per week?</legend>
+              <p class="hint" id="hours-hint">
+                Plan for 2–6 hours a week. Work ramps up closer to the event.
+              </p>
+              <div class="hours-options">
+                <label><input type="radio" name="hours" value="2" />2</label>
+                <label><input type="radio" name="hours" value="3" />3</label>
+                <label><input type="radio" name="hours" value="4" />4</label>
+                <label><input type="radio" name="hours" value="5" />5</label>
+                <label><input type="radio" name="hours" value="6" />6</label>
+              </div>
+            </fieldset>
+            <fieldset class="field">
+              <legend>Teams</legend>
+              <p class="hint">Choose any you’d like to help with.</p>
+              <div class="role-options">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="roles"
+                    value="Logistics &amp; Operations (event setup, scheduling, day-of coordination)"
+                  />Logistics &amp; Operations
+                  <span>Coordinate the venue, schedule, judging, speakers, and day-of operations.</span></label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="roles"
+                    value="Sponsorship &amp; Outreach (talking to companies and raising funds)"
+                  />Sponsorship &amp; Outreach
+                  <span>Reach out to companies and secure funding and partnerships.</span></label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="roles"
+                    value="Tech &amp; Dev (building internal tools and maintaining the Hacktech website)"
+                  />Tech &amp; Dev
+                  <span>Build the website, judging systems, and internal tools.</span></label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="roles"
+                    value="Design &amp; Branding (graphics, merch, vibes)"
+                  />Design &amp; Branding <span>Create graphics, merch, and the event’s visual identity.</span></label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="roles"
+                    value="Marketing &amp; Social Media"
+                  />Marketing &amp; Social Media
+                  <span>Create reels, TikToks, flyers, and social posts to get the word out.</span></label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="roles"
+                    value="Hacker Experience (workshops, events, food, swag!)"
+                  />Hacker Experience
+                  <span>Plan workshops, activities, food, and swag for hackers.</span></label
+                >
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="otherRole">Questions or anything else?</label>
+              <textarea
+                id="otherRole"
+                name="otherRole"
+                rows="3"
+                placeholder="Enter your response here."
+              ></textarea>
+            </div>
+            <button class="btn" type="submit">Express interest</button>
+            <p class="follow-up">Look out for an email from Hacktech within 1–2 weeks with next steps and kickoff meeting details.</p>
           </div>
         </div>
-        <div class="field">
-          <label for="year">Year <span aria-hidden="true">*</span></label>
-          <select id="year" name="year" required>
-            <option value="" disabled selected>Select your year</option>
-            <option>Freshman</option>
-            <option>Sophomore</option>
-            <option>Junior</option>
-            <option>Senior</option>
-          </select>
-        </div>
-        <fieldset class="field" aria-describedby="hours-hint">
-          <legend>How many hours can you dedicate per week?</legend>
-          <p class="hint" id="hours-hint">
-            Plan for 2–6 hours a week. Work ramps up closer to the event.
-          </p>
-          <div class="hours-options">
-            <label><input type="radio" name="hours" value="2" />2</label>
-            <label><input type="radio" name="hours" value="3" />3</label>
-            <label><input type="radio" name="hours" value="4" />4</label>
-            <label><input type="radio" name="hours" value="5" />5</label>
-            <label><input type="radio" name="hours" value="6" />6</label>
-          </div>
-        </fieldset>
-        <fieldset class="field">
-          <legend>Teams</legend>
-          <p class="hint">Choose any you’d like to help with.</p>
-          <div class="role-options">
-            <label
-              ><input
-                type="checkbox"
-                name="roles"
-                value="Logistics &amp; Operations (event setup, scheduling, day-of coordination)"
-              />Logistics &amp; Operations
-              <span>Coordinate the venue, schedule, judging, speakers, and day-of operations.</span></label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="roles"
-                value="Sponsorship &amp; Outreach (talking to companies and raising funds)"
-              />Sponsorship &amp; Outreach
-              <span>Reach out to companies and secure funding and partnerships.</span></label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="roles"
-                value="Tech &amp; Dev (building internal tools and maintaining the Hacktech website)"
-              />Tech &amp; Dev
-              <span>Build the website, judging systems, and internal tools.</span></label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="roles"
-                value="Design &amp; Branding (graphics, merch, vibes)"
-              />Design &amp; Branding <span>Create graphics, merch, and the event’s visual identity.</span></label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="roles"
-                value="Marketing &amp; Social Media"
-              />Marketing &amp; Social Media
-              <span>Create reels, TikToks, flyers, and social posts to get the word out.</span></label
-            >
-            <label
-              ><input
-                type="checkbox"
-                name="roles"
-                value="Hacker Experience (workshops, events, food, swag!)"
-              />Hacker Experience
-              <span>Plan workshops, activities, food, and swag for hackers.</span></label
-            >
-          </div>
-        </fieldset>
-        <div class="field">
-          <label for="otherRole">Questions or anything else?</label>
-          <textarea
-            id="otherRole"
-            name="otherRole"
-            rows="3"
-            placeholder="Enter your response here."
-          ></textarea>
-        </div>
-        <button class="btn" type="submit">Express interest</button>
-        <p class="follow-up">Look out for an email from Hacktech within 1–2 weeks with next steps and kickoff meeting details.</p>
         <p id="organizer-status" role="status" tabindex="-1"></p>
+        <button type="button" id="organizer-review" hidden>Review your answers</button>
         <a
           id="google-fallback"
           href="https://docs.google.com/forms/d/e/1FAIpQLSduE7XjfdQ8-dhFlVV5wkyV5YRda7D8SI2xniZ3yvl3pPR4Dg/viewform"
