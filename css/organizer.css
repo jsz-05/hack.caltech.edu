@@ -237,8 +237,6 @@
 #organizer-status:empty { display: none; }
 #organizer-status { margin-top: 18px; padding: 16px; border: 1px solid #555; border-radius: 3px; font-size: 1.5rem; }
 #organizer-status[data-kind='sent'] { border-color: var(--border-orange-alpha-30); background: #ff810209; }
-#organizer-review { margin-top: 14px; color: var(--text-orange); font: inherit; font-size: 1.3rem; text-decoration: underline; }
-#organizer-review[hidden] { display: none; }
 #google-fallback { margin-top: 12px; color: var(--text-orange); text-decoration: underline; }
 #google-fallback[hidden] { display: none; }
 noscript a { display: inline; text-decoration: underline; }

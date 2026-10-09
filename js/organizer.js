@@ -80,7 +80,6 @@ if (form) {
   const submit = form.querySelector("[type=submit]");
   const fallback = document.querySelector("#google-fallback");
   const fields = document.querySelector("#organizer-fields");
-  const review = document.querySelector("#organizer-review");
   let submitting = false;
   let lastSent = "";
   const scrollToForm = () => {
@@ -97,18 +96,8 @@ if (form) {
     status.focus({ preventScroll: true });
     fields.inert = true;
     form.dataset.state = "sent";
-    review.hidden = false;
     scrollToForm();
   };
-  review.addEventListener("click", () => {
-    fields.inert = false;
-    delete form.dataset.state;
-    status.textContent = "";
-    delete status.dataset.kind;
-    review.hidden = true;
-    form.elements.name.focus({ preventScroll: true });
-    scrollToForm();
-  });
   const normalize = () => {
     username.value = normalizeUsername(username.value);
     username.setCustomValidity("");
