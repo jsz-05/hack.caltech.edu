@@ -10,6 +10,18 @@
   z-index: 0;
   opacity: 0.24;
 }
+.kickoff-banner {
+  position: relative;
+  z-index: 1;
+  padding: 12px 24px;
+  background: var(--text-orange);
+  color: #171717;
+  text-align: center;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+.kickoff-banner p { max-width: 960px; margin-inline: auto; font: inherit; color: inherit; }
+.kickoff-banner strong { font-weight: 700; }
 .organizer-header,
 .organizer-main {
   width: min(960px, calc(100% - 48px));
