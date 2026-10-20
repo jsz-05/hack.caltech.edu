@@ -1378,6 +1378,11 @@ form textarea {
   background-color: #ff4019; /* Darker orange on hover */
 }
 
+/* Local experiment: hide only Caltech's injected cookie notice. */
+#cit-cookie-banner {
+  display: none !important;
+}
+
 /* Loading State */
 .loading {
   position: relative;
