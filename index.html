@@ -93,6 +93,7 @@
     <link rel="stylesheet" href="./css/gallery.css">
     <link rel="stylesheet" href="./css/judges.css">
     <link rel="stylesheet" href="./css/touchups.css">
+    <link rel="stylesheet" href="./css/hacker-interest.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -271,6 +272,51 @@
   
   
   
+    <dialog id="hacker-interest" aria-labelledby="hacker-interest-title" aria-describedby="hacker-interest-description">
+      <div class="hacker-interest-content">
+        <button class="hacker-interest-close" type="button" aria-label="Close hacker interest form">×</button>
+        <header class="hacker-interest-intro">
+          <h2 id="hacker-interest-title" tabindex="-1" autofocus>Hacktech <span>interest form</span></h2>
+          <p id="hacker-interest-description">Applications aren’t open yet. Submit your name, school, and email below, and we’ll notify you as soon as full applications open.</p>
+        </header>
+
+        <form id="hacker-interest-form" action="https://docs.google.com/forms/d/e/1FAIpQLScd0m1kB2O3BEX79iQ3hSpfhrPdpFlDCK_v5WfoPdeliGb54Q/formResponse" method="post">
+          <div id="hacker-interest-fields">
+            <div class="hacker-interest-field">
+              <label for="hacker-name">Name <span aria-hidden="true">*</span></label>
+              <input id="hacker-name" name="entry.993923362" type="text" autocomplete="name" required maxlength="200">
+            </div>
+            <div class="hacker-interest-field">
+              <label for="hacker-school">School / university <span aria-hidden="true">*</span></label>
+              <input id="hacker-school" name="entry.1506888359" type="text" autocomplete="organization" required maxlength="200">
+            </div>
+            <div class="hacker-interest-field">
+              <label for="hacker-email">Email <span aria-hidden="true">*</span></label>
+              <input id="hacker-email" name="entry.1847982766" type="email" autocomplete="email" required maxlength="254">
+            </div>
+            <input type="hidden" name="fvv" value="1">
+            <input type="hidden" name="pageHistory" value="0">
+            <button type="submit" class="btn">Register interest</button>
+          </div>
+          <div id="hacker-interest-sent" hidden>
+            <span class="hacker-interest-check" aria-hidden="true">✓</span>
+            <h3>Thanks for your interest!</h3>
+            <p>We’ll email you as soon as full applications open.</p>
+            <button type="button" class="btn" data-hacker-interest-done>Done</button>
+          </div>
+          <p id="hacker-interest-status" role="status" tabindex="-1"></p>
+          <a id="hacker-interest-fallback" href="https://docs.google.com/forms/d/e/1FAIpQLScd0m1kB2O3BEX79iQ3hSpfhrPdpFlDCK_v5WfoPdeliGb54Q/viewform" target="_blank" rel="noopener" hidden>Finish in Google Forms ↗</a>
+        </form>
+
+        <figure class="hacker-interest-film">
+          <iframe class="hacker-interest-video" title="Hacktech video"
+            data-src="https://www.youtube.com/embed/34aiQcVEcUo?rel=0&amp;playsinline=1"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </figure>
+      </div>
+    </dialog>
+
     <main id="main-content" tabindex="-1">
       <article>
         <!--- #landing PAGE --->
@@ -289,32 +335,12 @@
 
             <div style="display: flex; gap: 20px; justify-content: center; margin: 0 auto; max-width: 500px; flex-wrap: wrap;">
 
-              <!-- Use below for hacker Application -->
-              <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="btn" data-btn target="_blank" rel="noopener" style="flex: 0 1 auto; margin: 0px;">I'm a Hacker</a> -->
-
-
-              <!-- <a href="https://hacktech2025.devpost.com/" class="btn" data-btn target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 12px 24px;">
-                2025 Devpost
-                <i class="fas fa-external-link-alt" style="font-size: 0.8em; transform: translateY(-1px);"></i>
-              </a> -->
-
-              <!-- Notification bubble modal -->
-              <!-- <div class="btn-wrapper">
-                <button onclick="openUpdatesModal()" class="btn" data-btn>I'm a Hacker!</button>
-                <div class="notification-bubble">!</div>
-              </div> -->
-
-              <!-- No notifaction modal -->
-              <!-- <button onclick="openUpdatesModal()" class="btn" data-btn>I'm a Hacker!</button> -->
-
               <div class="btn-wrapper">
-                <a href="https://hack.caltech.edu/live" target="_blank" rel="noopener" class="btn" data-btn>
-                  Hacker Live Site!
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScd0m1kB2O3BEX79iQ3hSpfhrPdpFlDCK_v5WfoPdeliGb54Q/viewform" class="btn" data-btn data-hacker-interest>
+                  I'm a Hacker
                 </a>
-                <div class="notification-bubble">!</div>
+                <div class="notification-bubble" aria-hidden="true">!</div>
               </div>
-               
-
 
               <button onclick="openModal()" class="btn" data-btn>I'm a Sponsor/Judge!</button>
 
@@ -1285,7 +1311,7 @@
               </li>
   
               <li>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2bu7U7FyYgXEfdyfWSOjPSmEdSeE_j9nPpUv4b1lj07Emhw/viewform?usp=sf_link" class="footer-link">Application Form</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScd0m1kB2O3BEX79iQ3hSpfhrPdpFlDCK_v5WfoPdeliGb54Q/viewform" class="footer-link" data-hacker-interest>Register Hacker Interest</a>
               </li>
   
               <li>
@@ -1376,6 +1402,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/form.js"></script>
     <script src="./js/updates.js"></script>
+    <script src="./js/hacker-interest.js"></script>
     <script src="./js/gallery.js"></script>
     <script src="https://latticetalk.ai/latticetalk_embed.php?API_ID=vFvgXH8wEgfuk2g8RZze50qPgFka5U&embed_loc=Left"></script>
 
