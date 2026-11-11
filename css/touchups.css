@@ -293,3 +293,34 @@
     transform: none;
   }
 }
+
+/* Keep the 2027 transition notice visible while browsing older event details. */
+.home-page {
+  --site-update-notice-height: 64px;
+  padding-bottom: var(--site-update-notice-height);
+}
+.home-page .site-update-notice {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  min-height: var(--site-update-notice-height);
+  padding: 12px 24px;
+  border-top: 1px solid var(--border-orange-alpha-30);
+  background: #211d19;
+  color: var(--text-gainsboro);
+  font-size: 1.4rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.home-page .site-update-notice strong { color: var(--text-orange); font-weight: 600; }
+.home-page .back-top-btn { bottom: calc(var(--site-update-notice-height) + 20px); }
+/* The existing chat launcher uses an inline bottom offset. */
+.home-page > button[style*="latticetalk.ai/customer_logo/"] {
+  bottom: calc(var(--site-update-notice-height) + 20px) !important;
+}
+@media (max-width: 600px) {
+  .home-page { --site-update-notice-height: 90px; }
+  .home-page .site-update-notice { padding-inline: 20px; }
+}
