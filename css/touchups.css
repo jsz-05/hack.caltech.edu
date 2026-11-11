@@ -35,10 +35,29 @@
   color: var(--text-orange);
 }
 .home-page .nav-toggle-btn {
-  padding: 10px;
-  min-width: 44px;
-  min-height: 44px;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  flex-shrink: 0;
 }
+.home-page .nav-toggle-btn .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 2px;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: transform 180ms ease, opacity 180ms ease;
+  pointer-events: none;
+}
+.home-page .nav-toggle-btn .line-1 { transform: translate(-50%, -50%) translateY(-7px); }
+.home-page .nav-toggle-btn .line-3 { transform: translate(-50%, -50%) translateY(7px); }
+.home-page .nav-toggle-btn.active .line-1 { transform: translate(-50%, -50%) rotate(45deg); }
+.home-page .nav-toggle-btn.active .line-2 { transform: translate(-50%, -50%) scaleX(0); opacity: 0; }
+.home-page .nav-toggle-btn.active .line-3 { transform: translate(-50%, -50%) rotate(-45deg); }
 .home-page .btn {
   border-radius: 4px;
   transition: filter 150ms ease;
@@ -296,7 +315,7 @@
 
 /* Keep the 2027 transition notice visible while browsing older event details. */
 .home-page {
-  --site-update-notice-height: 64px;
+  --site-update-notice-height: 36px;
   padding-bottom: var(--site-update-notice-height);
 }
 .home-page .site-update-notice {
@@ -306,12 +325,12 @@
   display: grid;
   place-items: center;
   min-height: var(--site-update-notice-height);
-  padding: 12px 24px;
+  padding: 6px 20px;
   border-top: 1px solid var(--border-orange-alpha-30);
   background: #211d19;
   color: var(--text-gainsboro);
   font-size: 1.4rem;
-  line-height: 1.5;
+  line-height: 1.4;
   text-align: center;
 }
 .home-page .site-update-notice strong { color: var(--text-orange); font-weight: 600; }
@@ -320,7 +339,10 @@
 .home-page > button[style*="latticetalk.ai/customer_logo/"] {
   bottom: calc(var(--site-update-notice-height) + 20px) !important;
 }
-@media (max-width: 600px) {
-  .home-page { --site-update-notice-height: 90px; }
+@media (max-width: 767px) {
+  .home-page { --site-update-notice-height: 56px; }
   .home-page .site-update-notice { padding-inline: 20px; }
+}
+@media (max-width: 359px) {
+  .home-page { --site-update-notice-height: 72px; }
 }
